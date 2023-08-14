@@ -1,12 +1,98 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% block meta %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+    
+    {% block corecss %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="https://kit.fontawesome.com/e3c6fb2d08.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    {% endblock %}
+  
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Orchy Outdoors {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
+
+    <header>
+        <div>
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <h3 class="m-3"><a class="text-info" href="#">Bridge of Orchy Outdoors</a></h3>
+                </div>
+                <div class="col-6">
+                    <p class="text-right m-3"><a class="text-info" href="tel:+0183840020">Telephone 01838 400 220</a></p>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="row no gutters">
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div id="navbar" class="navbar-nav mx-auto">
+                    <a class="nav-item nav-link active" href="{% url 'home' %}">Home<span
+                        class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Booking</a>
+                    <a class="nav-item nav-link" href="#">About</a>
+                    <a class="nav-item nav-link" href="#">Local info</a>
+                    <a class="nav-item nav-link" href="#">Contact</a>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </header>
+
+    <!-- Start of content for each page -->
     {% block content %}
     {% endblock %}
+
+    <footer>
+        <div>
+            <p>Three column footer with address and contact details, map and links</p>
+            <p></p>
+        </div>
+        <div class="py-1 bg-light">
+            <div class="text-center m-3">
+              <a href="https://www.facebook.com/Highlandofscotland/"><i class="fa-brands fa-square-facebook fa-2xl"></i></a>
+      
+            </div>
+            <div class="mt-3 text-center">
+              <h6 class="text-muted">Bridge of Orchy Outdoors, &#169<span id="txtYear"></span> | <span><a
+                class="text-dark font-weight-bold" href="http://www.sylertech.com/">SylerTech</a></span></h6>
+            </div>
+          </div>
+    </footer>
 </body>
 </html>

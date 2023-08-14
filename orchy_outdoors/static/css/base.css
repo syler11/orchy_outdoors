@@ -1,0 +1,12 @@
+
+
+.hero-image {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url(/media/pods.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    min-height: calc(100vh - 285px);
+    justify-content: center;
+}

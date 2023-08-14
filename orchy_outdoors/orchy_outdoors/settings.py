@@ -71,7 +71,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'django_auto_logout.context_processors.auto_logout_client',
             ],
             'libraries':{
             }

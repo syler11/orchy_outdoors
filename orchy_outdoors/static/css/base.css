@@ -10,3 +10,12 @@
     min-height: calc(100vh - 285px);
     justify-content: center;
 }
+
+.map-image {
+    height: 320px;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}

@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     {% block meta %}
@@ -11,7 +12,7 @@
 
     {% block extra_meta %}
     {% endblock %}
-    
+
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,20 +28,21 @@
     <script src="{% static 'js/script.js' %}" defer></script>
     <script src="https://kit.fontawesome.com/e3c6fb2d08.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
     {% endblock %}
-  
+
     {% block extra_js %}
     {% endblock %}
 
     <title>Orchy Outdoors {% block extra_title %}{% endblock %}</title>
 </head>
+
 <body>
 
     <header>
@@ -50,27 +52,28 @@
                     <h3 class="m-3"><a class="text-info" href="#">Bridge of Orchy Outdoors</a></h3>
                 </div>
                 <div class="col-6">
-                    <p class="text-right m-3"><a class="text-info" href="tel:+0183840020">Telephone 01838 400 220</a></p>
+                    <p class="text-right m-3"><a class="text-info" href="tel:+0183840020">Telephone 01838 400 220</a>
+                    </p>
                 </div>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="row no gutters">
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div id="navbar" class="navbar-nav mx-auto">
-                    <a class="nav-item nav-link active" href="{% url 'home' %}">Home<span
-                        class="sr-only">(current)</span></a>
+                    <div id="navbar" class="navbar-nav mx-auto">
+                        <a class="nav-item nav-link active" href="{% url 'home' %}">Home<span
+                                class="sr-only">(current)</span></a>
                         <a class="nav-item nav-link" href="#">Booking</a>
-                    <a class="nav-item nav-link" href="#">About</a>
-                    <a class="nav-item nav-link" href="#">Local info</a>
-                    <a class="nav-item nav-link" href="#">Contact</a>
-                  </div>
+                        <a class="nav-item nav-link" href="#">About</a>
+                        <a class="nav-item nav-link" href="#">Local info</a>
+                        <a class="nav-item nav-link" href="#">Contact</a>
+                    </div>
                 </div>
-              </nav>
+            </nav>
         </div>
     </header>
 
@@ -78,21 +81,44 @@
     {% block content %}
     {% endblock %}
 
-    <footer>
-        <div>
-            <p>Three column footer with address and contact details, map and links</p>
-            <p></p>
+    <footer class="m-3">
+        <div class="row">
+            <div class="col-md-3 offset-lg-1">
+                <h3>Contact Info:</h3>
+                <br>
+                <p class="m-0">Address:</p>
+                <p class="m-0">Bridge of Orchy Outdoors</p>
+                <p class="m-0">Bridge of Orchy</p>
+                <p>PA36 4AD</p>
+                <p class="m-0">Telephone: 01838 400 220</p>
+                <p>Email: info@bridgeoforchyoutdoors.co.uk</p>
+            </div>
+            <div class="col-4">
+                <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
+            </div>
+            <div class="col-lg-3">
+                <h3>Useful links:</h3>
+                <br>
+                <ul>
+                    <li>Privacy Policy</li>
+                    <li>Terms and Conditions</li>
+                    <li>Refund and Cancellation Policy</li>
+                </ul>
+            </div>
         </div>
-        <div class="py-1 bg-light">
+        <div class="py-1">
             <div class="text-center m-3">
-              <a href="https://www.facebook.com/Highlandofscotland/"><i class="fa-brands fa-square-facebook fa-2xl"></i></a>
-      
+                <a href="https://www.facebook.com/Highlandofscotland/"><i
+                        class="fa-brands fa-square-facebook fa-2xl"></i></a>
+
             </div>
             <div class="mt-3 text-center">
-              <h6 class="text-muted">Bridge of Orchy Outdoors, &#169<span id="txtYear"></span> | <span><a
-                class="text-dark font-weight-bold" href="http://www.sylertech.com/">SylerTech</a></span></h6>
+                <h6 class="text-muted">Bridge of Orchy Outdoors, &#169<span id="txtYear"></span> | <span><a
+                            class="text-dark font-weight-bold" href="http://www.sylertech.com/">SylerTech</a></span>
+                </h6>
             </div>
-          </div>
+        </div>
     </footer>
 </body>
+
 </html>

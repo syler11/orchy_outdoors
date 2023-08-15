@@ -24,3 +24,7 @@ ul {
     min-height: 70vh;
 }
 
+.plus-sign {
+    position: relative;
+    left: 5rem;
+}

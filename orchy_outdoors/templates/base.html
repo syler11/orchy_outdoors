@@ -68,9 +68,10 @@
                         <a class="nav-item nav-link active" href="{% url 'home' %}">Home<span
                                 class="sr-only">(current)</span></a>
                         <a class="nav-item nav-link" href="#">Booking</a>
-                        <a class="nav-item nav-link" href="#">About</a>
-                        <a class="nav-item nav-link" href="#">Local info</a>
-                        <a class="nav-item nav-link" href="#">Contact</a>
+                        <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+                        <a class="nav-item nav-link" href="{% url 'local_info' %}">Local info</a>
+                        <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
+                        <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -81,9 +82,9 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="m-3">
-        <div class="row">
-            <div class="col-md-3 offset-lg-1">
+    <footer class="">
+        <div class="row p-3">
+            <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6">
                 <h3>Contact Info:</h3>
                 <br>
                 <p class="m-0">Address:</p>
@@ -93,10 +94,10 @@
                 <p class="m-0">Telephone: 01838 400 220</p>
                 <p>Email: info@bridgeoforchyoutdoors.co.uk</p>
             </div>
-            <div class="col-4">
+            <div class="col-xl-4 col-lg-5 d-md-none d-lg-block">
                 <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <h3>Useful links:</h3>
                 <br>
                 <ul>
@@ -104,14 +105,18 @@
                     <li>Terms and Conditions</li>
                     <li>Refund and Cancellation Policy</li>
                 </ul>
+                <h4>Follow Us</h4>
+                <div class="my-3">
+                    <a href="https://www.facebook.com/Highlandofscotland/"><i
+                            class="fa-brands fa-square-facebook fa-2xl"></i></a>
+    
+                </div>
+            </div>
+            <div class="d-none d-md-block d-lg-none">
+                <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
             </div>
         </div>
         <div class="py-1">
-            <div class="text-center m-3">
-                <a href="https://www.facebook.com/Highlandofscotland/"><i
-                        class="fa-brands fa-square-facebook fa-2xl"></i></a>
-
-            </div>
             <div class="mt-3 text-center">
                 <h6 class="text-muted">Bridge of Orchy Outdoors, &#169<span id="txtYear"></span> | <span><a
                             class="text-dark font-weight-bold" href="http://www.sylertech.com/">SylerTech</a></span>

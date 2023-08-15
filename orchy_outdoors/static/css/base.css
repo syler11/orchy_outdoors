@@ -12,10 +12,14 @@
 }
 
 .map-image {
-    height: 320px;
+    height: 250px;
 }
 
 ul {
     list-style-type: none;
     padding-inline-start: 0px;
+}
+
+.page-container {
+    min-height: 70vh;
 }

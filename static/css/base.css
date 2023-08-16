@@ -11,8 +11,17 @@
     justify-content: center;
 }
 
+.contact-image {
+    background:
+        url(/media/contact_orchy.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    min-height: calc(100vh - 285px);
+    justify-content: center;
+}
+
 .map-image {
-    height: 250px;
+    max-height: 280px;
 }
 
 ul {

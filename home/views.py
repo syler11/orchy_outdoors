@@ -8,6 +8,12 @@ def index(request):
 
     return render(request, 'home/home.html')
 
+def booking(request):
+    """ A view to return the booking page """
+
+    return render(request, 'home/booking.html')
+
+
 def about(request):
     """ A view to return the about page """
 

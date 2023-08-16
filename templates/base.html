@@ -67,7 +67,7 @@
                     <div id="navbar" class="navbar-nav mx-auto">
                         <a class="nav-item nav-link active" href="{% url 'home' %}">Home<span
                                 class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="#">Booking</a>
+                        <a class="nav-item nav-link" href="{% url 'booking' %}">Booking</a>
                         <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
                         <a class="nav-item nav-link" href="{% url 'local_info' %}">Local info</a>
                         <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
@@ -83,8 +83,8 @@
     {% endblock %}
 
     <footer class="">
-        <div class="row p-3">
-            <div class="col-xl-3 offset-xl-1 col-lg-3 col-md-6">
+        <div class="row no-gutters">
+            <div class="p-3 col-xl-3 offset-xl-1 col-lg-3 col-md-6">
                 <h3>Contact Info:</h3>
                 <br>
                 <p class="m-0">Address:</p>
@@ -94,10 +94,10 @@
                 <p class="m-0">Telephone: 01838 400 220</p>
                 <p>Email: info@bridgeoforchyoutdoors.co.uk</p>
             </div>
-            <div class=" text-center col-xl-4 col-lg-6 d-md-none d-lg-block">
+            <div class="p-3 text-center col-xl-4 col-lg-6 d-md-none d-lg-block">
                 <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
             </div>
-            <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6">
+            <div class="p-3 offset-xl-1 col-xl-3 col-lg-3 col-md-6">
                 <h3>Useful links:</h3>
                 <br>
                 <ul>
@@ -112,7 +112,7 @@
     
                 </div>
             </div>
-            <div class="text-center col-12 d-md-block d-lg-none">
+            <div class="p-3 text-center col-12 d-md-block d-lg-none">
                 <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
             </div>
         </div>

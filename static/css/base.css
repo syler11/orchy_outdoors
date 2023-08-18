@@ -11,6 +11,15 @@
     justify-content: center;
 }
 
+.about-image {
+    background:
+        url(/media/about_image.jpg) no-repeat left center;
+    background-size: cover;
+    display: flex;
+    min-height: calc(100vh - 285px);
+    justify-content: center;
+}
+
 .contact-image {
     background:
         url(/media/contact_orchy.jpg) no-repeat center center fixed;
@@ -22,6 +31,11 @@
 
 .map-image {
     max-height: 280px;
+}
+
+footer {
+    background-color: #17a2b8;
+    opacity: 0.9
 }
 
 ul {

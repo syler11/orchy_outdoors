@@ -1,0 +1,83 @@
+
+
+.hero-image {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url(/media/pods.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    height: calc(100vh - 285px);
+    justify-content: center;
+}
+
+.about-image {
+    background:
+        url(/media/about_image.jpg) no-repeat left center;
+    background-size: cover;
+    display: flex;
+    min-height: calc(100vh - 285px);
+    justify-content: center;
+}
+
+.contact-image {
+    background:
+        url(/media/contact_orchy.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    min-height: calc(100vh - 285px);
+    justify-content: center;
+}
+
+.map-image {
+    max-height: 280px;
+    padding: 1rem;
+}
+
+footer {
+    background-color: #17a2b8;
+    opacity: 0.9
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+.page-container {
+    min-height: 70vh;
+}
+
+.plus-sign {
+    position: relative;
+    left: 5rem;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 992px) {
+    .map-image {
+        max-height: 450px;
+    }
+
+    .hero-image {
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .title {
+        padding: 1rem;
+    }
+
+    .map-image {
+        width: 550px;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .map-image {
+        width: 375px;
+    }
+}

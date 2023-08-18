@@ -1,0 +1,1 @@
+web: gunicorn orchy_outdoors.wsgi:application

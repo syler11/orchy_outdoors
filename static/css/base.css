@@ -33,6 +33,10 @@
     font-size: 18px;
 }
 
+.carousel-inner {
+    box-shadow: 5px 10px 8px #757575
+}
+
 .map-image {
     max-height: 280px;
     padding: 1rem;

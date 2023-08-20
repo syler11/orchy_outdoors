@@ -29,6 +29,10 @@
     justify-content: center;
 }
 
+.nav-item {
+    font-size: 18px;
+}
+
 .map-image {
     max-height: 280px;
     padding: 1rem;

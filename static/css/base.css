@@ -61,6 +61,16 @@ ul {
     left: 5rem;
 }
 
+.booking-square {
+    height: 28px;
+    width: 28px;
+    text-align: center;
+}
+
+.booking-title {
+    width: 100px;
+}
+
 
 /* Media Queries */
 

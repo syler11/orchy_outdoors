@@ -1,13 +1,136 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/booking.js'  %}" defer></script>
+{% endblock %}
 
 {% block content %}
 <div class="page-container text-center m-3">
     <h1>Book Online</h1>
     <hr>
     <h3>Check availability via the online booking widget below.</h3>
-    <p>If you don’t find availability for the dates required, please call us on 01838400220 or email info@bridgeoforchyoutdoors.co.uk and we will do our best to help.</p>
+    <p>If you don’t find availability for the dates required, please call us on 01838400220 or email
+        info@bridgeoforchyoutdoors.co.uk and we will do our best to help.</p>
     <p>Book direct via our online booking system to receive our best available rates.</p>
-    <p>Check in from 3.30-7.30pm.  Late check in by arrangement, please call for details.</p>
+    <p>Check in from 3.30-7.30pm. Late check in by arrangement, please call for details.</p>
+    <div class="booking-enginge">
+        <h3>Choose your arrival date</h3>
+        <select onchange="changeContent()" name="month" id="month">
+            <option id="date_in_view" value="">August 2023</option>
+            <option value="2023-09-01">September 2023</option>
+            <option value="2023-10-01">October 2023</option>
+        </select>
+        <hr>
+        <div class="d-flex d-row" id="days">
+            <div class="pr-3 booking-title">Dates</div>
+            <div class="booking-square" id="day1"></div>
+            <div class="booking-square" id="day2"></div>
+            <div class="booking-square" id="day3"></div>
+            <div class="booking-square" id="day4"></div>
+            <div class="booking-square" id="day5"></div>
+            <div class="booking-square" id="day6"></div>
+            <div class="booking-square" id="day7"></div>
+            <div class="booking-square" id="day8"></div>
+            <div class="booking-square" id="day9"></div>
+            <div class="booking-square" id="day10"></div>
+            <div class="booking-square" id="day11"></div>
+            <div class="booking-square" id="day12"></div>
+            <div class="booking-square" id="day13"></div>
+            <div class="booking-square" id="day14"></div>
+            <div class="booking-square" id="day15"></div>
+            <div class="booking-square" id="day16"></div>
+            <div class="booking-square" id="day17"></div>
+            <div class="booking-square" id="day18"></div>
+            <div class="booking-square" id="day19"></div>
+            <div class="booking-square" id="day20"></div>
+            <div class="booking-square" id="day21"></div>
+            <div class="booking-square" id="day22"></div>
+            <div class="booking-square" id="day23"></div>
+            <div class="booking-square" id="day24"></div>
+            <div class="booking-square" id="day25"></div>
+            <div class="booking-square" id="day26"></div>
+            <div class="booking-square" id="day27"></div>
+            <div class="booking-square" id="day28"></div>
+            <div class="booking-square" id="day29"></div>
+            <div class="booking-square" id="day30"></div>
+            <div class="booking-square" id="day31"></div>
+    
+        </div>
+        <div class="d-flex d-row pt-1" id="podA">
+            <div class="pr-3">Beinn Monk</div>
+            <div class="booking-square bg-danger text-white" id="podA_1">1</div>
+            <div class="booking-square bg-danger text-white" id="podA_2">2</div>
+            <div class="booking-square bg-danger text-white" id="podA_3">3</div>
+            <div class="booking-square bg-danger text-white" id="podA_4">4</div>
+            <div class="booking-square bg-danger text-white" id="podA_5">5</div>
+            <div class="booking-square bg-danger text-white" id="podA_6">6</div>
+            <div class="booking-square bg-danger text-white" id="podA_7">7</div>
+            <div class="booking-square bg-danger text-white" id="podA_8">8</div>
+            <div class="booking-square bg-danger text-white" id="podA_9">9</div>
+            <div class="booking-square bg-danger text-white" id="podA_10">10</div>
+            <div class="booking-square bg-danger text-white" id="podA_11">11</div>
+            <div class="booking-square bg-danger text-white" id="podA_12">12</div>
+            <div class="booking-square bg-danger text-white" id="podA_13">13</div>
+            <div class="booking-square bg-danger text-white" id="podA_14">14</div>
+            <div class="booking-square bg-danger text-white" id="podA_15">15</div>
+            <div class="booking-square bg-danger text-white" id="podA_16">16</div>
+            <div class="booking-square bg-danger text-white" id="podA_17">17</div>
+            <div class="booking-square bg-danger text-white" id="podA_18">18</div>
+            <div class="booking-square bg-danger text-white" id="podA_19">19</div>
+            <div class="booking-square bg-danger text-white" id="podA_20">20</div>
+            <div class="booking-square bg-danger text-white" id="podA_21">21</div>
+            <div class="booking-square bg-danger text-white" id="podA_22">22</div>
+            <div class="booking-square bg-danger text-white" id="podA_23">23</div>
+            <div class="booking-square bg-danger text-white" id="podA_24">24</div>
+            <div class="booking-square bg-danger text-white" id="podA_25">25</div>
+            <div class="booking-square bg-danger text-white" id="podA_26">26</div>
+            <div class="booking-square bg-danger text-white" id="podA_27">27</div>
+            <div class="booking-square bg-danger text-white" id="podA_28">28</div>
+            <div class="booking-square bg-danger text-white" id="podA_29">29</div>
+            <div class="booking-square bg-danger text-white" id="podA_30">30</div>
+            <div class="booking-square bg-danger text-white" id="podA_31">31</div>
+        </div>
+        <div class="d-flex d-row pt-1" id="podB">
+            <div class="pr-3">Beinn Monk</div>
+            <div class="booking-square bg-danger text-white" id="podB_1">1</div>
+            <div class="booking-square bg-danger text-white" id="podB_2">2</div>
+            <div class="booking-square bg-danger text-white" id="podB_3">3</div>
+            <div class="booking-square bg-danger text-white" id="podB_4">4</div>
+            <div class="booking-square bg-danger text-white" id="podB_5">5</div>
+            <div class="booking-square bg-danger text-white" id="podB_6">6</div>
+            <div class="booking-square bg-danger text-white" id="podB_7">7</div>
+            <div class="booking-square bg-danger text-white" id="podB_8">8</div>
+            <div class="booking-square bg-danger text-white" id="podB_9">9</div>
+            <div class="booking-square bg-danger text-white" id="podB_10">10</div>
+            <div class="booking-square bg-danger text-white" id="podB_11">11</div>
+            <div class="booking-square bg-danger text-white" id="podB_12">12</div>
+            <div class="booking-square bg-danger text-white" id="podB_13">13</div>
+            <div class="booking-square bg-danger text-white" id="podB_14">14</div>
+            <div class="booking-square bg-danger text-white" id="podB_15">15</div>
+            <div class="booking-square bg-danger text-white" id="podB_16">16</div>
+            <div class="booking-square bg-danger text-white" id="podB_17">17</div>
+            <div class="booking-square bg-danger text-white" id="podB_18">18</div>
+            <div class="booking-square bg-danger text-white" id="podB_19">19</div>
+            <div class="booking-square bg-danger text-white" id="podB_20">20</div>
+            <div class="booking-square bg-danger text-white" id="podB_21">21</div>
+            <div class="booking-square bg-danger text-white" id="podB_22">22</div>
+            <div class="booking-square bg-danger text-white" id="podB_23">23</div>
+            <div class="booking-square bg-danger text-white" id="podB_24">24</div>
+            <div class="booking-square bg-danger text-white" id="podB_25">25</div>
+            <div class="booking-square bg-danger text-white" id="podB_26">26</div>
+            <div class="booking-square bg-danger text-white" id="podB_27">27</div>
+            <div class="booking-square bg-danger text-white" id="podB_28">28</div>
+            <div class="booking-square bg-danger text-white" id="podB_29">29</div>
+            <div class="booking-square bg-danger text-white" id="podB_30">30</div>
+            <div class="booking-square bg-danger text-white" id="podB_31">31</div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
+
+{% block postloadjs %}
+{{block.super}}
+
+{% endblock%}

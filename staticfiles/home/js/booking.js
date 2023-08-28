@@ -44,12 +44,12 @@ if (no_days == 30) {
 
 
 let firstDay = opt.value
-let firstDay_format = firstDay.slice(9, 10)
-document.getElementById("podA_1").innerText = firstDay_format
-document.getElementById("podB_1").innerText = firstDay_format
+//let firstDay_format = firstDay.slice(9, 10)
+//document.getElementById("podA_1").innerText = firstDay_format
+//document.getElementById("podB_1").innerText = firstDay_format
 
-let secondDay = parseInt(firstDay_format) + 1
-document.getElementById("podA_2").innerText = secondDay
+//let secondDay = parseInt(firstDay_format) + 1
+//document.getElementById("podA_2").innerText = secondDay
 
 var day1 = new Date(firstDay);
 var day2 = new Date(day1.getTime()+1000*60*60*24*1);
@@ -146,8 +146,6 @@ document.getElementById("day28").innerText = dayName28
 document.getElementById("day29").innerText = dayName29
 document.getElementById("day30").innerText = dayName30
 document.getElementById("day31").innerText = dayName31
-
-document.getElementById("no_days").innerText = no_days
 
 
 }

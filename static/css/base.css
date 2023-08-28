@@ -62,9 +62,14 @@ ul {
 }
 
 .booking-square {
-    height: 28px;
-    width: 28px;
+    height: 30px;
+    width: 30px;
     text-align: center;
+}
+
+.booking-square :hover {
+    font-size: larger;
+    text-decoration: none;
 }
 
 .booking-title {

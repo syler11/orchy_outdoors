@@ -62,8 +62,8 @@ ul {
 }
 
 .booking-square {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     text-align: center;
 }
 
@@ -87,6 +87,15 @@ ul {
     .hero-image {
         height: auto;
     }
+
+    .booking-square {
+        width: 14%;
+    }
+
+    .d-day {
+        display: none!important;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -97,6 +106,8 @@ ul {
     .map-image {
         width: 550px;
     }
+
+  
 }
 
 @media only screen and (max-width: 568px) {

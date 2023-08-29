@@ -7,238 +7,349 @@
 
 {% block content %}
 <div class="page-container text-center m-3">
-    <h1>Book Online</h1>
-    <hr>
-    <h3>Check availability via the online booking widget below.</h3>
-    <p>If you don’t find availability for the dates required, please call us on 01838400220 or email
-        info@bridgeoforchyoutdoors.co.uk and we will do our best to help.</p>
-    <p>Book direct via our online booking system to receive our best available rates.</p>
-    <p>Check in from 3.30-7.30pm. Late check in by arrangement, please call for details.</p>
-    <div class="booking-enginge">
-        <h3>Choose your arrival date</h3>
-        <select onchange="changeContent()" name="month" id="month">
-            <option id="date_in_view" value="">August 2023</option>
-            <option value="2023-09-01">September 2023</option>
-            <option value="2023-10-01">October 2023</option>
-        </select>
+        <h1>Book Online</h1>
         <hr>
-        <div class="d-flex row no-gutters justify-content-center" id="days">
-            <div class="pr-3 col-lg-2 col-md-12 booking-title">Dates</div>
-            <div class="col-lg-2 col-md-12 p-0 d-flex">
-                <div class="booking-square" id="day1"></div>
-                <div class="booking-square" id="day2"></div>
-                <div class="booking-square" id="day3"></div>
-                <div class="booking-square" id="day4"></div>
-                <div class="booking-square" id="day5"></div>
-                <div class="booking-square" id="day6"></div>
-                <div class="booking-square" id="day7"></div>
-            </div>
-            <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                <div class="booking-square" id="day8"></div>
-                <div class="booking-square" id="day9"></div>
-                <div class="booking-square" id="day10"></div>
-                <div class="booking-square" id="day11"></div>
-                <div class="booking-square" id="day12"></div>
-                <div class="booking-square" id="day13"></div>
-                <div class="booking-square" id="day14"></div>
-            </div>
-            <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                <div class="booking-square" id="day15"></div>
-                <div class="booking-square" id="day16"></div>
-                <div class="booking-square" id="day17"></div>
-                <div class="booking-square" id="day18"></div>
-                <div class="booking-square" id="day19"></div>
-                <div class="booking-square" id="day20"></div>
-                <div class="booking-square" id="day21"></div>
-            </div>
-            <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                <div class="booking-square" id="day22"></div>
-                <div class="booking-square" id="day23"></div>
-                <div class="booking-square" id="day24"></div>
-                <div class="booking-square" id="day25"></div>
-                <div class="booking-square" id="day26"></div>
-                <div class="booking-square" id="day27"></div>
-                <div class="booking-square" id="day28"></div>
-            </div>
-            <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                <div class="booking-square" id="day29"></div>
-                <div class="booking-square" id="day30"></div>
-                <div class="booking-square" id="day31"></div>
-            </div>
+        <h3>Check availability via the online booking widget below.</h3>
+        <p>If you don’t find availability for the dates required, please call us on 01838400220 or email
+                info@bridgeoforchyoutdoors.co.uk and we will do our best to help.</p>
+        <p>Book direct via our online booking system to receive our best available rates.</p>
+        <p>Check in from 3.30-7.30pm. Late check in by arrangement, please call for details.</p>
+        <div class="booking-enginge">
+                <h3>Choose your arrival date</h3>
+                <select onchange="changeContent()" name="month" id="month">
+                        <option id="date_in_view" value="">August 2023</option>
+                        <option value="2023-09-01">September 2023</option>
+                        <option value="2023-10-01">October 2023</option>
+                </select>
+                <hr>
+                <div class="d-flex row no-gutters justify-content-center" id="days">
+                        <div class="pr-3 col-lg-2 col-md-12 booking-title">Dates</div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square" id="day1"></div>
+                                <div class="booking-square" id="day2"></div>
+                                <div class="booking-square" id="day3"></div>
+                                <div class="booking-square" id="day4"></div>
+                                <div class="booking-square" id="day5"></div>
+                                <div class="booking-square" id="day6"></div>
+                                <div class="booking-square" id="day7"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
+                                <div class="booking-square" id="day8"></div>
+                                <div class="booking-square" id="day9"></div>
+                                <div class="booking-square" id="day10"></div>
+                                <div class="booking-square" id="day11"></div>
+                                <div class="booking-square" id="day12"></div>
+                                <div class="booking-square" id="day13"></div>
+                                <div class="booking-square" id="day14"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
+                                <div class="booking-square" id="day15"></div>
+                                <div class="booking-square" id="day16"></div>
+                                <div class="booking-square" id="day17"></div>
+                                <div class="booking-square" id="day18"></div>
+                                <div class="booking-square" id="day19"></div>
+                                <div class="booking-square" id="day20"></div>
+                                <div class="booking-square" id="day21"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
+                                <div class="booking-square" id="day22"></div>
+                                <div class="booking-square" id="day23"></div>
+                                <div class="booking-square" id="day24"></div>
+                                <div class="booking-square" id="day25"></div>
+                                <div class="booking-square" id="day26"></div>
+                                <div class="booking-square" id="day27"></div>
+                                <div class="booking-square" id="day28"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
+                                <div class="booking-square" id="day29"></div>
+                                <div class="booking-square" id="day30"></div>
+                                <div class="booking-square" id="day31"></div>
+                        </div>
 
+                </div>
+                <div class="d-flex row no-gutters pt-1" id="podA">
+                        <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">1</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_2"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">2</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_3"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">3</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_4"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">4</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_5"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">5</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_6"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">6</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_7"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">7</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podA_8"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">8</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_9"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">9</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_10"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">10</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_11"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">11</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_12"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">12</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_13"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">13</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_14"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">14</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podA_15"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">15</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_16"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">16</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_17"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">17</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_18"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">18</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_19"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">19</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_20"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">20</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_21"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">21</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podA_22"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">22</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_23"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">23</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_24"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">24</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_25"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">25</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_26"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">26</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_27"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">27</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_28"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">28</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podA_29"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">29</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_30"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">30</a></div>
+                                <div class="booking-square bg-danger text-white" id="podA_31"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">31</a></div>
+                        </div>
+                </div>
+                <div class="d-flex row no-gutters pt-1" id="podB">
+                        <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#no_availability">
+                                        <div id="podB_1">1</div>
+                                </a>
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_2">2</div>
+                                </a>
+                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#no_availability">
+                                        <div id="podB_3">3</div>
+                                </a>
+                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#no_availability">
+                                        <div id="podB_4">4</div>
+                                </a>
+                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#no_availability">
+                                        <div id="podB_5">5</div>
+                                </a>
+                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#no_availability">
+                                        <div id="podB_6">6</div>
+                                </a>
+                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#no_availability">
+                                        <div id="podB_7">7</div>
+                                </a>
+
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podB_8"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">8</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_9"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">9</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_10"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">10</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_11"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">11</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_12"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">12</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_13"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">13</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_14"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">14</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podB_15"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">15</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_16"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">16</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_17"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">17</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_18"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">18</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_19"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">19</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_20"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">20</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_21"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">21</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podB_22"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">22</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_23"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">23</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_24"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">24</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_25"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">25</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_26"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">26</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_27"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">27</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_28"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">28</a></div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                <div class="booking-square bg-danger text-white" id="podB_29"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">29</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_30"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">30</a></div>
+                                <div class="booking-square bg-danger text-white" id="podB_31"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">31</a></div>
+                        </div>
+                </div>
         </div>
-        <div class="d-flex row no-gutters pt-1" id="podA">
-            <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">1</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_2"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">2</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_3"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">3</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_4"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">4</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_5"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">5</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_6"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">6</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_7"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">7</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podA_8"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">8</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_9"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">9</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_10"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">10</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_11"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">11</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_12"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">12</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_13"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">13</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_14"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">14</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podA_15"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">15</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_16"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">16</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_17"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">17</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_18"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">18</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_19"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">19</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_20"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">20</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_21"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">21</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podA_22"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">22</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_23"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">23</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_24"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">24</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_25"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">25</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_26"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">26</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_27"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">27</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_28"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">28</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podA_29"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">29</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_30"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">30</a></div>
-                    <div class="booking-square bg-danger text-white" id="podA_31"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">31</a></div>
-                    </div>
-        </div>
-        <div class="d-flex row no-gutters pt-1" id="podB">
-            <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podB_1"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">1</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_2"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">2</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_3"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">3</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_4"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">4</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_5"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">5</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_6"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">6</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_7"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">7</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podB_8"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">8</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_9"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">9</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_10"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">10</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_11"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">11</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_12"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">12</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_13"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">13</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_14"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">14</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podB_15"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">15</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_16"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">16</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_17"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">17</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_18"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">18</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_19"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">19</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_20"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">20</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_21"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">21</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podB_22"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">22</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_23"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">23</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_24"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">24</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_25"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">25</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_26"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">26</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_27"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">27</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_28"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">28</a></div>
-                    </div>
-                    <div class="col-lg-2 col-md-12 p-0 d-flex">
-                        <div class="booking-square bg-danger text-white" id="podB_29"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">29</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_30"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">30</a></div>
-                    <div class="booking-square bg-danger text-white" id="podB_31"><a class="text-white" href="#"
-                            onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">31</a></div>
-                    </div>
-        </div>
-    </div>
 </div>
 </div>
 
-<!-- Modal -->
+<!-- No availability Modal -->
 <div class="modal fade" id="no_availability" tabindex="-1" role="dialog" aria-labelledby="no_availability"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-            </div>
-            <div class="modal-body text-center">
-                <h3>Sorry!</h3>
-                <p>
-                    No availability for this pod on this day.
-                </p>
-            </div>
-            <div class="modal-footer border-0">
-                <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Close</button>
-            </div>
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header border-0">
+                        </div>
+                        <div class="modal-body text-center">
+                                <h3>Sorry!</h3>
+                                <p>
+                                        No availability for this pod on this day.
+                                </p>
+                        </div>
+                        <div class="modal-footer border-0">
+                                <button type="button" class="btn btn-secondary btn-danger"
+                                        data-dismiss="modal">Close</button>
+                        </div>
+                </div>
         </div>
-    </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="availability" tabindex="-1" role="dialog" aria-labelledby="availability" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5>Booking Summary</h5>
+                        </div>
+                        <div class="modal-body">
+                                <h5>Beinn Monk POD B</h5>
+                                <div class="muted">
+
+                                        <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
+                                </div>
+                                <div class="text-center">
+                                <select class="" oninput="changeBooking()" name="nights" id="nights">
+                                        <option value="1">1 night - Departing Wed 31 Aug</option>
+                                        <option value="2">2 nights - Departing Thu 1 Sep</option>
+                                        <option value="3">3 nights - Departing Fri 2 Sep</option>
+                                        <option value="4">4 nights - Departing Sat 3 Sep</option>
+                                </select>
+                        </div>
+                                <div>
+                                        <p>Room only <span class="float-right">£<span id="rate_rm1">75</span>.00</span> </p>
+
+                                </div>
+                                <div>
+                                        <p>Total Cost <span class="float-right">£<span id="rate_total"></span>.00</span> </p>
+
+                                </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                                <button type="button" class="btn btn-secondary btn-success"
+                                        data-dismiss="modal">Continue Booking</button>
+                                <button type="button" class="btn btn-secondary btn-danger"
+                                        data-dismiss="modal">Cancel</button>
+                        </div>
+                </div>
+        </div>
 </div>
 
 {% endblock %}

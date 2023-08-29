@@ -76,6 +76,11 @@ ul {
     width: 100px;
 }
 
+div select {
+    display: block;
+    margin: auto;
+ }
+
 
 /* Media Queries */
 

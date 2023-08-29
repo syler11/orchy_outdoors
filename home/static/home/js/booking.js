@@ -162,3 +162,18 @@ function changeBooking() {
     total = parseInt(nights) * parseInt(rate_rm1)
     document.getElementById("rate_total").innerText = total
 } 
+
+function display_guestInfo(event) {
+    var guest_info = document.getElementById("guest_info")
+    var booking_step = document.getElementById("booking_step")
+    var booking_submit = document.getElementById("booking_submit")
+    booking_step.classList.add("d-none");
+    guest_info.classList.remove("d-none");
+    booking_submit.classList.remove("d-none");
+}
+
+// Code will prevent to close #availablity modal when the booking_step event button is clickedd
+$('#booking_step').off('click').click(function(clickEvent){
+    clickEvent.preventDefault();
+    clickEvent.stopPropagation();
+ });

@@ -79,6 +79,7 @@ ul {
 div select {
     display: block;
     margin: auto;
+    border-radius: 0.25rem;
  }
 
 

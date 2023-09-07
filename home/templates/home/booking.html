@@ -14,12 +14,15 @@
                 info@bridgeoforchyoutdoors.co.uk and we will do our best to help.</p>
         <p>Book direct via our online booking system to receive our best available rates.</p>
         <p>Check in from 3.30-7.30pm. Late check in by arrangement, please call for details.</p>
-        <div class="booking-enginge">
+        <div class="booking-engine">
                 <h3>Choose your arrival date</h3>
-                <select onchange="changeContent()" name="month" id="month">
-                        <option id="date_in_view" value="">August 2023</option>
-                        <option value="2023-09-01">September 2023</option>
-                        <option value="2023-10-01">October 2023</option>
+                <select onchange="changeContent()" name="month-selector" id="month-selector">
+                        <option value="08-01-2023">August
+                                2023</option>
+                        <option value="09-01-2023">September
+                                2023</option>
+                        <option value="10-01-2023">October
+                                2023</option>
                 </select>
                 <hr>
                 <div class="d-flex row no-gutters justify-content-center" id="days">
@@ -70,221 +73,895 @@
                 <div class="d-flex row no-gutters pt-1" id="podA">
                         <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
+                                {% if dayDate > date1 %}
+                                <div class="booking-square bg-secondary text-white">01</div>
+                                {% else %}
+                                {% if day1 %}
                                 <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">1</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_2"><a class="text-white"
+                                                data-target="#no_availability">01</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_1">01</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date2 %}
+                                <div class="booking-square bg-secondary text-white">02</div>
+                                {% else %}
+                                {% if day2 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">2</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_3"><a class="text-white"
+                                                data-target="#no_availability">02</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_2">02</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date3 %}
+                                <div class="booking-square bg-secondary text-white">03</div>
+                                {% else %}
+                                {% if day3 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">3</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_4"><a class="text-white"
+                                                data-target="#no_availability">03</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_3">03</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date4 %}
+                                <div class="booking-square bg-secondary text-white">04</div>
+                                {% else %}
+                                {% if day4 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">4</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_5"><a class="text-white"
+                                                data-target="#no_availability">04</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_4">04</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date5 %}
+                                <div class="booking-square bg-secondary text-white">05</div>
+                                {% else %}
+                                {% if day5 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">5</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_6"><a class="text-white"
+                                                data-target="#no_availability">05</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_5">05</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date6 %}
+                                <div class="booking-square bg-secondary text-white">06</div>
+                                {% else %}
+                                {% if day6 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">6</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_7"><a class="text-white"
+                                                data-target="#no_availability">06</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_6">06</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date7 %}
+                                <div class="booking-square bg-secondary text-white">07</div>
+                                {% else %}
+                                {% if day7 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">7</a></div>
+                                                data-target="#no_availability">07</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_7">07</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podA_8"><a class="text-white"
+                                {% if dayDate > date8 %}
+                                <div class="booking-square bg-secondary text-white">08</div>
+                                {% else %}
+                                {% if day8 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">8</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_9"><a class="text-white"
+                                                data-target="#no_availability">08</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_8">08</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date9 %}
+                                <div class="booking-square bg-secondary text-white">09</div>
+                                {% else %}
+                                {% if day9 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">9</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_10"><a class="text-white"
+                                                data-target="#no_availability">09</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_9">09</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date10 %}
+                                <div class="booking-square bg-secondary text-white">10</div>
+                                {% else %}
+                                {% if day10 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">10</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_11"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_10">10</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date11 %}
+                                <div class="booking-square bg-secondary text-white">11</div>
+                                {% else %}
+                                {% if day11 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">11</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_12"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_11">11</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date12 %}
+                                <div class="booking-square bg-secondary text-white">12</div>
+                                {% else %}
+                                {% if day12 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">12</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_13"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_12">12</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date13 %}
+                                <div class="booking-square bg-secondary text-white">13</div>
+                                {% else %}
+                                {% if day13 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">13</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_14"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_13">13</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date14 %}
+                                <div class="booking-square bg-secondary text-white">14</div>
+                                {% else %}
+                                {% if day14 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">14</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_14">14</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podA_15"><a class="text-white"
+                                {% if dayDate > date15 %}
+                                <div class="booking-square bg-secondary text-white">15</div>
+                                {% else %}
+                                {% if day15 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">15</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_16"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_15">15</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date16 %}
+                                <div class="booking-square bg-secondary text-white">16</div>
+                                {% else %}
+                                {% if day16 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">16</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_17"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_16">16</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date17 %}
+                                <div class="booking-square bg-secondary text-white">17</div>
+                                {% else %}
+                                {% if day17 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">17</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_18"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_17">17</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date18 %}
+                                <div class="booking-square bg-secondary text-white">18</div>
+                                {% else %}
+                                {% if day18 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">18</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_19"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_18">18</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date19 %}
+                                <div class="booking-square bg-secondary text-white">19</div>
+                                {% else %}
+                                {% if day19 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">19</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_20"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_19">19</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date20 %}
+                                <div class="booking-square bg-secondary text-white">20</div>
+                                {% else %}
+                                {% if day20 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">20</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_21"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_20">20</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date21 %}
+                                <div class="booking-square bg-secondary text-white">21</div>
+                                {% else %}
+                                {% if day21 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">21</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_21">21</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podA_22"><a class="text-white"
+                                {% if dayDate > date22 %}
+                                <div class="booking-square bg-secondary text-white">22</div>
+                                {% else %}
+                                {% if day22 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">22</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_23"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_22">22</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date23 %}
+                                <div class="booking-square bg-secondary text-white">23</div>
+                                {% else %}
+                                {% if day23 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">23</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_24"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_23">23</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date24 %}
+                                <div class="booking-square bg-secondary text-white">24</div>
+                                {% else %}
+                                {% if day24 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">24</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_25"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_24">24</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date25 %}
+                                <div class="booking-square bg-secondary text-white">25</div>
+                                {% else %}
+                                {% if day25 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">25</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_26"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_25">25</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date26 %}
+                                <div class="booking-square bg-secondary text-white">26</div>
+                                {% else %}
+                                {% if day26 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">26</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_27"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_26">26</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date27 %}
+                                <div class="booking-square bg-secondary text-white">27</div>
+                                {% else %}
+                                {% if day27 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">27</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_28"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_27">27</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date28 %}
+                                <div class="booking-square bg-secondary text-white">28</div>
+                                {% else %}
+                                {% if day28 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">28</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_28">28</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podA_29"><a class="text-white"
+                                {% if dayDate > date29 %}
+                                <div class="booking-square bg-secondary text-white">29</div>
+                                {% else %}
+                                {% if day29 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">29</a></div>
-                                <div class="booking-square bg-danger text-white" id="podA_30"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_29">29</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date30 %}
+                                <div class="booking-square bg-secondary text-white">30</div>
+                                {% else %}
+                                {% if day30 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">30</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podA_30">30</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date31 %}
+                                <div class="booking-square bg-secondary text-white">31</div>
+                                {% else %}
+                                {% if day31 %}
                                 <div class="booking-square bg-danger text-white" id="podA_31"><a class="text-white"
-                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                href="#"  onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">31</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability" id="podA_31">
+                                        <div id="podA_31">31</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                 </div>
                 <div class="d-flex row no-gutters pt-1" id="podB">
-                        <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
+                        <div class="pr-3 col-lg-2 col-md-12">Beinn Otter</div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
-                                        data-toggle="modal" data-target="#no_availability">
-                                        <div id="podB_1">1</div>
-                                </a>
+                                {% if dayDate > date1 %}
+                                <div class="booking-square bg-secondary text-white">01</div>
+                                {% else %}
+                                {% if day1 %}
+                                <div class="booking-square bg-danger text-white" id="podB_1"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">01</a></div>
+                                {% else %}
                                 <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
                                         data-toggle="modal" data-target="#availability">
-                                        <div id="podB_2">2</div>
+                                        <div id="podB_1">01</div>
                                 </a>
-                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
-                                        data-toggle="modal" data-target="#no_availability">
-                                        <div id="podB_3">3</div>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date2 %}
+                                <div class="booking-square bg-secondary text-white">02</div>
+                                {% else %}
+                                {% if day2 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">02</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_2">02</div>
                                 </a>
-                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
-                                        data-toggle="modal" data-target="#no_availability">
-                                        <div id="podB_4">4</div>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date3 %}
+                                <div class="booking-square bg-secondary text-white">03</div>
+                                {% else %}
+                                {% if day3 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">03</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_3">03</div>
                                 </a>
-                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
-                                        data-toggle="modal" data-target="#no_availability">
-                                        <div id="podB_5">5</div>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date4 %}
+                                <div class="booking-square bg-secondary text-white">04</div>
+                                {% else %}
+                                {% if day4 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">04</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_4">04</div>
                                 </a>
-                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
-                                        data-toggle="modal" data-target="#no_availability">
-                                        <div id="podB_6">6</div>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date5 %}
+                                <div class="booking-square bg-secondary text-white">05</div>
+                                {% else %}
+                                {% if day5 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">05</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_5">05</div>
                                 </a>
-                                <a class="booking-square bg-danger text-white" href="#" onclick="modalClick(this)"
-                                        data-toggle="modal" data-target="#no_availability">
-                                        <div id="podB_7">7</div>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date6 %}
+                                <div class="booking-square bg-secondary text-white">06</div>
+                                {% else %}
+                                {% if day6 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">06</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_6">06</div>
                                 </a>
-
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date7 %}
+                                <div class="booking-square bg-secondary text-white">07</div>
+                                {% else %}
+                                {% if day7 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
+                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                data-target="#no_availability">07</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_7">07</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podB_8"><a class="text-white"
+                                {% if dayDate > date8 %}
+                                <div class="booking-square bg-secondary text-white">08</div>
+                                {% else %}
+                                {% if day8 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">8</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_9"><a class="text-white"
+                                                data-target="#no_availability">08</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_8">08</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date9 %}
+                                <div class="booking-square bg-secondary text-white">09</div>
+                                {% else %}
+                                {% if day9 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
-                                                data-target="#no_availability">9</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_10"><a class="text-white"
+                                                data-target="#no_availability">09</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_9">09</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date10 %}
+                                <div class="booking-square bg-secondary text-white">10</div>
+                                {% else %}
+                                {% if day10 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">10</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_11"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_10">10</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date11 %}
+                                <div class="booking-square bg-secondary text-white">11</div>
+                                {% else %}
+                                {% if day11 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">11</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_12"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_11">11</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date12 %}
+                                <div class="booking-square bg-secondary text-white">12</div>
+                                {% else %}
+                                {% if day12 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">12</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_13"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_12">12</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date13 %}
+                                <div class="booking-square bg-secondary text-white">13</div>
+                                {% else %}
+                                {% if day13 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">13</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_14"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_13">13</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date14 %}
+                                <div class="booking-square bg-secondary text-white">14</div>
+                                {% else %}
+                                {% if day14 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">14</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_14">14</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podB_15"><a class="text-white"
+                                {% if dayDate > date15 %}
+                                <div class="booking-square bg-secondary text-white">15</div>
+                                {% else %}
+                                {% if day15 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">15</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_16"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_15">15</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date16 %}
+                                <div class="booking-square bg-secondary text-white">16</div>
+                                {% else %}
+                                {% if day16 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">16</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_17"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_16">16</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date17 %}
+                                <div class="booking-square bg-secondary text-white">17</div>
+                                {% else %}
+                                {% if day17 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">17</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_18"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_17">17</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date18 %}
+                                <div class="booking-square bg-secondary text-white">18</div>
+                                {% else %}
+                                {% if day18 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">18</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_19"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_18">18</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date19 %}
+                                <div class="booking-square bg-secondary text-white">19</div>
+                                {% else %}
+                                {% if day19 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">19</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_20"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_19">19</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date20 %}
+                                <div class="booking-square bg-secondary text-white">20</div>
+                                {% else %}
+                                {% if day20 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">20</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_21"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_20">20</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date21 %}
+                                <div class="booking-square bg-secondary text-white">21</div>
+                                {% else %}
+                                {% if day21 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">21</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_21">21</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podB_22"><a class="text-white"
+                                {% if dayDate > date22 %}
+                                <div class="booking-square bg-secondary text-white">22</div>
+                                {% else %}
+                                {% if day22 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">22</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_23"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_22">22</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date23 %}
+                                <div class="booking-square bg-secondary text-white">23</div>
+                                {% else %}
+                                {% if day23 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">23</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_24"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_23">23</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date24 %}
+                                <div class="booking-square bg-secondary text-white">24</div>
+                                {% else %}
+                                {% if day24 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">24</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_25"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_24">24</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date25 %}
+                                <div class="booking-square bg-secondary text-white">25</div>
+                                {% else %}
+                                {% if day25 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">25</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_26"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_25">25</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date26 %}
+                                <div class="booking-square bg-secondary text-white">26</div>
+                                {% else %}
+                                {% if day26 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">26</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_27"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_26">26</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date27 %}
+                                <div class="booking-square bg-secondary text-white">27</div>
+                                {% else %}
+                                {% if day27 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">27</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_28"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_27">27</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date28 %}
+                                <div class="booking-square bg-secondary text-white">28</div>
+                                {% else %}
+                                {% if day28 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">28</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_28">28</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square bg-danger text-white" id="podB_29"><a class="text-white"
+                                {% if dayDate > date29 %}
+                                <div class="booking-square bg-secondary text-white">29</div>
+                                {% else %}
+                                {% if day29 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">29</a></div>
-                                <div class="booking-square bg-danger text-white" id="podB_30"><a class="text-white"
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_29">29</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date30 %}
+                                <div class="booking-square bg-secondary text-white">30</div>
+                                {% else %}
+                                {% if day30 %}
+                                <div class="booking-square bg-danger text-white"><a class="text-white"
                                                 href="#" onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">30</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability">
+                                        <div id="podB_30">30</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% if dayDate > date31 %}
+                                <div class="booking-square bg-secondary text-white">31</div>
+                                {% else %}
+                                {% if day31 %}
                                 <div class="booking-square bg-danger text-white" id="podB_31"><a class="text-white"
-                                                href="#" onclick="modalClick(this)" data-toggle="modal"
+                                                href="#"  onclick="modalClick(this)" data-toggle="modal"
                                                 data-target="#no_availability">31</a></div>
+                                {% else %}
+                                <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
+                                        data-toggle="modal" data-target="#availability" id="podB_31">
+                                        <div id="podB_31">31</div>
+                                </a>
+                                {% endif %}
+                                {% endif %}
                         </div>
                 </div>
         </div>
@@ -328,8 +1005,8 @@
                                                         <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
                                                 </div>
                                                 <div class="text-center">
-                                                        <select class="border-info p-2 rounded-2" oninput="changeBooking()" name="nights"
-                                                                id="nights">
+                                                        <select class="border-info p-2 rounded-2"
+                                                                oninput="changeBooking()" name="nights" id="nights">
                                                                 <option value="1">1 night - Departing Wed 31 Aug
                                                                 </option>
                                                                 <option value="2">2 nights - Departing Thu 1 Sep
@@ -354,32 +1031,44 @@
                                                 <div id="guest_info" class="d-none">
                                                         <hr>
                                                         <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info" type="text" name="firstname"
-                                                                        id="firstname" placeholder="Firstname">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="firstname" id="firstname"
+                                                                        placeholder="Firstname">
                                                         </div>
                                                         <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info" type="text" name="lastname"
-                                                                id="lastname" placeholder="Lastname">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="lastname" id="lastname"
+                                                                        placeholder="Lastname">
                                                         </div>
                                                         <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info" type="text" name="phone"
-                                                                        id="phone" placeholder="Phone number">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="phone" id="phone"
+                                                                        placeholder="Phone number">
                                                         </div>
                                                         <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info" type="email" name="email"
-                                                                        id="email" placeholder="Email">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="email" name="email" id="email"
+                                                                        placeholder="Email">
                                                         </div>
                                                         <div class="p-2">
-                                                                <textarea class="form-control w-75 rounded-2 border-info" name="notes" id="notes"
-                                                                        cols="30" rows="5" placeholder="Notes"></textarea>
+                                                                <textarea
+                                                                        class="form-control w-75 rounded-2 border-info"
+                                                                        name="notes" id="notes" cols="30" rows="5"
+                                                                        placeholder="Notes"></textarea>
                                                         </div>
                                                         <div class="form-check py-1">
-                                                                <input type="checkbox" class="form-check-input" id="terms">
-                                                                <label class="form-check-label" for="terms"> I accept the <a href="http://" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></label>
-                                                              </div>
+                                                                <input type="checkbox" class="form-check-input"
+                                                                        id="terms">
+                                                                <label class="form-check-label" for="terms"> I accept
+                                                                        the <a href="http://" target="_blank"
+                                                                                rel="noopener noreferrer">Terms and
+                                                                                Conditions</a></label>
+                                                        </div>
                                                 </div>
                                                 <div id="booking_step" class="float-right p-2">`
-                                                        <button type="button" id="booking_step1" onclick="display_guestInfo()" class="btn btn-secondary btn-success"
+                                                        <button type="button" id="booking_step1"
+                                                                onclick="display_guestInfo()"
+                                                                class="btn btn-secondary btn-success"
                                                                 data-dismiss="modal">Continue Booking</button>
                                                         <button type="button" class="btn btn-secondary btn-danger"
                                                                 data-dismiss="modal">Cancel</button>
@@ -387,7 +1076,7 @@
                                         </div>
                                         <div id="booking_submit" class="modal-footer border-0 d-none float-right">
                                                 <button type="button" class="btn btn-secondary btn-success"
-                                                        data-dismiss="modal">Continue Booking</button>
+                                                        data-dismiss="modal">Book</button>
                                                 <button type="button" class="btn btn-secondary btn-danger"
                                                         data-dismiss="modal">Cancel</button>
                                         </div>

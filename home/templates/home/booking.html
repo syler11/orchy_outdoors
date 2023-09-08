@@ -28,52 +28,56 @@
                 <div class="d-flex row no-gutters justify-content-center" id="days">
                         <div class="pr-3 col-lg-2 col-md-12 booking-title">Dates</div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                <div class="booking-square" id="day1"></div>
-                                <div class="booking-square" id="day2"></div>
-                                <div class="booking-square" id="day3"></div>
-                                <div class="booking-square" id="day4"></div>
-                                <div class="booking-square" id="day5"></div>
-                                <div class="booking-square" id="day6"></div>
-                                <div class="booking-square" id="day7"></div>
+                                <div class="booking-square">{{ date1|date:"D" }}</div>
+                                <div class="booking-square">{{ date2|date:"D" }}</div>
+                                <div class="booking-square">{{ date3|date:"D" }}</div>
+                                <div class="booking-square">{{ date4|date:"D" }}</div>
+                                <div class="booking-square">{{ date5|date:"D" }}</div>
+                                <div class="booking-square">{{ date6|date:"D" }}</div>
+                                <div class="booking-square">{{ date7|date:"D" }}</div>
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                                <div class="booking-square" id="day8"></div>
-                                <div class="booking-square" id="day9"></div>
-                                <div class="booking-square" id="day10"></div>
-                                <div class="booking-square" id="day11"></div>
-                                <div class="booking-square" id="day12"></div>
-                                <div class="booking-square" id="day13"></div>
-                                <div class="booking-square" id="day14"></div>
+                                <div class="booking-square">{{ date8|date:"D" }}</div>
+                                <div class="booking-square">{{ date9|date:"D" }}</div>
+                                <div class="booking-square">{{ date10|date:"D" }}</div>
+                                <div class="booking-square">{{ date11|date:"D" }}</div>
+                                <div class="booking-square">{{ date12|date:"D" }}</div>
+                                <div class="booking-square">{{ date13|date:"D" }}</div>
+                                <div class="booking-square">{{ date14|date:"D" }}</div>
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                                <div class="booking-square" id="day15"></div>
-                                <div class="booking-square" id="day16"></div>
-                                <div class="booking-square" id="day17"></div>
-                                <div class="booking-square" id="day18"></div>
-                                <div class="booking-square" id="day19"></div>
-                                <div class="booking-square" id="day20"></div>
-                                <div class="booking-square" id="day21"></div>
+                                <div class="booking-square">{{ date15|date:"D" }}</div>
+                                <div class="booking-square">{{ date16|date:"D" }}</div>
+                                <div class="booking-square">{{ date17|date:"D" }}</div>
+                                <div class="booking-square">{{ date18|date:"D" }}</div>
+                                <div class="booking-square">{{ date19|date:"D" }}</div>
+                                <div class="booking-square">{{ date20|date:"D" }}</div>
+                                <div class="booking-square">{{ date21|date:"D" }}</div>
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                                <div class="booking-square" id="day22"></div>
-                                <div class="booking-square" id="day23"></div>
-                                <div class="booking-square" id="day24"></div>
-                                <div class="booking-square" id="day25"></div>
-                                <div class="booking-square" id="day26"></div>
-                                <div class="booking-square" id="day27"></div>
-                                <div class="booking-square" id="day28"></div>
+                                <div class="booking-square">{{ date22|date:"D" }}</div>
+                                <div class="booking-square">{{ date23|date:"D" }}</div>
+                                <div class="booking-square">{{ date24|date:"D" }}</div>
+                                <div class="booking-square">{{ date25|date:"D" }}</div>
+                                <div class="booking-square">{{ date26|date:"D" }}</div>
+                                <div class="booking-square">{{ date27|date:"D" }}</div>
+                                <div class="booking-square">{{ date28|date:"D" }}</div>
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex d-day">
-                                <div class="booking-square" id="day29"></div>
-                                <div class="booking-square" id="day30"></div>
-                                <div class="booking-square" id="day31"></div>
+                                <div class="booking-square">{{ date29|date:"D" }}</div>
+                                <div class="booking-square">{{ date30|date:"D" }}</div>
+                                <div class="booking-square">{{ date31|date:"D" }}</div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
                         </div>
 
                 </div>
                 <div class="d-flex row no-gutters pt-1" id="podA">
                         <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date1 %}
+                                {% if today > date1|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">01</div>
                                 {% else %}
                                 {% if day1 %}
@@ -87,7 +91,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date2 %}
+                                {% if today > date2|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">02</div>
                                 {% else %}
                                 {% if day2 %}
@@ -101,7 +105,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date3 %}
+                                {% if today > date3|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">03</div>
                                 {% else %}
                                 {% if day3 %}
@@ -115,7 +119,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date4 %}
+                                {% if today > date4|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">04</div>
                                 {% else %}
                                 {% if day4 %}
@@ -129,7 +133,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date5 %}
+                                {% if today > date5|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">05</div>
                                 {% else %}
                                 {% if day5 %}
@@ -143,7 +147,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date6 %}
+                                {% if today > date6|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">06</div>
                                 {% else %}
                                 {% if day6 %}
@@ -157,7 +161,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date7 %}
+                                {% if today > date7|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">07</div>
                                 {% else %}
                                 {% if day7 %}
@@ -173,7 +177,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date8 %}
+                                {% if today > date8|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">08</div>
                                 {% else %}
                                 {% if day8 %}
@@ -187,7 +191,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date9 %}
+                                {% if today > date9|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">09</div>
                                 {% else %}
                                 {% if day9 %}
@@ -201,7 +205,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date10 %}
+                                {% if today > date10|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">10</div>
                                 {% else %}
                                 {% if day10 %}
@@ -215,7 +219,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date11 %}
+                                {% if today > date11|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">11</div>
                                 {% else %}
                                 {% if day11 %}
@@ -229,7 +233,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date12 %}
+                                {% if today > date12|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">12</div>
                                 {% else %}
                                 {% if day12 %}
@@ -243,7 +247,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date13 %}
+                                {% if today > date13|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">13</div>
                                 {% else %}
                                 {% if day13 %}
@@ -257,7 +261,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date14 %}
+                                {% if today > date14|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">14</div>
                                 {% else %}
                                 {% if day14 %}
@@ -273,7 +277,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date15 %}
+                                {% if today > date15|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">15</div>
                                 {% else %}
                                 {% if day15 %}
@@ -287,7 +291,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date16 %}
+                                {% if today > date16|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">16</div>
                                 {% else %}
                                 {% if day16 %}
@@ -301,7 +305,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date17 %}
+                                {% if today > date17|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">17</div>
                                 {% else %}
                                 {% if day17 %}
@@ -315,7 +319,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date18 %}
+                                {% if today > date18|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">18</div>
                                 {% else %}
                                 {% if day18 %}
@@ -329,7 +333,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date19 %}
+                                {% if today > date19|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">19</div>
                                 {% else %}
                                 {% if day19 %}
@@ -343,7 +347,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date20 %}
+                                {% if today > date20|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">20</div>
                                 {% else %}
                                 {% if day20 %}
@@ -357,7 +361,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date21 %}
+                                {% if today > date21|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">21</div>
                                 {% else %}
                                 {% if day21 %}
@@ -373,7 +377,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date22 %}
+                                {% if today > date22|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">22</div>
                                 {% else %}
                                 {% if day22 %}
@@ -387,7 +391,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date23 %}
+                                {% if today > date23|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">23</div>
                                 {% else %}
                                 {% if day23 %}
@@ -401,7 +405,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date24 %}
+                                {% if today > date24|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">24</div>
                                 {% else %}
                                 {% if day24 %}
@@ -415,7 +419,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date25 %}
+                                {% if today > date25|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">25</div>
                                 {% else %}
                                 {% if day25 %}
@@ -429,7 +433,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date26 %}
+                                {% if today > date26|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">26</div>
                                 {% else %}
                                 {% if day26 %}
@@ -443,7 +447,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date27 %}
+                                {% if today > date27|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">27</div>
                                 {% else %}
                                 {% if day27 %}
@@ -457,7 +461,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date28 %}
+                                {% if today > date28|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">28</div>
                                 {% else %}
                                 {% if day28 %}
@@ -473,7 +477,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date29 %}
+                                {% if today > date29|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">29</div>
                                 {% else %}
                                 {% if day29 %}
@@ -487,7 +491,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date30 %}
+                                {% if today > date30|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">30</div>
                                 {% else %}
                                 {% if day30 %}
@@ -501,7 +505,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date31 %}
+                                {% if today > date31|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">31</div>
                                 {% else %}
                                 {% if day31 %}
@@ -515,12 +519,16 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
                         </div>
                 </div>
                 <div class="d-flex row no-gutters pt-1" id="podB">
                         <div class="pr-3 col-lg-2 col-md-12">Beinn Otter</div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date1 %}
+                                {% if today > date1|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">01</div>
                                 {% else %}
                                 {% if day1 %}
@@ -534,7 +542,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date2 %}
+                                {% if today > date2|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">02</div>
                                 {% else %}
                                 {% if day2 %}
@@ -548,7 +556,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date3 %}
+                                {% if today > date3|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">03</div>
                                 {% else %}
                                 {% if day3 %}
@@ -562,7 +570,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date4 %}
+                                {% if today > date4|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">04</div>
                                 {% else %}
                                 {% if day4 %}
@@ -576,7 +584,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date5 %}
+                                {% if today > date5|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">05</div>
                                 {% else %}
                                 {% if day5 %}
@@ -590,7 +598,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date6 %}
+                                {% if today > date6|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">06</div>
                                 {% else %}
                                 {% if day6 %}
@@ -604,7 +612,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date7 %}
+                                {% if today > date7|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">07</div>
                                 {% else %}
                                 {% if day7 %}
@@ -620,7 +628,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date8 %}
+                                {% if today > date8|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">08</div>
                                 {% else %}
                                 {% if day8 %}
@@ -634,7 +642,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date9 %}
+                                {% if today > date9|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">09</div>
                                 {% else %}
                                 {% if day9 %}
@@ -648,7 +656,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date10 %}
+                                {% if today > date10|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">10</div>
                                 {% else %}
                                 {% if day10 %}
@@ -662,7 +670,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date11 %}
+                                {% if today > date11|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">11</div>
                                 {% else %}
                                 {% if day11 %}
@@ -676,7 +684,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date12 %}
+                                {% if today > date12|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">12</div>
                                 {% else %}
                                 {% if day12 %}
@@ -690,7 +698,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date13 %}
+                                {% if today > date13|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">13</div>
                                 {% else %}
                                 {% if day13 %}
@@ -704,7 +712,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date14 %}
+                                {% if today > date14|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">14</div>
                                 {% else %}
                                 {% if day14 %}
@@ -720,7 +728,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date15 %}
+                                {% if today > date15|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">15</div>
                                 {% else %}
                                 {% if day15 %}
@@ -734,7 +742,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date16 %}
+                                {% if today > date16|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">16</div>
                                 {% else %}
                                 {% if day16 %}
@@ -748,7 +756,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date17 %}
+                                {% if today > date17|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">17</div>
                                 {% else %}
                                 {% if day17 %}
@@ -762,7 +770,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date18 %}
+                                {% if today > date18|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">18</div>
                                 {% else %}
                                 {% if day18 %}
@@ -776,7 +784,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date19 %}
+                                {% if today > date19|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">19</div>
                                 {% else %}
                                 {% if day19 %}
@@ -790,7 +798,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date20 %}
+                                {% if today > date20|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">20</div>
                                 {% else %}
                                 {% if day20 %}
@@ -804,7 +812,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date21 %}
+                                {% if today > date21|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">21</div>
                                 {% else %}
                                 {% if day21 %}
@@ -820,7 +828,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date22 %}
+                                {% if today > date22|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">22</div>
                                 {% else %}
                                 {% if day22 %}
@@ -834,7 +842,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date23 %}
+                                {% if today > date23|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">23</div>
                                 {% else %}
                                 {% if day23 %}
@@ -848,7 +856,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date24 %}
+                                {% if today > date24|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">24</div>
                                 {% else %}
                                 {% if day24 %}
@@ -862,7 +870,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date25 %}
+                                {% if today > date25|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">25</div>
                                 {% else %}
                                 {% if day25 %}
@@ -876,7 +884,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date26 %}
+                                {% if today > date26|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">26</div>
                                 {% else %}
                                 {% if day26 %}
@@ -890,7 +898,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date27 %}
+                                {% if today > date27|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">27</div>
                                 {% else %}
                                 {% if day27 %}
@@ -904,7 +912,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date28 %}
+                                {% if today > date28|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">28</div>
                                 {% else %}
                                 {% if day28 %}
@@ -920,7 +928,7 @@
                                 {% endif %}
                         </div>
                         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                                {% if dayDate > date29 %}
+                                {% if today > date29|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">29</div>
                                 {% else %}
                                 {% if day29 %}
@@ -934,7 +942,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date30 %}
+                                {% if today > date30|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">30</div>
                                 {% else %}
                                 {% if day30 %}
@@ -948,7 +956,7 @@
                                 </a>
                                 {% endif %}
                                 {% endif %}
-                                {% if dayDate > date31 %}
+                                {% if today > date31|date:"Y-m-d" %}
                                 <div class="booking-square bg-secondary text-white">31</div>
                                 {% else %}
                                 {% if day31 %}
@@ -958,10 +966,14 @@
                                 {% else %}
                                 <a class="booking-square bg-success text-white" href="#" onclick="modalClick(this)"
                                         data-toggle="modal" data-target="#availability" id="podB_31">
-                                        <div id="podB_31">31</div>
+                                        <div id="podA_31">31</div>
                                 </a>
                                 {% endif %}
                                 {% endif %}
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
+                                <div class="booking-square"></div>
                         </div>
                 </div>
         </div>

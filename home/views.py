@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from .models import Booking
 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 # Create your views here.
 
@@ -18,41 +18,49 @@ def index(request):
 def booking(request):
     """ A view to return the booking page """
 
-    today = date.today()
-    dayDate = today.strftime("%Y-%m-%d")
+    nowDate = date.today()
+    today = nowDate.strftime("%Y-%m-%d")
+    print(today)
 
-    print(dayDate)
+    #test = "2023-10-01"
+    #firstDay = datetime.strptime(test, "%Y-%m-%d")
+    #print(firstDay)
+    #dayDate = firstDay.strftime("%Y-%m-%d")
+    #print(dayDate)
 
-    date1 =  dayDate[0:8] + "01"
-    date2 =  dayDate[0:8] + "02"
-    date3 =  dayDate[0:8] + "03"
-    date4 =  dayDate[0:8] + "04"
-    date5 =  dayDate[0:8] + "05"
-    date6 =  dayDate[0:8] + "06"
-    date7 =  dayDate[0:8] + "07"
-    date8 =  dayDate[0:8] + "08"
-    date9 =  dayDate[0:8] + "09"
-    date10 =  dayDate[0:8] + "10"
-    date11 =  dayDate[0:8] + "11"
-    date12 =  dayDate[0:8] + "12"
-    date13 =  dayDate[0:8] + "13"
-    date14 =  dayDate[0:8] + "14"
-    date15 =  dayDate[0:8] + "15"
-    date16 =  dayDate[0:8] + "16"
-    date17 =  dayDate[0:8] + "17"
-    date18 =  dayDate[0:8] + "18"
-    date19 =  dayDate[0:8] + "19"
-    date20 =  dayDate[0:8] + "20"
-    date21 =  dayDate[0:8] + "21"
-    date22 =  dayDate[0:8] + "22"
-    date23 =  dayDate[0:8] + "23"
-    date24 =  dayDate[0:8] + "24"
-    date25 =  dayDate[0:8] + "25"
-    date26 =  dayDate[0:8] + "26"
-    date27 =  dayDate[0:8] + "27"
-    date28 =  dayDate[0:8] + "28"
-    date29 =  dayDate[0:8] + "29"
-    date30 =  dayDate[0:8] + "30"
+    date1 = datetime.strptime(today[0:8] + "01", "%Y-%m-%d")
+    date2 = date1 + timedelta(days=1)
+    date3 = date1 + timedelta(days=2)
+    date4 = date1 + timedelta(days=3)
+    date5 = date1 + timedelta(days=4)
+    date6 = date1 + timedelta(days=5)
+    date7 = date1 + timedelta(days=6)
+    date8 = date1 + timedelta(days=7)
+    date9 = date1 + timedelta(days=8)
+    date10 = date1 + timedelta(days=9)
+    date11 = date1 + timedelta(days=10)
+    date12 = date1 + timedelta(days=11)
+    date13 = date1 + timedelta(days=12)
+    date14 = date1 + timedelta(days=13)
+    date15 = date1 + timedelta(days=14)
+    date16 = date1 + timedelta(days=15)
+    date17 = date1 + timedelta(days=16)
+    date18 = date1 + timedelta(days=17)
+    date19 = date1 + timedelta(days=18)
+    date20 = date1 + timedelta(days=19)
+    date21 = date1 + timedelta(days=20)
+    date22 = date1 + timedelta(days=21)
+    date23 = date1 + timedelta(days=22)
+    date24 = date1 + timedelta(days=23)
+    date25 = date1 + timedelta(days=24)
+    date26 = date1 + timedelta(days=25)
+    date27 = date1 + timedelta(days=26)
+    date28 = date1 + timedelta(days=27)
+    date29 = date1 + timedelta(days=28)
+    date30 = date1 + timedelta(days=29)
+    date31 = date1 + timedelta(days=30)
+    print(date31)
+
     
 
     day1 = Booking.objects.filter(arrival_date=date1)
@@ -85,11 +93,13 @@ def booking(request):
     day28 = Booking.objects.filter(arrival_date=date28)
     day29 = Booking.objects.filter(arrival_date=date29)
     day30 = Booking.objects.filter(arrival_date=date30)
+    day31 = Booking.objects.filter(arrival_date=date30)
 
     print(day15)
 
 
     context = {
+        "today": today,
         "date1": date1,
         "date2": date2,
         "date3": date3,
@@ -97,6 +107,7 @@ def booking(request):
         "date5": date5,
         "date6": date6,
         "date7": date7,
+        "date8": date8,
         "date9": date9,
         "date10": date10,
         "date11": date11,
@@ -119,6 +130,7 @@ def booking(request):
         "date28": date28,
         "date29": date29,
         "date30": date30,
+        "date31": date31,
         'day1': day1,
         'day2': day2,
         'day3': day3,
@@ -149,7 +161,7 @@ def booking(request):
         'day28': day28,
         'day29': day29,
         'day30': day30,
-        'dayDate': dayDate,
+        'day31': day31,
     }
 
     return render(request, 'home/booking.html', context)

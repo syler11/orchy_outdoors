@@ -22,13 +22,13 @@ def booking(request):
     today = nowDate.strftime("%Y-%m-%d")
     print(today)
 
-    #test = "2023-10-01"
-    #firstDay = datetime.strptime(test, "%Y-%m-%d")
-    #print(firstDay)
-    #dayDate = firstDay.strftime("%Y-%m-%d")
-    #print(dayDate)
+    if 'month-selector' in request.GET:
+        firstDate = request.GET['month-selector']
+        print(firstDate)
+    else:
+        firstDate = today
 
-    date1 = datetime.strptime(today[0:8] + "01", "%Y-%m-%d")
+    date1 = datetime.strptime(firstDate[0:8] + "01", "%Y-%m-%d")
     date2 = date1 + timedelta(days=1)
     date3 = date1 + timedelta(days=2)
     date4 = date1 + timedelta(days=3)
@@ -100,6 +100,7 @@ def booking(request):
 
     context = {
         "today": today,
+        'firstDate': firstDate,
         "date1": date1,
         "date2": date2,
         "date3": date3,

@@ -1,26 +1,21 @@
-var dates_days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-
-
-const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
 function changeContent() {
-var opt = document.getElementById('month');
+var opt = document.getElementById('month-selector');
 
-var opt_text = document.getElementById('month').selectedOptions[0].text;
+var opt_text = document.getElementById('month-selector').selectedOptions[0].text;
 let month_nam = opt_text.split(" ");
 let month_name = month_nam[0];
 
 
 if (month_name == "August") {
-    opt.options[0].value = '2023-08-01';
+    opt.options[0].value = '01-08-2023';
     opt.text = 'August 2023';
     no_days = 31;
 } else if (month_name == "September") {
-    opt.options[0].value = '2023-09-01';
+    opt.options[0].value = '01-09-2023';
     opt.text = 'September 2023';
     no_days = 30;
 } else if (month_name == "October") {
-    opt.options[0].value = '2023-10-01';
+    opt.options[0].value = '01-10-2023';
     opt.text = 'October 2023';
     no_days = 31;
 }

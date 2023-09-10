@@ -9,8 +9,8 @@ class Booking(models.Model):
     """  
 
     booking_id = models.CharField(max_length=10, null=True, blank=False)
-    pod1 = models.CharField(max_length=10, null=True, blank=False)
-    pod2 = models.CharField(max_length=10, null=True, blank=False)
+    pod1 = models.CharField(max_length=20, null=True, blank=False)
+    pod2 = models.CharField(max_length=20, null=True, blank=False)
     pod1_pax = models.IntegerField(null=True, blank=True)
     pod2_pax = models.IntegerField(null=True, blank=True)
     nights = models.IntegerField(null=True, blank=True)

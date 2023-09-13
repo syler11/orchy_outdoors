@@ -1623,20 +1623,21 @@
                                 <h5>Booking Summary</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
-                                      </button>
+                                </button>
                         </div>
                         <form action="">
                                 <div class="form-group">
                                         <div class="modal-body">
-                                                <h5>Beinn Monk POD B</h5>
-                                                <div class="muted">     
-                                                        <p id="dateTest"></p>         
+                                                <h5>Beinn Monk</h5>
+                                                <div class="muted">
+                                                        <p class="d-none" id="firstDate">{{firstDate}}</p>
+                                                        <p>Arrival Date: <span class="float-right" id="dateTest"></span></p>
                                                         <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
                                                 </div>
                                                 <div class="text-center">
                                                         <select class="border-info p-2 rounded-2"
                                                                 oninput="changeBooking()" name="nights" id="nights">
-                                                                <option value="1">1 night - Departing Wed 31 Aug
+                                                                <option id="dep1" value="1">1 night - Departing Wed 31 Aug
                                                                 </option>
                                                                 <option value="2">2 nights - Departing Thu 1 Sep
                                                                 </option>
@@ -1714,16 +1715,3 @@
 </div>
 
 {% endblock %}
-
-{% block postloadjs %}
-{{block.super}}
-<script>
-        function modalClick(elem) {
-                var text = elem.innerText;
-
-                document.getElementById('dateTest').value = text;
-
-        }
-</script>
-
-{% endblock%}

@@ -28,6 +28,8 @@ def booking(request):
     else:
         firstDate = today
 
+    parseDate = datetime.strptime(firstDate[0:8], "%Y-%m-")
+
     date1 = datetime.strptime(firstDate[0:8] + "01", "%Y-%m-%d")
     date2 = date1 + timedelta(days=1)
     date3 = date1 + timedelta(days=2)
@@ -101,6 +103,7 @@ def booking(request):
     context = {
         "today": today,
         'firstDate': firstDate,
+        'parseDate': parseDate,
         "date1": date1,
         "date2": date2,
         "date3": date3,

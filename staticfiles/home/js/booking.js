@@ -66,3 +66,19 @@ $('#booking_step').off('click').click(function(clickEvent){
     clickEvent.preventDefault();
     clickEvent.stopPropagation();
  });
+
+ function modalClick(elem) {
+    var text = elem.innerText;
+    console.log(text)
+    var firstDate = document.getElementById("firstDate").innerText
+    console.log(firstDate)
+    var fDate = firstDate.slice(0,8)
+    console.log(fDate)
+    var newDate = fDate + text
+    var dep1 = parseInt(text) + 1;
+    var firstNight = "1 night - Departing on " + fDate + dep1;
+    console.log(firstNight)
+    document.getElementById("dateTest").innerText = newDate;
+    document.getElementById("dep1").innerText = firstNight;
+
+}

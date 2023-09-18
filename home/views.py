@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
-from .models import Booking
+from home.models import BookingPodA, BookingPodB
 
 from datetime import date, timedelta, datetime
 
@@ -65,39 +65,37 @@ def booking(request):
 
     
 
-    day1 = Booking.objects.filter(arrival_date=date1)
-    day2 = Booking.objects.filter(arrival_date=date2)
-    day3 = Booking.objects.filter(arrival_date=date3)
-    day4 = Booking.objects.filter(arrival_date=date4)
-    day5 = Booking.objects.filter(arrival_date=date5)
-    day6 = Booking.objects.filter(arrival_date=date6)
-    day7 = Booking.objects.filter(arrival_date=date7)
-    day8 = Booking.objects.filter(arrival_date=date8)
-    day9 = Booking.objects.filter(arrival_date=date9)
-    day10 = Booking.objects.filter(arrival_date=date10)
-    day11 = Booking.objects.filter(arrival_date=date11)
-    day12 = Booking.objects.filter(arrival_date=date12)
-    day13 = Booking.objects.filter(arrival_date=date13)
-    day14 = Booking.objects.filter(arrival_date=date14)
-    day15 = Booking.objects.filter(arrival_date=date15)
-    day16 = Booking.objects.filter(arrival_date=date16)
-    day17 = Booking.objects.filter(arrival_date=date17)
-    day18 = Booking.objects.filter(arrival_date=date18)
-    day19 = Booking.objects.filter(arrival_date=date19)
-    day20 = Booking.objects.filter(arrival_date=date20)
-    day21 = Booking.objects.filter(arrival_date=date21)
-    day22 = Booking.objects.filter(arrival_date=date22)
-    day23 = Booking.objects.filter(arrival_date=date23)
-    day24 = Booking.objects.filter(arrival_date=date24)
-    day25 = Booking.objects.filter(arrival_date=date25)
-    day26 = Booking.objects.filter(arrival_date=date26)
-    day27 = Booking.objects.filter(arrival_date=date27)
-    day28 = Booking.objects.filter(arrival_date=date28)
-    day29 = Booking.objects.filter(arrival_date=date29)
-    day30 = Booking.objects.filter(arrival_date=date30)
-    day31 = Booking.objects.filter(arrival_date=date30)
-
-    print(day15)
+    day1 = BookingPodA.objects.filter(arrival_date=date1)
+    day2 = BookingPodA.objects.filter(arrival_date=date2)
+    day3 = BookingPodA.objects.filter(arrival_date=date3)
+    day4 = BookingPodA.objects.filter(arrival_date=date4)
+    day5 = BookingPodA.objects.filter(arrival_date=date5)
+    day6 = BookingPodA.objects.filter(arrival_date=date6)
+    day7 = BookingPodA.objects.filter(arrival_date=date7)
+    day8 = BookingPodA.objects.filter(arrival_date=date8)
+    day9 = BookingPodA.objects.filter(arrival_date=date9)
+    day10 = BookingPodA.objects.filter(arrival_date=date10)
+    day11 = BookingPodA.objects.filter(arrival_date=date11)
+    day12 = BookingPodA.objects.filter(arrival_date=date12)
+    day13 = BookingPodA.objects.filter(arrival_date=date13)
+    day14 = BookingPodA.objects.filter(arrival_date=date14)
+    day15 = BookingPodA.objects.filter(arrival_date=date15)
+    day16 = BookingPodA.objects.filter(arrival_date=date16)
+    day17 = BookingPodA.objects.filter(arrival_date=date17)
+    day18 = BookingPodA.objects.filter(arrival_date=date18)
+    day19 = BookingPodA.objects.filter(arrival_date=date19)
+    day20 = BookingPodA.objects.filter(arrival_date=date20)
+    day21 = BookingPodA.objects.filter(arrival_date=date21)
+    day22 = BookingPodA.objects.filter(arrival_date=date22)
+    day23 = BookingPodA.objects.filter(arrival_date=date23)
+    day24 = BookingPodA.objects.filter(arrival_date=date24)
+    day25 = BookingPodA.objects.filter(arrival_date=date25)
+    day26 = BookingPodA.objects.filter(arrival_date=date26)
+    day27 = BookingPodA.objects.filter(arrival_date=date27)
+    day28 = BookingPodA.objects.filter(arrival_date=date28)
+    day29 = BookingPodA.objects.filter(arrival_date=date29)
+    day30 = BookingPodA.objects.filter(arrival_date=date30)
+    day31 = BookingPodA.objects.filter(arrival_date=date31)
 
 
     context = {
@@ -169,6 +167,38 @@ def booking(request):
     }
 
     return render(request, 'home/booking.html', context)
+
+def booking_details(request, selected_day):
+    """ A view to return the about page """
+
+    one = selected_day
+    date_one = datetime.strptime(one, "%Y-%m-%d")
+    dep1 = date_one + timedelta(days=1)
+    dep2 = date_one + timedelta(days=2)
+    dep3 = date_one + timedelta(days=3)
+    dep4 = date_one + timedelta(days=4)
+
+    PodAnight_two = BookingPodA.objects.filter(arrival_date=dep1)
+    PodAnight_three = BookingPodA.objects.filter(arrival_date=dep2)
+    PodAnight_four = BookingPodA.objects.filter(arrival_date=dep3)
+    print(PodAnight_two)
+    print(PodAnight_three)
+    print(PodAnight_four)
+
+
+    context = {
+        "date_one": date_one,
+        'dep1': dep1,
+        'dep2': dep2,
+        'dep3': dep3,
+        'dep4': dep4,
+        'PodAnight_two': PodAnight_two,
+        'PodAnight_three': PodAnight_three,
+        'PodAnight_four': PodAnight_four,
+    }
+
+
+    return render(request, 'home/booking_details.html', context)
 
 
 def about(request):

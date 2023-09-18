@@ -1,34 +1,59 @@
 from django.contrib import admin
-from .models import Booking
+from home.models import BookingPodA, BookingPodB
 
 # Register your models here.
 
 
-class BookingAdmin(admin.ModelAdmin):
+class BookingPodAAdmin(admin.ModelAdmin):
     """
-    Payment admin  model class
+    Payment admin model class
     """
     list_display = (
         'booking_id',
         'arrival_date',
-        'pod1',
-        'pod2',
+        'podA',
         'lname',
         'total_cost',
     )
     list_filter = (
         'booking_id',
         'arrival_date',
-        'pod1',
-        'pod2',
+        'podA',
         'lname',
         'total_cost',
     )
     search_fields = (
         'booking_id',
         'arrival_date',
-        'pod1',
-        'pod2',
+        'podA'
+        'lname',
+        'total_cost',
+    )
+
+    ordering = ('arrival_date',)
+
+class BookingPodBAdmin(admin.ModelAdmin):
+    """
+    Payment admin model class
+    """
+    list_display = (
+        'booking_id',
+        'arrival_date',
+        'podB',
+        'lname',
+        'total_cost',
+    )
+    list_filter = (
+        'booking_id',
+        'arrival_date',
+        'podB',
+        'lname',
+        'total_cost',
+    )
+    search_fields = (
+        'booking_id',
+        'arrival_date',
+        'podB'
         'lname',
         'total_cost',
     )
@@ -36,4 +61,5 @@ class BookingAdmin(admin.ModelAdmin):
     ordering = ('arrival_date',)
 
 
-admin.site.register(Booking, BookingAdmin)
+admin.site.register(BookingPodA, BookingPodAAdmin)
+admin.site.register(BookingPodB, BookingPodBAdmin)

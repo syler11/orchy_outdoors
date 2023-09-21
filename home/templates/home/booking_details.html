@@ -2,79 +2,89 @@
 {% load static %}
 
 {% block extra_js %}
-<script src="{% static 'home/js/booking.js'  %}" defer></script>
+<script src="{% static 'home/js/booking_details.js'  %}" defer></script>
 {% endblock %}
 
 {% block content %}
 <div class="page-container text-center m-3">
-        <h1>Book Online</h1>
-        <div class="row no-gutters">
-                <div class="offset-lg-2 col-lg-2 col-6 border p-2">
-                        <p class="muted">Arriving:</p>
-                        <p>{{date_one|date:'D, d M Y'}}</p>
+        <h1>Booking Details</h1>
+        <br>
+        <form action="">
+                <div class="row no-gutters">
+                        <div class="offset-lg-2 col-lg-8 bg-info">
+                                <h3 class="text-white">Beinn Moink</h3>
+                        </div>
+                        <div class="offset-lg-2 col-lg-2 col-6 border p-2">
+                                <p class="muted">Arriving:</p>
+                                <p>{{date_one|date:'D, d M Y'}}</p>
+                        </div>
+                        <div class="col-lg-2 col-6 border p-2">
+                                <p class="muted">Departing:</p>
+                                <select class="border-info p-1 rounded-2" oninput="changeBooking()" name="nights"
+                                        id="nights">
+                                        <option id="dep1" value="1">1 night - {{dep1|date:'D d M'}}
+                                        </option>
+                                        {% for n2 in PodAnight_two %}
+                                        {% if n2.status == "Available" %}
+                                        <option id="dep2" value="2">2 nights - {{dep2|date:'D d M'}}
+                                        </option>
+                                        {% for n3 in PodAnight_three %}
+                                        {% if n3.status == "Available" %}
+                                        <option id="dep3" value="3">3 nights - {{dep3|date:'D d M'}}
+                                        </option>
+                                        {% for n4 in PodAnight_four %}
+                                        {% if n4.status == "Available" %}
+                                        <option id="dep4" value="4">4 nights - {{dep4|date:'D d M'}}
+                                        </option>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %}
+                                        {% endfor %}
+                                </select>
+                        </div>
+                        <div class="col-lg-2 border col-6 p-2">
+                                <p class="muted">Guests:</p>
+                                <input type="number" class="border-info p-1" name="podA_pax" id="podA_pax" min="1"
+                                        max="2" placeholder="0" required>
+                        </div>
+                        <div class="col-lg-2 col-6 border p-2">
+                                <p class="muted">Rate per night:</p>
+                                <p>£<span id="rate_rm1">80</span>.00</p>
+                        </div>
+                        <div class="offset-lg-2 col-lg-4 col-12">
+                                <div class="booking-image"></div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                                <div class="text-left p-2">
+                                        <h4>About this space</h4>
+                                        <p>Located on the West Highland Way at Bridge of Orchy our Eco Pods were
+                                                designed and
+                                                built in Finland in 2016. They each sleep a maximum of 2 adults and have
+                                                views
+                                                to the River Orchy and Ben Dorain. Bed lined included.
+                                                <h4>The space</h4>
+                                                <p>A wet room with toilet and shower is 3 min walk from the Pods.
+                                                        Food can be ordered at The Bridge of Orchy Hotel, which is a 5
+                                                        minute walk away.
+                                                        Please note that there are no shops in the village.We only book
+                                                        a single pod not per person max 2 people per pod.
+                                                </p>
+                                </div>
+                        </div>
+                        <div class="text-left offset-lg-2 bg-secondary col-lg-8 col-12 p-2">
+                                <h3 class="text-white">Total Cost: <span class="float-right text-white">£<span
+                                                        id="rate_total"></span>.00</span></h3>
+                        </div>
+                        <div class="border-0 float-right offset-lg-2 col-lg-8 col-12 p-1">
+                                <button type="submit" class="btn btn-info btn-success">Book</button>
+                                <a href="{% url 'booking' %}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                        </div>
                 </div>
-                <div class="col-lg-2 col-6 border p-2">
-                        <p class="muted">Nights:</p>
-                        <select class="border-info p-1 rounded-2" oninput="changeBooking()" name="nights" id="nights">
-                                <option id="dep1" value="1">1 night - Departing {{dep1|date:'D d M'}}
-                                </option>
-                                {% for n2 in PodAnight_two %}
-                                {% if n2.status == "Available" %}
-                                <option id="dep2" value="2">2 nights - Departing {{dep2|date:'D d M'}}
-                                </option>
-                                {% for n3 in PodAnight_three %}
-                                {% if n3.status == "Available" %}
-                                <option id="dep3" value="3">3 nights - Departing {{dep3|date:'D d M'}}
-                                </option>
-                                {% for n4 in PodAnight_four %}
-                                {% if n4.status == "Available" %}
-                                <option id="dep4" value="4">4 nights - Departing {{dep4|date:'D d M'}}
-                                </option>
-                                {% endif %}
-                                {% endfor %}
-                                {% endif %}
-                                {% endfor %}
-                                {% endif %}
-                                {% endfor %}
-                        </select>
-                </div>
-                <div class="col-lg-2 col-md-6 col-12 border p-2">
-                        <p class="muted">Guests:</p>
-                        <select class="p-1 border-info" name="pax" id="pax">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                        </select>
-                </div>
-                <div class="col-lg-2 col-md-6 col-12 border p-2">
-                        <p class="muted">Rate:</p>
-                        <p id="rate_rm1"></p>
-                  
-                </div>
-        </div>
-</div>
 
-<!-- No availability Modal -->
-<div class="modal fade" id="no_availability" tabindex="-1" role="dialog" aria-labelledby="no_availability"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                        <div class="modal-header border-0">
-                        </div>
-                        <div class="modal-body text-center">
-                                <h3>Sorry!</h3>
-                                <p>
-                                        No availability for this pod on this day.
-                                </p>
-                        </div>
-                        <div class="modal-footer border-0">
-                                <button type="button" class="btn btn-secondary btn-danger"
-                                        data-dismiss="modal">Close</button>
-                        </div>
-                </div>
-        </div>
 </div>
+</form>
 
 <!-- Booking Modal -->
 <div class="modal fade" id="availability" tabindex="-1" role="dialog" aria-labelledby="availability" aria-hidden="true">

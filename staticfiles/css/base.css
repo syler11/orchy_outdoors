@@ -19,6 +19,15 @@
     min-height: calc(100vh - 285px);
     justify-content: center;
 }
+.booking-image {
+    background:
+        url(/media/about_image.jpg) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    height: 300px;
+    width: 300px;
+    justify-content: center;
+}
 
 .contact-image {
     background:
@@ -81,6 +90,14 @@ div select {
     margin: auto;
     border-radius: 0.25rem;
  }
+
+div input {
+    display: block;
+    margin: auto;
+    border-radius: 0.25rem;
+    text-align: center;
+    border: 1px solid;
+}
 
 
 /* Media Queries */

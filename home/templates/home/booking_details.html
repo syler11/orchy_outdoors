@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="page-container text-center m-3">
-        <h1>Booking Details</h1>
+        <h1>Room Details</h1>
         <br>
         <form action="">
                 <div class="row no-gutters">
@@ -77,9 +77,11 @@
                                 <h3 class="text-white">Total Cost: <span class="float-right text-white">£<span
                                                         id="rate_total"></span>.00</span></h3>
                         </div>
-                        <div class="border-0 float-right offset-lg-2 col-lg-8 col-12 p-1">
-                                <button type="submit" class="btn btn-info btn-success">Book</button>
-                                <a href="{% url 'booking' %}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                        <div class="border-0 float-right my-3 offset-lg-2 col-lg-8 col-12 p-1">
+                                <button type="button" class="btn btn-info btn-success" data-toggle="modal"
+                                        data-target="#availability">Continue Booking</button>
+                                <a href="{% url 'booking' %}"><button type="button"
+                                                class="btn btn-secondary">Cancel</button></a>
                         </div>
                 </div>
 
@@ -97,98 +99,74 @@
                                 </button>
                         </div>
                         <form action="">
-                                <div class="form-group">
-                                        <div class="modal-body">
+                                <div class="modal-body">
+                                        <div class="form-group">
                                                 <h5>Beinn Monk</h5>
                                                 <div class="muted">
-                                                        <p class="d-none" id="firstDate">{{firstDate}}</p>
-                                                        <p>Arrival Date: <span class="float-right" id="dateTest"></span>
-                                                        </p>
-                                                        <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
-                                                </div>
-                                                <div class="text-center">
-                                                        <select class="border-info p-2 rounded-2"
-                                                                oninput="changeBooking()" name="nights" id="nights">
-                                                                <option id="dep1" value="1">1 night - Departing Wed 31
-                                                                        Aug
-                                                                </option>
+                                                        <p>Arrival Date: Wednesday, 28 Sep 2023</p>
+                                                        <p>Nights: 2</p>
+                                                        <p>Occupancy: 2</p>
+                                                        <p>Total Cost: £240.00</p>
 
-                                                                <option id="dep2" value="2">2 nights - Departing Thu 1
-                                                                        Sep
-                                                                </option>
-                                                                <option id="dep3" value="3">3 nights - Departing Fri 2
-                                                                        Sep
-                                                                </option>
-                                                                <option id="dep4" value="4">4 nights - Departing Sat 3
-                                                                        Sep
-                                                                </option>
+                                                </div>
+                                                <hr>        
+                                                <div class="p-2">
+                                                        <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
+                                                                type="text" name="firstname" id="firstname"
+                                                                placeholder="Firstname">
+                                                </div>
+                                                <div class="p-2">
+                                                        <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
+                                                                type="text" name="lastname" id="lastname"
+                                                                placeholder="Lastname">
+                                                </div>
+                                                <div class="p-2">
+                                                        <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
+                                                                type="text" name="phone" id="phone"
+                                                                placeholder="Phone number">
+                                                </div>
+                                                <div class="p-2">
+                                                        <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
+                                                                type="email" name="email" id="email"
+                                                                placeholder="Email">
+                                                </div>
+                                                <div class="p-2">
+                                                        <select class="form-control ml-0 w-75 rounded-2 border-info" name="eta" id="eta">
+                                                                <option value="">Please Select</option>
+                                                                <option value="3:00pm">3:00pm</option>
+                                                                <option value="3:30pm">3:30pm</option>
+                                                                <option value="4:00pm">4:00pm</option>
+                                                                <option value="4:30pm">4:30pm</option>
+                                                                <option value="5:00pm">5:00pm</option>
+                                                                <option value="5:30pm">5:30pm</option>
+                                                                <option value="6:00pm">6:00pm</option>
                                                         </select>
                                                 </div>
-                                                <div>
-                                                        <p>Room only <span class="float-right">£<span
-                                                                                id="rate_rm1">75</span>.00</span> </p>
+                                                <div class="p-2">
+                                                        <textarea class="form-control ml-0 w-75 rounded-2 border-info"
+                                                                name="notes" id="notes" cols="30" rows="5"
+                                                                placeholder="Notes"></textarea>
+                                                </div>
+                                                <div class="form-check py-1">
+                                                        <input type="checkbox" class="form-check-input" id="terms">
+                                                        <label class="form-check-label" for="terms"> I accept
+                                                                the <a href="http://" target="_blank"
+                                                                        rel="noopener noreferrer">Terms and
+                                                                        Conditions</a></label>
+                                                </div>
 
+                                                <div id="booking_submit" class="modal-footer border-0 float-right">
+                                                        <button type="button" class="btn btn-secondary btn-info"
+                                                                data-dismiss="modal">Book</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Cancel</button>
                                                 </div>
-                                                <div>
-                                                        <p>Total Cost <span class="float-right">£<span
-                                                                                id="rate_total"></span>.00</span> </p>
-
-                                                </div>
-
-                                                <div id="guest_info" class="d-none">
-                                                        <hr>
-                                                        <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info"
-                                                                        type="text" name="firstname" id="firstname"
-                                                                        placeholder="Firstname">
-                                                        </div>
-                                                        <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info"
-                                                                        type="text" name="lastname" id="lastname"
-                                                                        placeholder="Lastname">
-                                                        </div>
-                                                        <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info"
-                                                                        type="text" name="phone" id="phone"
-                                                                        placeholder="Phone number">
-                                                        </div>
-                                                        <div class="p-2">
-                                                                <input class="form-control w-75 rounded-2 border-info"
-                                                                        type="email" name="email" id="email"
-                                                                        placeholder="Email">
-                                                        </div>
-                                                        <div class="p-2">
-                                                                <textarea
-                                                                        class="form-control w-75 rounded-2 border-info"
-                                                                        name="notes" id="notes" cols="30" rows="5"
-                                                                        placeholder="Notes"></textarea>
-                                                        </div>
-                                                        <div class="form-check py-1">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                        id="terms">
-                                                                <label class="form-check-label" for="terms"> I accept
-                                                                        the <a href="http://" target="_blank"
-                                                                                rel="noopener noreferrer">Terms and
-                                                                                Conditions</a></label>
-                                                        </div>
-                                                </div>
-                                                <div id="booking_step" class="float-right p-2">`
-                                                        <button type="button" id="booking_step1"
-                                                                onclick="display_guestInfo()"
-                                                                class="btn btn-secondary btn-success"
-                                                                data-dismiss="modal">Continue Booking</button>
-                                                </div>
-                                        </div>
-                                        <div id="booking_submit" class="modal-footer border-0 d-none float-right">
-                                                <button type="button" class="btn btn-secondary btn-success"
-                                                        data-dismiss="modal">Book</button>
-                                                <button type="button" class="btn btn-secondary btn-danger"
-                                                        data-dismiss="modal">Cancel</button>
                                         </div>
                                 </div>
-                        </form>
                 </div>
+                </form>
         </div>
+</div>
 </div>
 
 {% endblock %}

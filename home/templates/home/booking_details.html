@@ -20,8 +20,8 @@
                         </div>
                         <div class="col-lg-2 col-6 border p-2">
                                 <p class="muted">Departing:</p>
-                                <select class="border-info p-1 rounded-2" oninput="changeBooking()" name="nights"
-                                        id="nights">
+                                <select class="border-info p-1 rounded-2" oninput="changeBooking()"
+                                        id="select_nights">
                                         <option id="dep1" value="1">1 night - {{dep1|date:'D d M'}}
                                         </option>
                                         {% for n2 in PodAnight_two %}
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-lg-2 border col-6 p-2">
                                 <p class="muted">Guests:</p>
-                                <input type="number" class="border-info p-1" name="podA_pax" id="podA_pax" min="1"
+                                <input type="number" class="border-info p-1" id="occupancy" min="1" oninput="changeBooking()"
                                         max="2" placeholder="0" required>
                         </div>
                         <div class="col-lg-2 col-6 border p-2">
@@ -78,7 +78,7 @@
                                                         id="rate_total"></span>.00</span></h3>
                         </div>
                         <div class="border-0 float-right my-3 offset-lg-2 col-lg-8 col-12 p-1">
-                                <button type="button" class="btn btn-info btn-success" data-toggle="modal"
+                                <button type="button" onclick="checkOccupancy()" id="occButton" class="btn btn-info btn-success" 
                                         data-target="#availability">Continue Booking</button>
                                 <a href="{% url 'booking' %}"><button type="button"
                                                 class="btn btn-secondary">Cancel</button></a>
@@ -103,13 +103,51 @@
                                         <div class="form-group">
                                                 <h5>Beinn Monk</h5>
                                                 <div class="muted">
-                                                        <p>Arrival Date: Wednesday, 28 Sep 2023</p>
-                                                        <p>Nights: 2</p>
-                                                        <p>Occupancy: 2</p>
-                                                        <p>Total Cost: £240.00</p>
-
+                                                        <div class="row d-none">
+                                                                <div class="col-3"><label for="podA">Pod:
+                                                                                </label></div>
+                                                                <div class="col-9"><input type="text" class="border-0 float-left text-left"
+                                                                                name="podA" id="podA"
+                                                                                value="Beinn Monk">
+                                                                </div>
+                                                                <div class="col-3"><label for="podA">Booking ID:
+                                                                                </label></div>
+                                                                <div class="col-9"><input type="text" class="border-0 float-left text-left"
+                                                                                name="booking_id" id="booking_id"
+                                                                                value='{{booking_id|slice:"10"}}'>
+                                                                </div>
+                                                        </div>
+                                                        <div class="row">
+                                                                <div class="col-3"><label for="arrival_date">Arrival
+                                                                                Date:</label></div>
+                                                                <div class="col-9"><input type="text" class="border-0 float-left text-left"
+                                                                                name="arrival_date" id="arrival_date"
+                                                                                value="{{date_one|date:'D, d M Y'}}">
+                                                                </div>
+                                                        </div>
+                                                        <div class="row">
+                                                                <div class="col-3"><label for="arrival_date">
+                                                                                Nights:</label></div>
+                                                                <div class="col-9"><input type="text" class="border-0  float-left text-left" name="nights"
+                                                                        id="nights">
+                                                                </div>
+                                                        </div>
+                                                        <div class="row">
+                                                                <div class="col-3"><label for="podA-pax">
+                                                                                Occupancy:</label></div>
+                                                                <div class="col-9"><input type="text" class="border-0  float-left text-left" name="podA_pax"
+                                                                        id="podA_pax">
+                                                                </div>
+                                                        </div>
+                                                        <div class="row">
+                                                                <div class="col-3"><label for="arrival_date">
+                                                                                Total cost:</label></div>
+                                                                <div class="col-9"><span class="float-left">£</span><input type="text" class="border-0  float-left text-left" name="total_cost"
+                                                                        id="total_cost">
+                                                                </div>
+                                                        </div>                                                                       
                                                 </div>
-                                                <hr>        
+                                                <hr>
                                                 <div class="p-2">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
                                                                 type="text" name="firstname" id="firstname"
@@ -130,9 +168,15 @@
                                                                 type="email" name="email" id="email"
                                                                 placeholder="Email">
                                                 </div>
+                                                <div class="p-2 d-none">
+                                                        <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
+                                                                type="text" name="status" id="status" value="Booked"
+                                                                placeholder="Email">
+                                                </div>
                                                 <div class="p-2">
-                                                        <select class="form-control ml-0 w-75 rounded-2 border-info" name="eta" id="eta">
-                                                                <option value="">Please Select</option>
+                                                        <select class="form-control ml-0 w-75 rounded-2 border-info"
+                                                                name="eta" id="eta">
+                                                                <option value="">Estimated arrival time</option>
                                                                 <option value="3:00pm">3:00pm</option>
                                                                 <option value="3:30pm">3:30pm</option>
                                                                 <option value="4:00pm">4:00pm</option>
@@ -170,3 +214,9 @@
 </div>
 
 {% endblock %}
+
+{% block postloadjs %}
+<script>
+
+</script>
+{% endblock  %}

@@ -7,6 +7,8 @@ from home.models import BookingPodA, BookingPodB
 
 from datetime import date, timedelta, datetime
 
+import uuid
+
 # Create your views here.
 
 
@@ -235,6 +237,9 @@ def booking(request):
 def booking_details(request, selected_day):
     """ A view to return the about page """
 
+    booking_id = uuid.uuid4().hex.upper()
+    print(booking_id)
+
     one = selected_day
     date_one = datetime.strptime(one, "%Y-%m-%d")
     dep1 = date_one + timedelta(days=1)
@@ -251,6 +256,7 @@ def booking_details(request, selected_day):
 
 
     context = {
+        "booking_id": booking_id,
         "date_one": date_one,
         'dep1': dep1,
         'dep2': dep2,

@@ -12,7 +12,7 @@ function changeBooking() {
     document.getElementById("nights").value = test_nights;
     var occupancy = document.getElementById("occupancy").value;
     console.log(occupancy)
-    document.getElementById("podA_pax").value = occupancy
+    document.getElementById("pax").value = occupancy
 } 
 
 function checkOccupancy() {
@@ -25,13 +25,16 @@ function checkOccupancy() {
             return;
         }
 
+    } else if (occupancy > 2) {
+        alert("Max occupancy is 2")
+
     } else {
         document.getElementById("occButton").setAttribute('data-toggle', "modal")
     }
+    // Cost
+    var total_cost = document.getElementById("rate_total").innerHTML
+    console.log(total_cost)
+    document.getElementById("total_cost").value = total_cost
 }
 
 // Occupancy
-
-// Cost
-var cost_total = document.getElementById("rate_total").innerHTML
-document.getElementById("total_cost").value = cost_total

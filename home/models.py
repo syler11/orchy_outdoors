@@ -10,7 +10,7 @@ class BookingPodA(models.Model):
 
     booking_id = models.CharField(max_length=10, null=True, blank=False)
     podA = models.CharField(max_length=20, null=True, blank=False)
-    podA_pax = models.IntegerField(null=True, blank=True)
+    pax = models.IntegerField(null=True, blank=True)
     nights = models.IntegerField(null=True, blank=True)
     arrival_date = models.DateField(null=True, blank=False)
     podA_rate = models.IntegerField(null=True, blank=False)
@@ -37,7 +37,7 @@ class BookingPodB(models.Model):
 
     booking_id = models.CharField(max_length=10, null=True, blank=True)
     podB = models.CharField(max_length=20, null=True, blank=True)
-    podB_pax = models.IntegerField(null=True, blank=True)
+    pax = models.IntegerField(null=True, blank=True)
     nights = models.IntegerField(null=True, blank=True)
     arrival_date = models.DateField(null=True, blank=False)
     podB_rate = models.IntegerField(null=True, blank=True)

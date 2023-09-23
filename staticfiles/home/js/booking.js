@@ -1,6 +1,6 @@
 var opt = document.getElementById('monthSelect');
 
-//var opt_text = document.getElementById('monthSelect').innerHTML;
+var opt_text = opt.innerHTML;
 let month_nam = opt_text.split(" ");
 let month_name = month_nam[0];
 

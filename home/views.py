@@ -233,7 +233,7 @@ def booking(request):
 
     return render(request, 'home/booking.html', context)
 
-def booking_details(request, selected_day):
+def booking_detailsPodA(request, selected_day):
     """ A view to return the about page """
 
     booking_id = uuid.uuid4().hex.upper()
@@ -249,25 +249,6 @@ def booking_details(request, selected_day):
     PodAnight_two = BookingPodA.objects.filter(arrival_date=dep1)
     PodAnight_three = BookingPodA.objects.filter(arrival_date=dep2)
     PodAnight_four = BookingPodA.objects.filter(arrival_date=dep3)
-    print(PodAnight_two)
-    print(PodAnight_three)
-    print(PodAnight_four)
-
-    if request.method == 'POST':
-        form = AddBookingPodAForm(request.POST, request.FILES)
-        if form.is_valid():
-            booking = form.save()
-
-            messages.success(request, 'Booking was succesfully created!')
-            return redirect(reverse('booking_success', args=[booking.id]))
-
-        else:
-            messages.error(request,
-                           'Failed to create booking. \
-                            Please ensure the form is valid.')
-    else:
-        form = AddBookingPodAForm()
-
 
     context = {
         "booking_id": booking_id,
@@ -279,15 +260,47 @@ def booking_details(request, selected_day):
         'PodAnight_two': PodAnight_two,
         'PodAnight_three': PodAnight_three,
         'PodAnight_four': PodAnight_four,
-        'form': form,
     }
 
 
-    return render(request, 'home/booking_details.html', context)
+    return render(request, 'home/booking_detailsPodA.html', context)
 
 
-def booking_save(request):
+def booking_detailsPodB(request, selected_day):
     """ A view to return the about page """
+
+    booking_id = uuid.uuid4().hex.upper()
+
+    one = selected_day
+    date_one = datetime.strptime(one, "%Y-%m-%d")
+    dep1 = date_one + timedelta(days=1)
+    dep2 = date_one + timedelta(days=2)
+    dep3 = date_one + timedelta(days=3)
+    dep4 = date_one + timedelta(days=4)
+
+    PodBnight_two = BookingPodB.objects.filter(arrival_date=dep1)
+    PodBnight_three = BookingPodB.objects.filter(arrival_date=dep2)
+    PodBnight_four = BookingPodB.objects.filter(arrival_date=dep3)
+
+    context = {
+        "booking_id": booking_id,
+        "date_one": date_one,
+        'dep1': dep1,
+        'dep2': dep2,
+        'dep3': dep3,
+        'dep4': dep4,
+        'PodBnight_two': PodBnight_two,
+        'PodBnight_three': PodBnight_three,
+        'PodBnight_four': PodBnight_four,
+    }
+
+
+    return render(request, 'home/booking_detailsPodB.html', context)
+
+
+def booking_savePodA(request):
+    """ A view to return the about page """
+
 
     if request.method == 'POST':
         form = AddBookingPodAForm(request.POST, request.FILES)
@@ -295,14 +308,41 @@ def booking_save(request):
             booking = form.save()
 
             messages.success(request, 'Booking was succesfully created!')
-            return redirect(reverse('booking_success', args=[booking.id]))
+            return redirect(reverse('booking_successPodA', args=[booking.id]))
 
         else:
             messages.error(request,
-                           'Failed to create booking. \
+                        'Failed to create booking. \
                             Please ensure the form is valid.')
     else:
         form = AddBookingPodAForm()
+
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'home/booking_details.html', context)
+
+def booking_savePodB(request):
+    """ A view to return the about page """
+
+
+    if request.method == 'POST':
+        form = AddBookingPodBForm(request.POST, request.FILES)
+        if form.is_valid():
+            booking = form.save()
+
+            messages.success(request, 'Booking was succesfully created!')
+            return redirect(reverse('booking_successPodB', args=[booking.id]))
+
+        else:
+            messages.error(request,
+                        'Failed to create booking. \
+                            Please ensure the form is valid.')
+    else:
+        form = AddBookingPodBForm()
+
 
     context = {
         'form': form
@@ -311,13 +351,25 @@ def booking_save(request):
     return render(request, 'home/booking_details.html', context)
 
 
-def booking_success(request, id):
+def booking_successPodA(request, id):
     """ A view to return the index page """
 
     bookingPodA = get_object_or_404(BookingPodA, pk=id)
 
     context = {
-        'bookingPodA': bookingPodA
+        'bookingPodA': bookingPodA,
+    }
+
+    return render(request, 'home/booking_success.html', context)
+
+
+def booking_successPodB(request, id):
+    """ A view to return the index page """
+
+    bookingPodB = get_object_or_404(BookingPodB, pk=id)
+
+    context = {
+        'bookingPodB': bookingPodB,
     }
 
     return render(request, 'home/booking_success.html', context)

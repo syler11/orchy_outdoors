@@ -24,24 +24,18 @@
                                         id="select_nights">
                                         <option id="dep1" value="1">1 night - {{dep1|date:'D d M'}}
                                         </option>
-                                        {% for n2 in PodAnight_two %}
-                                        {% if n2.status == "Available" %}
+                                        {% if not PodAnight_two %}
                                         <option id="dep2" value="2">2 nights - {{dep2|date:'D d M'}}
                                         </option>
-                                        {% for n3 in PodAnight_three %}
-                                        {% if n3.status == "Available" %}
+                                        {% if not PodAnight_three %}
                                         <option id="dep3" value="3">3 nights - {{dep3|date:'D d M'}}
                                         </option>
-                                        {% for n4 in PodAnight_four %}
-                                        {% if n4.status == "Available" %}
+                                        {% if not PodAnight_four %}
                                         <option id="dep4" value="4">4 nights - {{dep4|date:'D d M'}}
                                         </option>
                                         {% endif %}
-                                        {% endfor %}
                                         {% endif %}
-                                        {% endfor %}
                                         {% endif %}
-                                        {% endfor %}
                                 </select>
                         </div>
                         <div class="col-lg-2 border col-6 p-2">
@@ -97,7 +91,7 @@
                                         <span aria-hidden="true">&times;</span>
                                 </button>
                         </div>
-                        <form method="POST" action="{% url 'booking_save' %}" enctype="multipart/form-data">
+                        <form method="POST" action="{% url 'booking_savePodA' %}" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="modal-body">
                                         <div class="form-group">
@@ -136,10 +130,10 @@
                                                                 </div>
                                                         </div>
                                                         <div class="row">
-                                                                <div class="col-3"><label for="podA-pax">
+                                                                <div class="col-3"><label for="pax">
                                                                                 Occupancy:</label></div>
-                                                                <div class="col-9"><input type="text" class="border-0  float-left text-left" name="podA_pax"
-                                                                        id="podA_pax"readonly>
+                                                                <div class="col-9"><input type="text" class="border-0  float-left text-left" name="pax"
+                                                                        id="pax"readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">

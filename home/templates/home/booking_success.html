@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/booking_details.js'  %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+        <h1>Booking Success</h1>
+        <p>{{bookingPodA.booking_id}}</p>
+        <p>{{bookingPodB.booking_id}}</p>
+
+
+</div>
+
+{% endblock %}

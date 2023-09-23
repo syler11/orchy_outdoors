@@ -8,8 +8,8 @@
 {% block content %}
 <div class="page-container text-center m-3">
         <h1>Room Details</h1>
+        {{form.errors}}
         <br>
-        <form action="">
                 <div class="row no-gutters">
                         <div class="offset-lg-2 col-lg-8 bg-info">
                                 <h3 class="text-white">Beinn Moink</h3>
@@ -86,7 +86,6 @@
                 </div>
 
 </div>
-</form>
 
 <!-- Booking Modal -->
 <div class="modal fade" id="availability" tabindex="-1" role="dialog" aria-labelledby="availability" aria-hidden="true">
@@ -98,7 +97,8 @@
                                         <span aria-hidden="true">&times;</span>
                                 </button>
                         </div>
-                        <form action="">
+                        <form method="POST" action="{% url 'booking_save' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
                                 <div class="modal-body">
                                         <div class="form-group">
                                                 <h5>Beinn Monk</h5>
@@ -114,29 +114,32 @@
                                                                                 </label></div>
                                                                 <div class="col-9"><input type="text" class="border-0 float-left text-left"
                                                                                 name="booking_id" id="booking_id"
-                                                                                value='{{booking_id|slice:"10"}}'>
+                                                                                value='{{booking_id|slice:"10"}}' readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
+                                                                <div class="col-9 d-none"><input type="text" class="border-0 float-left text-left"
+                                                                        name="arrival_date" id="arrival_date"
+                                                                        value="{{date_one|date:'d/m/Y'}}"readonly>
+                                                                </div>
                                                                 <div class="col-3"><label for="arrival_date">Arrival
                                                                                 Date:</label></div>
-                                                                <div class="col-9"><input type="text" class="border-0 float-left text-left"
-                                                                                name="arrival_date" id="arrival_date"
-                                                                                value="{{date_one|date:'D, d M Y'}}">
+                                                                <div class="col-9"><input type="text" class="border-0 float-left text-dark text-left"
+                                                                                placeholder="{{date_one|date:'D, d m Y'}}"readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
                                                                 <div class="col-3"><label for="arrival_date">
                                                                                 Nights:</label></div>
                                                                 <div class="col-9"><input type="text" class="border-0  float-left text-left" name="nights"
-                                                                        id="nights">
+                                                                        id="nights" readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
                                                                 <div class="col-3"><label for="podA-pax">
                                                                                 Occupancy:</label></div>
                                                                 <div class="col-9"><input type="text" class="border-0  float-left text-left" name="podA_pax"
-                                                                        id="podA_pax">
+                                                                        id="podA_pax"readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
@@ -145,28 +148,31 @@
                                                                 <div class="col-9"><span class="float-left">£</span><input type="text" class="border-0  float-left text-left" name="total_cost"
                                                                         id="total_cost">
                                                                 </div>
+                                                                <div class="col-12 d-none"><input type="text" class="border-0  float-left text-left" name="podA_rate"
+                                                                        id="podA_rate" value="80">
+                                                                </div>
                                                         </div>                                                                       
                                                 </div>
                                                 <hr>
                                                 <div class="p-2">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
-                                                                type="text" name="firstname" id="firstname"
-                                                                placeholder="Firstname">
+                                                                type="text" name="fname" id="fname"
+                                                                placeholder="Firstname" required>
                                                 </div>
                                                 <div class="p-2">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
-                                                                type="text" name="lastname" id="lastname"
-                                                                placeholder="Lastname">
+                                                                type="text" name="lname" id="lname"
+                                                                placeholder="Lastname" required>
                                                 </div>
                                                 <div class="p-2">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
-                                                                type="text" name="phone" id="phone"
-                                                                placeholder="Phone number">
+                                                                type="text" name="phone_number" id="phone_number"
+                                                                placeholder="Phone number" required>
                                                 </div>
                                                 <div class="p-2">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
                                                                 type="email" name="email" id="email"
-                                                                placeholder="Email">
+                                                                placeholder="Email" required>
                                                 </div>
                                                 <div class="p-2 d-none">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
@@ -175,7 +181,7 @@
                                                 </div>
                                                 <div class="p-2">
                                                         <select class="form-control ml-0 w-75 rounded-2 border-info"
-                                                                name="eta" id="eta">
+                                                                name="eta" id="eta" required>
                                                                 <option value="">Estimated arrival time</option>
                                                                 <option value="3:00pm">3:00pm</option>
                                                                 <option value="3:30pm">3:30pm</option>
@@ -200,23 +206,17 @@
                                                 </div>
 
                                                 <div id="booking_submit" class="modal-footer border-0 float-right">
-                                                        <button type="button" class="btn btn-secondary btn-info"
-                                                                data-dismiss="modal">Book</button>
+                                                        <button type="submit" class="btn btn-secondary btn-info"
+                                                                >Book</button>
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Cancel</button>
                                                 </div>
                                         </div>
                                 </div>
+                        </form>
                 </div>
-                </form>
         </div>
 </div>
 </div>
 
 {% endblock %}
-
-{% block postloadjs %}
-<script>
-
-</script>
-{% endblock  %}

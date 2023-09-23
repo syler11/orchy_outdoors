@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from home.models import BookingPodA, BookingPodB
+from .forms import AddBookingPodAForm, AddBookingPodBForm
 
 from datetime import date, timedelta, datetime
 
@@ -64,8 +65,6 @@ def booking(request):
     date30 = date1 + timedelta(days=29)
     date31 = date1 + timedelta(days=30)
     print(date31)
-
-    
 
     dayPodA1 = BookingPodA.objects.filter(arrival_date=date1)
     dayPodA2 = BookingPodA.objects.filter(arrival_date=date2)
@@ -254,6 +253,21 @@ def booking_details(request, selected_day):
     print(PodAnight_three)
     print(PodAnight_four)
 
+    if request.method == 'POST':
+        form = AddBookingPodAForm(request.POST, request.FILES)
+        if form.is_valid():
+            booking = form.save()
+
+            messages.success(request, 'Booking was succesfully created!')
+            return redirect(reverse('booking_success', args=[booking.id]))
+
+        else:
+            messages.error(request,
+                           'Failed to create booking. \
+                            Please ensure the form is valid.')
+    else:
+        form = AddBookingPodAForm()
+
 
     context = {
         "booking_id": booking_id,
@@ -265,10 +279,48 @@ def booking_details(request, selected_day):
         'PodAnight_two': PodAnight_two,
         'PodAnight_three': PodAnight_three,
         'PodAnight_four': PodAnight_four,
+        'form': form,
     }
 
 
     return render(request, 'home/booking_details.html', context)
+
+
+def booking_save(request):
+    """ A view to return the about page """
+
+    if request.method == 'POST':
+        form = AddBookingPodAForm(request.POST, request.FILES)
+        if form.is_valid():
+            booking = form.save()
+
+            messages.success(request, 'Booking was succesfully created!')
+            return redirect(reverse('booking_success', args=[booking.id]))
+
+        else:
+            messages.error(request,
+                           'Failed to create booking. \
+                            Please ensure the form is valid.')
+    else:
+        form = AddBookingPodAForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'home/booking_details.html', context)
+
+
+def booking_success(request, id):
+    """ A view to return the index page """
+
+    bookingPodA = get_object_or_404(BookingPodA, pk=id)
+
+    context = {
+        'bookingPodA': bookingPodA
+    }
+
+    return render(request, 'home/booking_success.html', context)
 
 
 def about(request):

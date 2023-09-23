@@ -1,0 +1,694 @@
+<div class="d-flex row no-gutters pt-1" id="podA">
+    <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
+    <div class="col-lg-2 col-md-12 p-0 d-flex">
+            {% if today > date1|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">01</div>
+            {% else %}
+            {% if dayPodA1 %}
+            {% for d1 in dayPodA1 %}
+            {% if d1.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">01</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date1|date:'Y-m-d' %}">
+                    <div id="podA_1">01</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date1|date:'Y-m-d' %}">
+                    <div id="podA_1">01</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date2|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">02</div>
+            {% else %}
+            {% if dayPodA2 %}
+            {% for d2 in dayPodA2 %}
+            {% if d2.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_2"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">02</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date2|date:'Y-m-d' %}">
+                    <div id="podA_2">02</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date2|date:'Y-m-d' %}">
+                    <div id="podA_2">02</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date3|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">03</div>
+            {% else %}
+            {% if dayPodA3 %}
+            {% for d3 in dayPodA3 %}
+            {% if d3.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_3"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">03</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date3|date:'Y-m-d' %}">
+                    <div id="podA_3">03</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date3|date:'Y-m-d' %}">
+                    <div id="podA_3">03</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date4|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">04</div>
+            {% else %}
+            {% if dayPodA4 %}
+            {% for d4 in dayPodA4 %}
+            {% if d4.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_4"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">04</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date4|date:'Y-m-d' %}">
+                    <div id="podA_4">04</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date4|date:'Y-m-d' %}">
+                    <div id="podA_4">04</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date5|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">05</div>
+            {% else %}
+            {% if dayPodA5 %}
+            {% for d5 in dayPodA5 %}
+            {% if d5.podA == "Beinn Otter" %}
+            <div class="booking-square bg-danger text-white" id="podA_5"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">05</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date5|date:'Y-m-d' %}">
+                    <div id="podA_5">05</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date5|date:'Y-m-d' %}">
+                    <div id="podA_5">05</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date6|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">06</div>
+            {% else %}
+            {% if dayPodA6 %}
+            {% for d6 in dayPodA6 %}
+            {% if d6.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_6"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">06</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date6|date:'Y-m-d' %}">
+                    <div id="podA_6">06</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date6|date:'Y-m-d' %}">
+                    <div id="podA_6">06</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date7|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">07</div>
+            {% else %}
+            {% if dayPodA7 %}
+            {% for d7 in dayPodA7 %}
+            {% if d7.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_7"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">07</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date7|date:'Y-m-d' %}">
+                    <div id="podA_7">07</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date7|date:'Y-m-d' %}">
+                    <div id="podA_7">07</div>
+            </a>
+            {% endif %}
+            {% endif %}
+    </div>
+    <div class="col-lg-2 col-md-12 p-0 d-flex">
+            {% if today > date8|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">08</div>
+            {% else %}
+            {% if dayPodA8 %}
+            {% for d8 in dayPodA8 %}
+            {% if d8.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_8"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">08</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date8|date:'Y-m-d' %}">
+                    <div id="podA_8">08</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date8|date:'Y-m-d' %}">
+                    <div id="podA_8">08</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date9|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">09</div>
+            {% else %}
+            {% if dayPodA9 %}
+            {% for d9 in dayPodA9 %}
+            {% if d9.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_9"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">09</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date9|date:'Y-m-d' %}">
+                    <div id="podA_9">09</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date9|date:'Y-m-d' %}">
+                    <div id="podA_9">09</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date10|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">10</div>
+            {% else %}
+            {% if dayPodA10 %}
+            {% for d10 in dayPodA10 %}
+            {% if d10.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">10</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date10|date:'Y-m-d' %}">
+                    <div id="podA_10">10</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date10|date:'Y-m-d' %}">
+                    <div id="podA_10">10</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date11|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">11</div>
+            {% else %}
+            {% if dayPodA11 %}
+            {% for d11 in dayPodA11 %}
+            {% if d11.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white"><a class="text-white" href="#"
+                            onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">11</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date11|date:'Y-m-d' %}">
+                    <div id="podA_11">11</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date11|date:'Y-m-d' %}">
+                    <div id="podA_11">11</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date12|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">12</div>
+            {% else %}
+            {% if dayPodA12 %}
+            {% for d12 in dayPodA12 %}
+            {% if d12.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white"><a class="text-white" href="#"
+                            onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">12</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date12|date:'Y-m-d' %}">
+                    <div id="podA_12">12</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date12|date:'Y-m-d' %}">
+                    <div id="podA_12">12</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date13|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">13</div>
+            {% else %}
+            {% if dayPodA13 %}
+            {% for d13 in dayPodA13 %}
+            {% if d13.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">13</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date13|date:'Y-m-d' %}">
+                    <div id="podA_13">13</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date13|date:'Y-m-d' %}">
+                    <div id="podA_13">13</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date14|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">14</div>
+            {% else %}
+            {% if dayPodA14 %}
+            {% for d14 in dayPodA14 %}
+            {% if d14.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">14</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date14|date:'Y-m-d' %}">
+                    <div id="podA_14">14</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date14|date:'Y-m-d' %}">
+                    <div id="podA_14">14</div>
+            </a>
+            {% endif %}
+            {% endif %}
+    </div>
+    <div class="col-lg-2 col-md-12 p-0 d-flex">
+            {% if today > date15|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">15</div>
+            {% else %}
+            {% if dayPodA15 %}
+            {% for d15 in dayPodA15 %}
+            {% if d15.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">15</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date15|date:'Y-m-d' %}">
+                    <div id="podA_15">15</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date15|date:'Y-m-d' %}">
+                    <div id="podA_15">15</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date16|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">16</div>
+            {% else %}
+            {% if dayPodA16 %}
+            {% for d16 in dayPodA16 %}
+            {% if d16.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">16</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date16|date:'Y-m-d' %}">
+                    <div id="podA_16">16</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date16|date:'Y-m-d' %}">
+                    <div id="podA_16">16</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date17|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">17</div>
+            {% else %}
+            {% if dayPodA17 %}
+            {% for d17 in dayPodA17 %}
+            {% if d17.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">17</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date17|date:'Y-m-d' %}">
+                    <div id="podA_17">17</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date17|date:'Y-m-d' %}">
+                    <div id="podA_17">17</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date18|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">18</div>
+            {% else %}
+            {% if dayPodA18 %}
+            {% for d18 in dayPodA18 %}
+            {% if d18.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">18</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date18|date:'Y-m-d' %}">
+                    <div id="podA_18">18</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date18|date:'Y-m-d' %}">
+                    <div id="podA_18">18</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date19|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">19</div>
+            {% else %}
+            {% if dayPodA19 %}
+            {% for d19 in dayPodA19 %}
+            {% if d19.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">19</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date19|date:'Y-m-d' %}">
+                    <div id="podA_19">19</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date19|date:'Y-m-d' %}">
+                    <div id="podA_19">19</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date20|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">20</div>
+            {% else %}
+            {% if dayPodA20 %}
+            {% for d20 in dayPodA20 %}
+            {% if d20.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">20</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date20|date:'Y-m-d' %}">
+                    <div id="podA_20">20</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date20|date:'Y-m-d' %}">
+                    <div id="podA_20">20</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date21|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">21</div>
+            {% else %}
+            {% if dayPodA21 %}
+            {% for d21 in dayPodA21 %}
+            {% if d21.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">21</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date21|date:'Y-m-d' %}">
+                    <div id="podA_21">21</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date21|date:'Y-m-d' %}">
+                    <div id="podA_21">21</div>
+            </a>
+            {% endif %}
+            {% endif %}
+    </div>
+    <div class="col-lg-2 col-md-12 p-0 d-flex">
+            {% if today > date22|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">22</div>
+            {% else %}
+            {% if dayPodA22 %}
+            {% for d22 in dayPodA22 %}
+            {% if d22.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">22</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date22|date:'Y-m-d' %}">
+                    <div id="podA_22">22</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date22|date:'Y-m-d' %}">
+                    <div id="podA_22">22</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date23|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">23</div>
+            {% else %}
+            {% if dayPodA23 %}
+            {% for d23 in dayPodA23 %}
+            {% if d23.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">23</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date23|date:'Y-m-d' %}">
+                    <div id="podA_23">23</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date23|date:'Y-m-d' %}">
+                    <div id="podA_23">23</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date24|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">24</div>
+            {% else %}
+            {% if dayPodA24 %}
+            {% for d24 in dayPodA24 %}
+            {% if d24.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">24</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date24|date:'Y-m-d' %}">
+                    <div id="podA_24">24</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date24|date:'Y-m-d' %}">
+                    <div id="podA_24">24</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date25|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">25</div>
+            {% else %}
+            {% if dayPodA25 %}
+            {% for d25 in dayPodA25 %}
+            {% if d25.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">25</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date25|date:'Y-m-d' %}">
+                    <div id="podA_25">25</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date25|date:'Y-m-d' %}">
+                    <div id="podA_25">25</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date26|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">26</div>
+            {% else %}
+            {% if dayPodA26 %}
+            {% for d26 in dayPodA26 %}
+            {% if d26.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">26</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date26|date:'Y-m-d' %}">
+                    <div id="podA_26">26</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date26|date:'Y-m-d' %}">
+                    <div id="podA_26">26</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date27|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">27</div>
+            {% else %}
+            {% if dayPodA27 %}
+            {% for d27 in dayPodA27 %}
+            {% if d27.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">27</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date27|date:'Y-m-d' %}">
+                    <div id="podA_27">27</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date27|date:'Y-m-d' %}">
+                    <div id="podA_27">27</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date28|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">28</div>
+            {% else %}
+            {% if dayPodA28 %}
+            {% for d28 in dayPodA28 %}
+            {% if d28.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">28</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date28|date:'Y-m-d' %}">
+                    <div id="podA_28">28</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date28|date:'Y-m-d' %}">
+                    <div id="podA_28">28</div>
+            </a>
+            {% endif %}
+            {% endif %}
+    </div>
+    <div class="col-lg-2 col-md-12 p-0 d-flex">
+            {% if today > date29|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">29</div>
+            {% else %}
+            {% if dayPodA29 %}
+            {% for d29 in dayPodA29 %}
+            {% if d29.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">29</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date29|date:'Y-m-d' %}">
+                    <div id="podA_29">29</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date29|date:'Y-m-d' %}">
+                    <div id="podA_29">29</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date30|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">30</div>
+            {% else %}
+            {% if dayPodA30 %}
+            {% for d30 in dayPodA30 %}
+            {% if d30.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">30</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date30|date:'Y-m-d' %}">
+                    <div id="podA_30">30</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date30|date:'Y-m-d' %}">
+                    <div id="podA_30">30</div>
+            </a>
+            {% endif %}
+            {% endif %}
+
+            {% if today > date31|date:"Y-m-d" %}
+            <div class="booking-square bg-secondary text-white">31</div>
+            {% else %}
+            {% if dayPodA31 %}
+            {% for d31 in dayPodA31 %}
+            {% if d31.podA == "Beinn Monk" %}
+            <div class="booking-square bg-danger text-white" id="podA_1"><a class="text-white"
+                            href="#" onclick="modalClick(this)" data-toggle="modal"
+                            data-target="#no_availability">31</a></div>
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date31|date:'Y-m-d' %}">
+                    <div id="podA_31">31</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <a class="booking-square bg-success text-white" href="{% url 'booking_detailsPodA' date31|date:'Y-m-d' %}" id="podA_31">
+                    <div id="podA_31">31</div>
+            </a>
+            {% endif %}
+            {% endif %}
+            <div class="booking-square"></div>
+            <div class="booking-square"></div>
+            <div class="booking-square"></div>
+            <div class="booking-square"></div>
+    </div>
+</div>

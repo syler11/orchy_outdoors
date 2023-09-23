@@ -177,13 +177,15 @@
                                                         <select class="form-control ml-0 w-75 rounded-2 border-info"
                                                                 name="eta" id="eta" required>
                                                                 <option value="">Estimated arrival time</option>
-                                                                <option value="3:00pm">3:00pm</option>
                                                                 <option value="3:30pm">3:30pm</option>
                                                                 <option value="4:00pm">4:00pm</option>
                                                                 <option value="4:30pm">4:30pm</option>
                                                                 <option value="5:00pm">5:00pm</option>
                                                                 <option value="5:30pm">5:30pm</option>
                                                                 <option value="6:00pm">6:00pm</option>
+                                                                <option value="6:00pm">6:30pm</option>
+                                                                <option value="6:00pm">7:00pm</option>
+                                                                <option value="6:00pm">7:30pm</option>
                                                         </select>
                                                 </div>
                                                 <div class="p-2">
@@ -191,17 +193,18 @@
                                                                 name="notes" id="notes" cols="30" rows="5"
                                                                 placeholder="Notes"></textarea>
                                                 </div>
-                                                <div class="form-check py-1">
-                                                        <input type="checkbox" class="form-check-input" id="terms">
+                                                <div class="form-check">
+                                                        <input class="form-check-input" onchange="validate()"
+                                                                type="checkbox" name="terms" value="true" id="terms">
                                                         <label class="form-check-label" for="terms"> I accept
                                                                 the <a href="http://" target="_blank"
                                                                         rel="noopener noreferrer">Terms and
                                                                         Conditions</a></label>
                                                 </div>
 
-                                                <div id="booking_submit" class="modal-footer border-0 float-right">
-                                                        <button type="submit" class="btn btn-secondary btn-info"
-                                                                >Book</button>
+                                                <div class="modal-footer border-0 float-right">
+                                                        <button type="submit" id="bookingSubmit" class="btn btn-secondary btn-info"
+                                                        disabled>Book</button>
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Cancel</button>
                                                 </div>
@@ -213,4 +216,20 @@
 </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+        function validate() {
+                var terms = document.getElementById("terms");
+                var bookingSubmit = document.getElementById("bookingSubmit");
+
+                if (terms.checked) {
+                        bookingSubmit.removeAttribute('disabled');
+                } else {
+                        bookingSubmit.setAttribute('disabled', true)
+                }
+        };
+</script>
 {% endblock %}

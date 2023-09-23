@@ -159,6 +159,27 @@ div input {
     border-bottom-color: #343a40 !important;
 }
 
+.available_square {
+    width: 35px;
+    height: 35px;
+    background-color: #28a745!important;
+    margin-top: 1rem;
+}
+
+.booked_square {
+    width: 35px;
+    height: 35px;
+    background-color: #dc3545!important;
+    margin-top: 1rem;
+}
+
+.unavailable_square {
+    width: 35px;
+    height: 35px;
+    background-color: #6c757d!important;
+    margin-top: 1rem;
+}
+
 
 /* Media Queries */
 

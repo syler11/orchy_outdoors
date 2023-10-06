@@ -31,6 +31,12 @@ def booking(request):
     else:
         firstDate = today
 
+    bookPodA = BookingPodA.objects.filter(status="Booked")
+    podA = list(bookPodA.values_list('arrival_range', flat=True))
+
+    bookPodB = BookingPodB.objects.filter(status="Booked")
+    podB = list(bookPodB.values_list('arrival_range', flat=True))
+
     parseDate = datetime.strptime(firstDate[0:8], "%Y-%m-")
 
     date1 = datetime.strptime(firstDate[0:8] + "01", "%Y-%m-%d")
@@ -66,73 +72,9 @@ def booking(request):
     date31 = date1 + timedelta(days=30)
     print(date31)
 
-    dayPodA1 = BookingPodA.objects.filter(arrival_date=date1)
-    dayPodA2 = BookingPodA.objects.filter(arrival_date=date2)
-    dayPodA3 = BookingPodA.objects.filter(arrival_date=date3)
-    dayPodA4 = BookingPodA.objects.filter(arrival_date=date4)
-    dayPodA5 = BookingPodA.objects.filter(arrival_date=date5)
-    dayPodA6 = BookingPodA.objects.filter(arrival_date=date6)
-    dayPodA7 = BookingPodA.objects.filter(arrival_date=date7)
-    dayPodA8 = BookingPodA.objects.filter(arrival_date=date8)
-    dayPodA9 = BookingPodA.objects.filter(arrival_date=date9)
-    dayPodA10 = BookingPodA.objects.filter(arrival_date=date10)
-    dayPodA11 = BookingPodA.objects.filter(arrival_date=date11)
-    dayPodA12 = BookingPodA.objects.filter(arrival_date=date12)
-    dayPodA13 = BookingPodA.objects.filter(arrival_date=date13)
-    dayPodA14 = BookingPodA.objects.filter(arrival_date=date14)
-    dayPodA15 = BookingPodA.objects.filter(arrival_date=date15)
-    dayPodA16 = BookingPodA.objects.filter(arrival_date=date16)
-    dayPodA17 = BookingPodA.objects.filter(arrival_date=date17)
-    dayPodA18 = BookingPodA.objects.filter(arrival_date=date18)
-    dayPodA19 = BookingPodA.objects.filter(arrival_date=date19)
-    dayPodA20 = BookingPodA.objects.filter(arrival_date=date20)
-    dayPodA21 = BookingPodA.objects.filter(arrival_date=date21)
-    dayPodA22 = BookingPodA.objects.filter(arrival_date=date22)
-    dayPodA23 = BookingPodA.objects.filter(arrival_date=date23)
-    dayPodA24 = BookingPodA.objects.filter(arrival_date=date24)
-    dayPodA25 = BookingPodA.objects.filter(arrival_date=date25)
-    dayPodA26 = BookingPodA.objects.filter(arrival_date=date26)
-    dayPodA27 = BookingPodA.objects.filter(arrival_date=date27)
-    dayPodA28 = BookingPodA.objects.filter(arrival_date=date28)
-    dayPodA29 = BookingPodA.objects.filter(arrival_date=date29)
-    dayPodA30 = BookingPodA.objects.filter(arrival_date=date30)
-    dayPodA31 = BookingPodA.objects.filter(arrival_date=date31)
-
-
-    dayPodB1 = BookingPodB.objects.filter(arrival_date=date1)
-    dayPodB2 = BookingPodB.objects.filter(arrival_date=date2)
-    dayPodB3 = BookingPodB.objects.filter(arrival_date=date3)
-    dayPodB4 = BookingPodB.objects.filter(arrival_date=date4)
-    dayPodB5 = BookingPodB.objects.filter(arrival_date=date5)
-    dayPodB6 = BookingPodB.objects.filter(arrival_date=date6)
-    dayPodB7 = BookingPodB.objects.filter(arrival_date=date7)
-    dayPodB8 = BookingPodB.objects.filter(arrival_date=date8)
-    dayPodB9 = BookingPodB.objects.filter(arrival_date=date9)
-    dayPodB10 = BookingPodB.objects.filter(arrival_date=date10)
-    dayPodB11 = BookingPodB.objects.filter(arrival_date=date11)
-    dayPodB12 = BookingPodB.objects.filter(arrival_date=date12)
-    dayPodB13 = BookingPodB.objects.filter(arrival_date=date13)
-    dayPodB14 = BookingPodB.objects.filter(arrival_date=date14)
-    dayPodB15 = BookingPodB.objects.filter(arrival_date=date15)
-    dayPodB16 = BookingPodB.objects.filter(arrival_date=date16)
-    dayPodB17 = BookingPodB.objects.filter(arrival_date=date17)
-    dayPodB18 = BookingPodB.objects.filter(arrival_date=date18)
-    dayPodB19 = BookingPodB.objects.filter(arrival_date=date19)
-    dayPodB20 = BookingPodB.objects.filter(arrival_date=date20)
-    dayPodB21 = BookingPodB.objects.filter(arrival_date=date21)
-    dayPodB22 = BookingPodB.objects.filter(arrival_date=date22)
-    dayPodB23 = BookingPodB.objects.filter(arrival_date=date23)
-    dayPodB24 = BookingPodB.objects.filter(arrival_date=date24)
-    dayPodB25 = BookingPodB.objects.filter(arrival_date=date25)
-    dayPodB26 = BookingPodB.objects.filter(arrival_date=date26)
-    dayPodB27 = BookingPodB.objects.filter(arrival_date=date27)
-    dayPodB28 = BookingPodB.objects.filter(arrival_date=date28)
-    dayPodB29 = BookingPodB.objects.filter(arrival_date=date29)
-    dayPodB30 = BookingPodB.objects.filter(arrival_date=date30)
-    dayPodB31 = BookingPodB.objects.filter(arrival_date=date31)
-
-
     context = {
+        "podA": podA,
+        "podB": podB,
         "today": today,
         'firstDate': firstDate,
         'parseDate': parseDate,
@@ -167,68 +109,6 @@ def booking(request):
         "date29": date29,
         "date30": date30,
         "date31": date31,
-        'dayPodA1': dayPodA1,
-        'dayPodA2': dayPodA2,
-        'dayPodA3': dayPodA3,
-        'dayPodA4': dayPodA4,
-        'dayPodA5': dayPodA5,
-        'dayPodA6': dayPodA6,
-        'dayPodA7': dayPodA7,
-        'dayPodA8': dayPodA8,
-        'dayPodA9': dayPodA9,
-        'dayPodA10': dayPodA10,
-        'dayPodA11': dayPodA11,
-        'dayPodA12': dayPodA12,
-        'dayPodA13': dayPodA13,
-        'dayPodA14': dayPodA14,
-        'dayPodA15': dayPodA15,
-        'dayPodA16': dayPodA16,
-        'dayPodA17': dayPodA17,
-        'dayPodA18': dayPodA18,
-        'dayPodA19': dayPodA19,
-        'dayPodA20': dayPodA20,
-        'dayPodA21': dayPodA21,
-        'dayPodA22': dayPodA22,
-        'dayPodA23': dayPodA23,
-        'dayPodA24': dayPodA24,
-        'dayPodA25': dayPodA25,
-        'dayPodA26': dayPodA26,
-        'dayPodA27': dayPodA27,
-        'dayPodA28': dayPodA28,
-        'dayPodA29': dayPodA29,
-        'dayPodA30': dayPodA30,
-        'dayPodA31': dayPodA31,
-        'dayPodB1': dayPodB1,
-        'dayPodB2': dayPodB2,
-        'dayPodB3': dayPodB3,
-        'dayPodB4': dayPodB4,
-        'dayPodB5': dayPodB5,
-        'dayPodB6': dayPodB6,
-        'dayPodB7': dayPodB7,
-        'dayPodB8': dayPodB8,
-        'dayPodB9': dayPodB9,
-        'dayPodB10': dayPodB10,
-        'dayPodB11': dayPodB11,
-        'dayPodB12': dayPodB12,
-        'dayPodB13': dayPodB13,
-        'dayPodB14': dayPodB14,
-        'dayPodB15': dayPodB15,
-        'dayPodB16': dayPodB16,
-        'dayPodB17': dayPodB17,
-        'dayPodB18': dayPodB18,
-        'dayPodB19': dayPodB19,
-        'dayPodB20': dayPodB20,
-        'dayPodB21': dayPodB21,
-        'dayPodB22': dayPodB22,
-        'dayPodB23': dayPodB23,
-        'dayPodB24': dayPodB24,
-        'dayPodB25': dayPodB25,
-        'dayPodB26': dayPodB26,
-        'dayPodB27': dayPodB27,
-        'dayPodB28': dayPodB28,
-        'dayPodB29': dayPodB29,
-        'dayPodB30': dayPodB30,
-        'dayPodB31': dayPodB31,
     }
 
     return render(request, 'home/booking.html', context)

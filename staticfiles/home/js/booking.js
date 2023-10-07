@@ -1,5 +1,23 @@
 var opt = document.getElementById('monthSelect');
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + "-"+ mm + '-' + dd;
+
+var  month9 = document.getElementById("month9")
+var  month10 = document.getElementById("month10")
+var  month11 = document.getElementById("month11")
+
+if (today > month9.value) {
+    month9.classList.add("d-none")
+}
+if (today > month10.value) {
+    month10.classList.add("d-none")
+}
+
 var opt_text = opt.innerHTML;
 let month_nam = opt_text.split(" ");
 let month_name = month_nam[0];

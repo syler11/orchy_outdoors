@@ -9,7 +9,7 @@ today = yyyy + "-"+ mm + '-' + dd;
 
 var  month9 = document.getElementById("month9")
 var  month10 = document.getElementById("month10")
-var  month11 = document.getElementById("month10").value
+var  month11 = document.getElementById("month11")
 
 if (today > month9.value) {
     month9.classList.add("d-none")

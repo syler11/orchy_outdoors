@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block extra_js %}
+<script>
+    function dateFormat() {
+        var date = document.getElementById("dateTest").value;
+        year = date.slice(0, 4),
+            console.log(year)
+        month = date.slice(5, 7),
+            console.log(month)
+        day = date.slice(8, 10),
+            console.log(day)
+        date = day + "/" + month + "/" + year
+        console.log(date)
+        document.getElementById("date").value = date
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Restrictions</h1>
+</div>
+<div class="row no-gutters">
+    <div class="col-6">
+        <div class="page-container m-3">
+            {{form.errors}}
+            <form method="post" action="{% url 'availability' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row no-gutters">
+                    <div class="p-2 col-12">
+                        <label class="float-left" for="date">Date:</label>
+                        <input type="date" class="float-left ml-3" name="dateTest" id="dateTest" onchange="dateFormat()"
+                            value="">
+                        <input type="text" class="d-none" name="date" id="date" value="">
+                    </div>
+                    <div class="p-2 col-12">
+                        <label class="float-left" for="podArate">Beinn Otter Rate:</label>
+                        <input type="number" class="float-left ml-3" name="podArate" id="podArate"
+                            value="{{ BASE_RATE }}">
+                    </div>
+                    <div class="p-2 col-12">
+                        <label class="float-left" for="podArate">Beinn Otter Status:</label>
+                        <select class="float-left ml-3" name="podAstatus" id="podAstatus">
+                            <option value="closed">Closed</option>
+                            <option value="open">Open</option>
+                        </select>
+                    </div>
+                    <div class="p-2 col-12">
+                        <label class="float-left" for="podBrate">Beinn Monk Rate:</label>
+                        <input type="number" class="float-left ml-3" name="podBrate" id="podBrate"
+                            value="{{ BASE_RATE }}">
+                    </div>
+                    <div class="p-2 col-12">
+                        <label class="float-left" for="podBstatus">Beinn Monk Status:</label>
+                        <select class="float-left ml-3" name="podBstatus" id="podBstatus">
+                            <option value="closed">Closed</option>
+                            <option value="open">Open</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-secondary btn-info" type="submit">Submit</button>
+        </div>
+        </form>
+        <div>
+            {% for restr in restrictions %}
+            {{ restr.date }}
+            {{ restr.podArate }}
+            {{ restr.podAstatus }}
+            {{ restr.podBrate }}
+            {{ restr.podBstatus }}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">PodARate</th>
+                        <th scope="col">PodAStatus</th>
+                        <th scope="col">PodBRate</th>
+                        <th scope="col">PodBStatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for restr in restrictions %}
+                    <tr>
+                        <td><a href="">{{ restr.date }}</a></td>
+                        <td>{{ restr.podArate }}</td>
+                        <td>{{ restr.podAstatus }}</td>
+                        <td>{{ restr.podBrate }}</td>
+                        <td>{{ restr.podBstatus }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

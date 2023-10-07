@@ -1,7 +1,7 @@
 <div class="d-flex row no-gutters pt-1" id="podA">
         <div class="pr-3 col-lg-2 col-md-12">Beinn Monk</div>
         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                {% if today > date1|date:"Y-m-d" %}
+                {% if today > date1|date:"Y-m-d" or date1|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">01</div>
                 {% else %}
                 {% if date1|date:"Y-m-d" in podA|join:" " %}
@@ -16,7 +16,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date2|date:"Y-m-d" %}
+                {% if today > date2|date:"Y-m-d" or date2|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">02</div>
                 {% else %}
                 {% if date2|date:"Y-m-d" in podA|join:" " %}
@@ -31,7 +31,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date3|date:"Y-m-d" %}
+                {% if today > date3|date:"Y-m-d" or date3|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">03</div>
                 {% else %}
                 {% if date3|date:"Y-m-d" in podA|join:" " %}
@@ -46,7 +46,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date4|date:"Y-m-d" %}
+                {% if today > date4|date:"Y-m-d" or date4|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">04</div>
                 {% else %}
                 {% if date4|date:"Y-m-d" in podA|join:" " %}
@@ -61,7 +61,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date5|date:"Y-m-d" %}
+                {% if today > date5|date:"Y-m-d" or date5|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">05</div>
                 {% else %}
                 {% if date5|date:"Y-m-d" in podA|join:" " %}
@@ -76,7 +76,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date6|date:"Y-m-d" %}
+                {% if today > date6|date:"Y-m-d" or date6|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">06</div>
                 {% else %}
                 {% if date6|date:"Y-m-d" in podA|join:" " %}
@@ -91,7 +91,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date7|date:"Y-m-d" %}
+                {% if today > date7|date:"Y-m-d" or date7|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">07</div>
                 {% else %}
                 {% if date7|date:"Y-m-d" in podA|join:" " %}
@@ -107,7 +107,7 @@
                 {% endif %}
         </div>
         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                {% if today > date8|date:"Y-m-d" %}
+                {% if today > date8|date:"Y-m-d" or date8|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">08</div>
                 {% else %}
                 {% if date8|date:"Y-m-d" in podA|join:" " %}
@@ -122,7 +122,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date9|date:"Y-m-d" %}
+                {% if today > date9|date:"Y-m-d" or date9|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">09</div>
                 {% else %}
                 {% if date9|date:"Y-m-d" in podA|join:" " %}
@@ -137,7 +137,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date10|date:"Y-m-d" %}
+                {% if today > date10|date:"Y-m-d" or date10|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">10</div>
                 {% else %}
                 {% if date10|date:"Y-m-d" in podA|join:" " %}
@@ -152,7 +152,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date11|date:"Y-m-d" %}
+                {% if today > date11|date:"Y-m-d" or date11|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">11</div>
                 {% else %}
                 {% if date11|date:"Y-m-d" in podA|join:" " %}
@@ -167,7 +167,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date12|date:"Y-m-d" %}
+                {% if today > date12|date:"Y-m-d" or date12|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">12</div>
                 {% else %}
                 {% if date12|date:"Y-m-d" in podA|join:" " %}
@@ -182,7 +182,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date13|date:"Y-m-d" %}
+                {% if today > date13|date:"Y-m-d" or date13|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">13</div>
                 {% else %}
                 {% if date13|date:"Y-m-d" in podA|join:" " %}
@@ -197,7 +197,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date14|date:"Y-m-d" %}
+                {% if today > date14|date:"Y-m-d" or date14|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">14</div>
                 {% else %}
                 {% if date14|date:"Y-m-d" in podA|join:" " %}
@@ -213,7 +213,7 @@
                 {% endif %}
         </div>
         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                {% if today > date15|date:"Y-m-d" %}
+                {% if today > date15|date:"Y-m-d" or date15|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">15</div>
                 {% else %}
                 {% if date15|date:"Y-m-d" in podA|join:" " %}
@@ -228,7 +228,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date16|date:"Y-m-d" %}
+                {% if today > date16|date:"Y-m-d" or date16|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">16</div>
                 {% else %}
                 {% if date16|date:"Y-m-d" in podA|join:" " %}
@@ -243,7 +243,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date17|date:"Y-m-d" %}
+                {% if today > date17|date:"Y-m-d" or date17|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">17</div>
                 {% else %}
                 {% if date17|date:"Y-m-d" in podA|join:" " %}
@@ -258,7 +258,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date18|date:"Y-m-d" %}
+                {% if today > date18|date:"Y-m-d" or date18|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">18</div>
                 {% else %}
                 {% if date18|date:"Y-m-d" in podA|join:" " %}
@@ -273,7 +273,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date19|date:"Y-m-d" %}
+                {% if today > date19|date:"Y-m-d" or date19|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">19</div>
                 {% else %}
                 {% if date19|date:"Y-m-d" in podA|join:" " %}
@@ -288,7 +288,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date20|date:"Y-m-d" %}
+                {% if today > date20|date:"Y-m-d" or date20|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">20</div>
                 {% else %}
                 {% if date20|date:"Y-m-d" in podA|join:" " %}
@@ -303,7 +303,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date21|date:"Y-m-d" %}
+                {% if today > date21|date:"Y-m-d" or date21|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">21</div>
                 {% else %}
                 {% if date21|date:"Y-m-d" in podA|join:" " %}
@@ -319,7 +319,7 @@
                 {% endif %}
         </div>
         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                {% if today > date22|date:"Y-m-d" %}
+                {% if today > date22|date:"Y-m-d" or date22|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">22</div>
                 {% else %}
                 {% if date22|date:"Y-m-d" in podA|join:" " %}
@@ -334,7 +334,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date23|date:"Y-m-d" %}
+                {% if today > date23|date:"Y-m-d" or date23|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">23</div>
                 {% else %}
                 {% if date23|date:"Y-m-d" in podA|join:" " %}
@@ -349,7 +349,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date24|date:"Y-m-d" %}
+                {% if today > date24|date:"Y-m-d" or date24|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">24</div>
                 {% else %}
                 {% if date24|date:"Y-m-d" in podA|join:" " %}
@@ -364,7 +364,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date25|date:"Y-m-d" %}
+                {% if today > date25|date:"Y-m-d" or date25|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">25</div>
                 {% else %}
                 {% if date25|date:"Y-m-d" in podA|join:" " %}
@@ -379,7 +379,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date26|date:"Y-m-d" %}
+                {% if today > date26|date:"Y-m-d" or date26|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">26</div>
                 {% else %}
                 {% if date26|date:"Y-m-d" in podA|join:" " %}
@@ -394,7 +394,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date27|date:"Y-m-d" %}
+                {% if today > date27|date:"Y-m-d" or date27|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">27</div>
                 {% else %}
                 {% if date27|date:"Y-m-d" in podA|join:" " %}
@@ -409,7 +409,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date28|date:"Y-m-d" %}
+                {% if today > date28|date:"Y-m-d" or date28|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">28</div>
                 {% else %}
                 {% if date28|date:"Y-m-d" in podA|join:" " %}
@@ -425,7 +425,7 @@
                 {% endif %}
         </div>
         <div class="col-lg-2 col-md-12 p-0 d-flex">
-                {% if today > date29|date:"Y-m-d" %}
+                {% if today > date29|date:"Y-m-d" or date29|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">29</div>
                 {% else %}
                 {% if date29|date:"Y-m-d" in podA|join:" " %}
@@ -440,7 +440,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date30|date:"Y-m-d" %}
+                {% if today > date30|date:"Y-m-d" or date30|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">30</div>
                 {% else %}
                 {% if date30|date:"Y-m-d" in podA|join:" " %}
@@ -455,7 +455,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% if today > date31|date:"Y-m-d" %}
+                {% if today > date31|date:"Y-m-d" or date31|date:"Y-m-d" in restrPodA|join:" " %}
                 <div class="booking-square bg-secondary text-white">31</div>
                 {% else %}
                 {% if date31|date:"Y-m-d" in podA|join:" " %}

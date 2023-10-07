@@ -19,13 +19,15 @@
                 <form action="{% url 'booking' %}" method="get" enctype="multipart/form-data">
                         <select onchange="changeContent()" name="month-selector" id="month-selector">
                                 <option value="" readonly>Select Month</option>
-                                <option id="month9" value="2023-09-01">September 2023</option>
-                                <option id="month10" value="2023-08-01">October 2023</option>
-                                <option id="month11" value="2023-11-01">November 2023</option>
+                                <option id="month9" value="2023-09-30">September 2023</option>
+                                <option id="month10" value="2023-10-31">October 2023</option>
+                                <option id="month11" value="2023-11-30">November 2023</option>
                         </select>
                         <button type="submit" class="btn btn-primary m-3">Submit</button>
                 </form>
                 <hr>
+                {{ restrPodA|join:" " }}
+                {{ restrPodB|join:" " }}
                 <div class="text-center">
                         <h3 id="monthSelect">{{ date1|date:'F Y' }}</h3>
                 </div>

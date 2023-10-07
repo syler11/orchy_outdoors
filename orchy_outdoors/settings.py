@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'availability',
 
     # Allauth apps
     'allauth',
@@ -93,6 +94,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+BASE_RATE = "80"
 
 WSGI_APPLICATION = 'orchy_outdoors.wsgi.application'
 

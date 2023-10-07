@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from home.models import BookingPodA, BookingPodB
 from .forms import AddBookingPodAForm, AddBookingPodBForm
+from availability.models import Availability
 
 from datetime import date, timedelta, datetime
 
@@ -36,6 +37,12 @@ def booking(request):
 
     bookPodB = BookingPodB.objects.filter(status="Booked")
     podB = list(bookPodB.values_list('arrival_range', flat=True))
+
+    restrictPodA = Availability.objects.filter(podAstatus="closed")
+    restrPodA = list(restrictPodA.values_list('date', flat=True))
+    
+    restrictPodB = Availability.objects.filter(podBstatus="closed")
+    restrPodB = list(restrictPodB.values_list('date', flat=True))
 
     parseDate = datetime.strptime(firstDate[0:8], "%Y-%m-")
 
@@ -75,6 +82,8 @@ def booking(request):
     context = {
         "podA": podA,
         "podB": podB,
+        "restrPodA": restrPodA,
+        "restrPodB": restrPodB,
         "today": today,
         'firstDate': firstDate,
         'parseDate': parseDate,

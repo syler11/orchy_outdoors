@@ -2,6 +2,7 @@ var nights = document.getElementById("nights").value;
 var rate_rm1 = document.getElementById("rate_rm1").innerHTML
 document.getElementById("rate_total").innerText = rate_rm1
 document.getElementById("nights").value = 1;
+var arrival_range = document.getElementById("arrival_range")
 
 function changeBooking() {
     var select_nights = document.getElementById("select_nights").value;
@@ -13,6 +14,21 @@ function changeBooking() {
     var occupancy = document.getElementById("occupancy").value;
     console.log(occupancy)
     document.getElementById("pax").value = occupancy
+    var arrival_date1 =  document.getElementById("arrivalDate1").innerHTML;
+    var depDate1 = document.getElementById("depDate1").innerHTML;
+    var depDate2 = document.getElementById("depDate2").innerHTML;
+    var depDate3 = document.getElementById("depDate3").innerHTML;
+
+    console.log(arrival_date1 + " " + depDate1 + " " + depDate2 + " " + depDate3)
+    
+
+    if (select_nights == 2) {
+        arrival_range.value = arrival_date1 + " " + depDate1
+    } else if (select_nights == 3) {
+        arrival_range.value = arrival_date1 + " " + depDate1 + " " + depDate2
+    } else  if ( select_nights == 4) {
+        arrival_range.value = arrival_date1 + " " + depDate1 + " " + depDate2 + " " + depDate3
+    }
 } 
 
 function checkOccupancy() {

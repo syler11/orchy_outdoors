@@ -267,6 +267,8 @@ def booking_successPodB(request, id):
 def about(request):
     """ A view to return the about page """
 
+    messages.success(request, 'Date restrictions was succesfully created!')
+
     return render(request, 'home/about.html')
 
 

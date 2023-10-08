@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages
-from .forms import AddAvailabilityForm
+from .forms import AddAvailabilityForm, EditAvailabilityForm
 from orchy_outdoors.settings import BASE_RATE
 from datetime import date, datetime
 from .models import Availability
+from django.contrib import messages
 
 # Create your views here.
 def availability(request):
     """ A view to return the availability page """
     
+    messages.success(request, 'Date restrictions was succesfully created!')
 
     today = date.today()
 
@@ -38,3 +39,40 @@ def availability(request):
 
     return render(request, 'availability/availability.html', context)
 
+
+def edit_availability(request, id):
+    """ A view to return the edit booking page """
+
+    availability = get_object_or_404(Availability, pk=id)
+
+    if request.method == 'POST':
+        form = EditAvailabilityForm(request.POST, instance=availability)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {availability.id}!')
+            return redirect(reverse('availability'))
+        else:
+            messages.error(request,
+                           'Failed to update hours.\
+                            Please ensure the form is valid.')
+    else:
+        form = EditAvailabilityForm(instance=availability)
+        messages.info(request, f'You are editing {availability.id}')
+
+    context = {
+        'availability': availability,
+        'form': form,
+        }
+
+    return render(request, 'availability/edit_availability.html', context)
+
+
+def delete_restriction(request, id):
+    """
+    Delete an employee from database
+    """
+
+    availability = get_object_or_404(Availability, pk=id)
+    availability.delete()
+    messages.success(request, 'Restriction deleted!')
+    return redirect(reverse('availability'))

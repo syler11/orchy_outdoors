@@ -113,23 +113,22 @@
                                                                                 readonly>
                                                                 </div>
                                                         </div>
+                                                        <div class="col-9 d-none"><input type="text"
+                                                                        class="border-0 float-left text-left"
+                                                                        name="arrival_date" id="arrival_date"
+                                                                        value="{{date_one|date:'d/m/Y'}}" readonly>
+                                                        </div>
+                                                        <div class="col-9"><input type="text"
+                                                                        class="d-none border-0 float-left text-left"
+                                                                        name="arrival_range" id="arrival_range"
+                                                                        value="{{date_one|date:'Y-m-d'}}" readonly>
+                                                        </div>
+                                                        <div class="d-none" id="arrivalDate1">{{date_one|date:'Y-m-d'}}
+                                                        </div>
+                                                        <div class="d-none" id="depDate1">{{dep1|date:'Y-m-d'}}</div>
+                                                        <div class="d-none" id="depDate2">{{dep2|date:'Y-m-d'}}</div>
+                                                        <div class="d-none" id="depDate3">{{dep3|date:'Y-m-d'}}</div>
                                                         <div class="row">
-                                                                <div class="col-9 d-none"><input type="text"
-                                                                                class="border-0 float-left text-left"
-                                                                                name="arrival_date" id="arrival_date"
-                                                                                value="{{date_one|date:'d/m/Y'}}"
-                                                                                readonly>
-                                                                </div>
-                                                                <div class="col-9"><input type="text"
-                                                                                class="border-0 float-left text-left"
-                                                                                name="arrival_range" id="arrival_range"
-                                                                                value="{{date_one|date:'Y-m-d'}}"
-                                                                                readonly>
-                                                                </div>
-                                                                <div class="d-none" id="arrivalDate1">{{date_one|date:'Y-m-d'}}</div>
-                                                                <div class="d-none" id="depDate1">{{dep1|date:'Y-m-d'}}</div>
-                                                                <div class="d-none" id="depDate2">{{dep2|date:'Y-m-d'}}</div>
-                                                                <div class="d-none" id="depDate3">{{dep3|date:'Y-m-d'}}</div>
                                                                 <div class="col-3"><label for="arrival_date">Arrival
                                                                                 Date:</label></div>
                                                                 <div class="col-9"><input type="text"
@@ -226,7 +225,8 @@
                                                 </div>
 
                                                 <div id="booking_submit" class="modal-footer border-0 float-right">
-                                                        <button type="submit"  id="bookingSubmit" class="btn btn-secondary btn-info"
+                                                        <button type="submit" id="bookingSubmit"
+                                                                class="btn btn-secondary btn-info"
                                                                 disabled>Book</button>
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Cancel</button>
@@ -254,6 +254,5 @@
                         bookingSubmit.setAttribute('disabled', true)
                 }
         };
-
 </script>
 {% endblock %}

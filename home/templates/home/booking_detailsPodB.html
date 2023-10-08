@@ -10,74 +10,73 @@
         <h1>Room Details</h1>
         {{form.errors}}
         <br>
-                <div class="row no-gutters">
-                        <div class="offset-lg-2 col-lg-8 bg-info">
-                                <h3 class="text-white">Beinn Otter</h3>
-                        </div>
-                        <div class="offset-lg-2 col-lg-2 col-6 border p-2">
-                                <p class="muted">Arriving:</p>
-                                <p>{{date_one|date:'D, d M Y'}}</p>
-                        </div>
-                        <div class="col-lg-2 col-6 border p-2">
-                                <p class="muted">Departing:</p>
-                                <select class="border-info p-1 rounded-2" oninput="changeBooking()"
-                                        id="select_nights">
-                                        <option id="dep1" value="1">1 night - {{dep1|date:'D d M'}}
-                                        </option>
-                                        {% if not PodBnight_two %}
-                                        <option id="dep2" value="2">2 nights - {{dep2|date:'D d M'}}
-                                        </option>
-                                        {% if not PodBnight_three %}
-                                        <option id="dep3" value="3">3 nights - {{dep3|date:'D d M'}}
-                                        </option>
-                                        {% if not PodBnight_four %}
-                                        <option id="dep4" value="4">4 nights - {{dep4|date:'D d M'}}
-                                        </option>
-                                        {% endif %}
-                                        {% endif %}
-                                        {% endif %}
-                                </select>
-                        </div>
-                        <div class="col-lg-2 border col-6 p-2">
-                                <p class="muted">Guests:</p>
-                                <input type="number" class="border-info p-1" id="occupancy" min="1" oninput="changeBooking()"
-                                        max="2" placeholder="0" required>
-                        </div>
-                        <div class="col-lg-2 col-6 border p-2">
-                                <p class="muted">Rate per night:</p>
-                                <p>£<span id="rate_rm1">80</span>.00</p>
-                        </div>
-                        <div class="offset-lg-2 col-lg-4 col-12">
-                                <div class="booking-image"></div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                                <div class="text-left p-2">
-                                        <h4>About this space</h4>
-                                        <p>Located on the West Highland Way at Bridge of Orchy our Eco Pods were
-                                                designed and
-                                                built in Finland in 2016. They each sleep a maximum of 2 adults and have
-                                                views
-                                                to the River Orchy and Ben Dorain. Bed lined included.
-                                                <h4>The space</h4>
-                                                <p>A wet room with toilet and shower is 3 min walk from the Pods.
-                                                        Food can be ordered at The Bridge of Orchy Hotel, which is a 5
-                                                        minute walk away.
-                                                        Please note that there are no shops in the village.We only book
-                                                        a single pod not per person max 2 people per pod.
-                                                </p>
-                                </div>
-                        </div>
-                        <div class="text-left offset-lg-2 bg-secondary col-lg-8 col-12 p-2">
-                                <h3 class="text-white">Total Cost: <span class="float-right text-white">£<span
-                                                        id="rate_total"></span>.00</span></h3>
-                        </div>
-                        <div class="border-0 float-right my-3 offset-lg-2 col-lg-8 col-12 p-1">
-                                <button type="button" onclick="checkOccupancy()" id="occButton" class="btn btn-info btn-success" 
-                                        data-target="#availability">Continue Booking</button>
-                                <a href="{% url 'booking' %}"><button type="button"
-                                                class="btn btn-secondary">Cancel</button></a>
+        <div class="row no-gutters">
+                <div class="offset-lg-2 col-lg-8 bg-info">
+                        <h3 class="text-white">Beinn Otter</h3>
+                </div>
+                <div class="offset-lg-2 col-lg-2 col-6 border p-2">
+                        <p class="muted">Arriving:</p>
+                        <p>{{date_one|date:'D, d M Y'}}</p>
+                </div>
+                <div class="col-lg-2 col-6 border p-2">
+                        <p class="muted">Departing:</p>
+                        <select class="border-info p-1 rounded-2" oninput="changeBooking()" id="select_nights">
+                                <option id="dep1" value="1">1 night - {{dep1|date:'D d M'}}
+                                </option>
+                                {% if not PodBnight_two %}
+                                <option id="dep2" value="2">2 nights - {{dep2|date:'D d M'}}
+                                </option>
+                                {% if not PodBnight_three %}
+                                <option id="dep3" value="3">3 nights - {{dep3|date:'D d M'}}
+                                </option>
+                                {% if not PodBnight_four %}
+                                <option id="dep4" value="4">4 nights - {{dep4|date:'D d M'}}
+                                </option>
+                                {% endif %}
+                                {% endif %}
+                                {% endif %}
+                        </select>
+                </div>
+                <div class="col-lg-2 border col-6 p-2">
+                        <p class="muted">Guests:</p>
+                        <input type="number" class="border-info p-1" id="occupancy" min="1" oninput="changeBooking()"
+                                max="2" placeholder="0" required>
+                </div>
+                <div class="col-lg-2 col-6 border p-2">
+                        <p class="muted">Rate per night:</p>
+                        <p>£<span id="rate_rm1">80</span>.00</p>
+                </div>
+                <div class="offset-lg-2 col-lg-4 col-12">
+                        <div class="booking-image"></div>
+                </div>
+                <div class="col-lg-4 col-12">
+                        <div class="text-left p-2">
+                                <h4>About this space</h4>
+                                <p>Located on the West Highland Way at Bridge of Orchy our Eco Pods were
+                                        designed and
+                                        built in Finland in 2016. They each sleep a maximum of 2 adults and have
+                                        views
+                                        to the River Orchy and Ben Dorain. Bed lined included.
+                                        <h4>The space</h4>
+                                        <p>A wet room with toilet and shower is 3 min walk from the Pods.
+                                                Food can be ordered at The Bridge of Orchy Hotel, which is a 5
+                                                minute walk away.
+                                                Please note that there are no shops in the village.We only book
+                                                a single pod not per person max 2 people per pod.
+                                        </p>
                         </div>
                 </div>
+                <div class="text-left offset-lg-2 bg-secondary col-lg-8 col-12 p-2">
+                        <h3 class="text-white">Total Cost: <span class="float-right text-white">£<span
+                                                id="rate_total"></span>.00</span></h3>
+                </div>
+                <div class="border-0 float-right my-3 offset-lg-2 col-lg-8 col-12 p-1">
+                        <button type="button" onclick="checkOccupancy()" id="occButton" class="btn btn-info btn-success"
+                                data-target="#availability">Continue Booking</button>
+                        <a href="{% url 'booking' %}"><button type="button"
+                                        class="btn btn-secondary">Cancel</button></a>
+                </div>
+        </div>
 
 </div>
 
@@ -99,63 +98,77 @@
                                                 <div class="muted">
                                                         <div class="row d-none">
                                                                 <div class="col-3"><label for="podB">Pod:
-                                                                                </label></div>
-                                                                <div class="col-9"><input type="text" class="border-0 float-left text-left"
+                                                                        </label></div>
+                                                                <div class="col-9"><input type="text"
+                                                                                class="border-0 float-left text-left"
                                                                                 name="podB" id="podB"
                                                                                 value="Beinn Otter">
                                                                 </div>
                                                                 <div class="col-3"><label for="podA">Booking ID:
-                                                                                </label></div>
-                                                                <div class="col-9"><input type="text" class="border-0 float-left text-left"
-                                                                                name="booking_id" id="booking_id"
-                                                                                value='{{booking_id|slice:"10"}}' readonly>
-                                                                </div>
-                                                        </div>
-                                                        <div class="row">
-                                                                <div class="col-9 d-none"><input type="text" class="border-0 float-left text-left"
-                                                                        name="arrival_date" id="arrival_date"
-                                                                        value="{{date_one|date:'d/m/Y'}}"readonly>
-                                                                </div>
+                                                                        </label></div>
                                                                 <div class="col-9"><input type="text"
-                                                                        class="border-0 float-left text-left"
-                                                                        name="arrival_range" id="arrival_range"
-                                                                        value="{{date_one|date:'Y-m-d'}}"
-                                                                        readonly>
+                                                                                class="border-0 float-left text-left"
+                                                                                name="booking_id" id="booking_id"
+                                                                                value='{{booking_id|slice:"10"}}'
+                                                                                readonly>
+                                                                </div>
                                                         </div>
-                                                        <div class="d-none" id="arrivalDate1">{{date_one|date:'Y-m-d'}}</div>
+
+                                                        <div class="col-9 d-none"><input type="text"
+                                                                        class="border-0 float-left text-left"
+                                                                        name="arrival_date" id="arrival_date"
+                                                                        value="{{date_one|date:'d/m/Y'}}" readonly>
+                                                        </div>
+                                                        <div class="col-9"><input type="text"
+                                                                        class="d-none border-0 float-left text-left"
+                                                                        name="arrival_range" id="arrival_range"
+                                                                        value="{{date_one|date:'Y-m-d'}}" readonly>
+                                                        </div>
+                                                        <div class="d-none" id="arrivalDate1">{{date_one|date:'Y-m-d'}}
+                                                        </div>
                                                         <div class="d-none" id="depDate1">{{dep1|date:'Y-m-d'}}</div>
                                                         <div class="d-none" id="depDate2">{{dep2|date:'Y-m-d'}}</div>
                                                         <div class="d-none" id="depDate3">{{dep3|date:'Y-m-d'}}</div>
+                                                        <div class="row">
                                                                 <div class="col-3"><label for="arrival_date">Arrival
                                                                                 Date:</label></div>
-                                                                <div class="col-9"><input type="text" class="border-0 float-left text-dark text-left"
-                                                                                placeholder="{{date_one|date:'D, d m Y'}}"readonly>
+                                                                <div class="col-9"><input type="text"
+                                                                                class="border-0 float-left text-dark text-left"
+                                                                                placeholder="{{date_one|date:'D, d m Y'}}"
+                                                                                readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
                                                                 <div class="col-3"><label for="arrival_date">
                                                                                 Nights:</label></div>
-                                                                <div class="col-9"><input type="text" class="border-0  float-left text-left" name="nights"
-                                                                        id="nights" readonly>
+                                                                <div class="col-9"><input type="text"
+                                                                                class="border-0  float-left text-left"
+                                                                                name="nights" id="nights" readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
                                                                 <div class="col-3"><label for="pax">
                                                                                 Occupancy:</label></div>
-                                                                <div class="col-9"><input type="text" class="border-0  float-left text-left" name="pax"
-                                                                        id="pax"readonly>
+                                                                <div class="col-9"><input type="text"
+                                                                                class="border-0  float-left text-left"
+                                                                                name="pax" id="pax" readonly>
                                                                 </div>
                                                         </div>
                                                         <div class="row">
                                                                 <div class="col-3"><label for="arrival_date">
                                                                                 Total cost:</label></div>
-                                                                <div class="col-9"><span class="float-left">£</span><input type="text" class="border-0  float-left text-left" name="total_cost"
-                                                                        id="total_cost">
+                                                                <div class="col-9"><span
+                                                                                class="float-left">£</span><input
+                                                                                type="text"
+                                                                                class="border-0  float-left text-left"
+                                                                                name="total_cost" id="total_cost">
                                                                 </div>
-                                                                <div class="col-12 d-none"><input type="text" class="border-0  float-left text-left" name="podB_rate"
-                                                                        id="podB_rate" value="80">
+                                                                <div class="col-12 d-none"><input type="text"
+                                                                                class="border-0  float-left text-left"
+                                                                                name="podB_rate" id="podB_rate"
+                                                                                value="80">
                                                                 </div>
-                                                        </div>                                                                       
+                                                        </div>
                                                 </div>
                                                 <hr>
                                                 <div class="p-2">
@@ -175,8 +188,8 @@
                                                 </div>
                                                 <div class="p-2">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
-                                                                type="email" name="email" id="email"
-                                                                placeholder="Email" required>
+                                                                type="email" name="email" id="email" placeholder="Email"
+                                                                required>
                                                 </div>
                                                 <div class="p-2 d-none">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
@@ -213,8 +226,9 @@
                                                 </div>
 
                                                 <div class="modal-footer border-0 float-right">
-                                                        <button type="submit" id="bookingSubmit" class="btn btn-secondary btn-info"
-                                                        disabled>Book</button>
+                                                        <button type="submit" id="bookingSubmit"
+                                                                class="btn btn-secondary btn-info"
+                                                                disabled>Book</button>
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Cancel</button>
                                                 </div>

@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block extra_js %}
 <script>
@@ -20,25 +19,23 @@
 
 {% block content %}
 <div class="text-center">
-    <h1>Restrictions</h1>
+    <h1>Edit Restrictions</h1>
 </div>
 <div class="row no-gutters">
     <div class="col-6">
         <div class="page-container m-3">
             {{form.errors}}
-            <form method="post" action="{% url 'availability' %}" enctype="multipart/form-data">
+            <form method="post" action="{% url 'edit_availability' availability.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row no-gutters">
                     <div class="p-2 col-12">
                         <label class="float-left" for="date">Date:</label>
-                        <input type="date" class="float-left ml-3" name="dateTest" id="dateTest" onchange="dateFormat()"
-                            value="">
-                        <input type="text" class="d-none" name="date" id="date" value="">
+                        <input type="text" class="float-left ml-3" name="date" id="date" value="{{ availability.date|date:'d/m/Y' }}" readonly>
                     </div>
                     <div class="p-2 col-12">
                         <label class="float-left" for="podArate">Beinn Otter Rate:</label>
                         <input type="number" class="float-left ml-3" name="podArate" id="podArate"
-                            value="{{ BASE_RATE }}">
+                            value="{{ availability.podArate }}">
                     </div>
                     <div class="p-2 col-12">
                         <label class="float-left" for="podArate">Beinn Otter Status:</label>
@@ -50,7 +47,7 @@
                     <div class="p-2 col-12">
                         <label class="float-left" for="podBrate">Beinn Monk Rate:</label>
                         <input type="number" class="float-left ml-3" name="podBrate" id="podBrate"
-                            value="{{ BASE_RATE }}">
+                            value="{{ availability.podBrate }}">
                     </div>
                     <div class="p-2 col-12">
                         <label class="float-left" for="podBstatus">Beinn Monk Status:</label>
@@ -63,34 +60,6 @@
                 <button class="btn btn-secondary btn-info" type="submit">Submit</button>
         </div>
         </form>
-    </div>
-    <div class="col-6">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">PodARate</th>
-                        <th scope="col">PodAStatus</th>
-                        <th scope="col">PodBRate</th>
-                        <th scope="col">PodBStatus</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for restr in restrictions %}
-                    <tr>
-                        <td><a href="{% url 'edit_availability' restr.id %}">{{ restr.date }}</a></td>
-                        <td>{{ restr.podArate }}</td>
-                        <td>{{ restr.podAstatus }}</td>
-                        <td>{{ restr.podBrate }}</td>
-                        <td>{{ restr.podBstatus }}</td>
-                        <td><a href="{% url 'delete_restriction' restr.id %}"><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
     </div>
 
 </div>

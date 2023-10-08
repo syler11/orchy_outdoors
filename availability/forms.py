@@ -21,3 +21,20 @@ class AddAvailabilityForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black w-75 rounded-0'
+
+class EditAvailabilityForm(forms.ModelForm):
+    """
+    Add Availability form class
+    """
+    class Meta:
+        """
+        Meta info class
+        """
+        model = Availability
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black w-75 rounded-0'

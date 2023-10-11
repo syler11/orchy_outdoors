@@ -14,13 +14,13 @@
                 <div class="offset-lg-2 col-lg-8 bg-info">
                         <h3 class="text-white">Beinn Moink</h3>
                 </div>
-                <div class="offset-lg-2 col-lg-2 col-6 border p-2">
+                <div class="offset-lg-2 col-lg-2 col-6 border room_details p-2">
                         <p class="muted">Arriving:</p>
                         <p>{{date_one|date:'D, d M Y'}}</p>
                 </div>
-                <div class="col-lg-2 col-6 border p-2">
+                <div class="col-lg-2 col-6 border room_details p-2">
                         <p class="muted">Departing:</p>
-                        <select class="border-info p-1 rounded-2" oninput="changeBooking()" id="select_nights">
+                        <select class="border-info p-1 room_details rounded-2" oninput="changeBooking()" id="select_nights">
                                 <option id="dep1" value="1">1 night - {{dep1|date:'D d M'}}
                                 </option>
                                 {% if not PodAnight_two %}
@@ -37,12 +37,12 @@
                                 {% endif %}
                         </select>
                 </div>
-                <div class="col-lg-2 border col-6 p-2">
+                <div class="col-lg-2 border col-6 room_details p-2">
                         <p class="muted">Guests:</p>
                         <input type="number" class="border-info p-1" id="occupancy" min="1" oninput="changeBooking()"
                                 max="2" placeholder="0" required>
                 </div>
-                <div class="col-lg-2 col-6 border p-2">
+                <div class="col-lg-2 col-6 border room_details p-2">
                         <p class="muted">Rate per night:</p>
                         <p>£<span id="rate_rm1">80</span>.00</p>
                 </div>

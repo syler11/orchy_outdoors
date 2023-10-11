@@ -218,4 +218,8 @@ div input {
     .map-image {
         width: 375px;
     }
+
+    .room_details {
+        padding: 0!important;
+    }
 }

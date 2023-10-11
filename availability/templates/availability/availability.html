@@ -23,7 +23,8 @@
     <h1>Restrictions</h1>
 </div>
 <div class="row no-gutters">
-    <div class="col-6">
+    <div class="col-lg-6 col-12">
+        <h3 class="ml-4">Add Restriction</h3>
         <div class="page-container m-3">
             {{form.errors}}
             <form method="post" action="{% url 'availability' %}" enctype="multipart/form-data">
@@ -60,20 +61,29 @@
                         </select>
                     </div>
                 </div>
-                <button class="btn btn-secondary btn-info" type="submit">Submit</button>
+                <button class="btn ml-2 btn-secondary btn-info" type="submit">Submit</button>
         </div>
         </form>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6 col-12">
+        <h3 class="ml-2">Current Restrictions</h3>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col"></th>
+                        <th scope="colgroup" class="text-right">Beinn Monk</th>
+                        <th scope="col"></th>
+                        <th scope="colgroup" class="text-right">Beinn Otter</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
                         <th scope="col">Date</th>
-                        <th scope="col">PodARate</th>
-                        <th scope="col">PodAStatus</th>
-                        <th scope="col">PodBRate</th>
-                        <th scope="col">PodBStatus</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Status</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>

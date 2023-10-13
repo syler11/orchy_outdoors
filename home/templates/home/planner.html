@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/booking.js'  %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+        <h1>Weekly Planner</h1>
+        <hr>
+        <div class="booking-engine">
+                <h3>This week arrivals</h3>
+                <hr>
+                <div class="d-flex row no-gutters justify-content-center" id="days">
+                        <div class="pr-3 col-2 booking-title">Dates</div>
+                        <div class="col-10 p-0 d-flex">
+                                <div class="p-2 planner-w">{{ date1|date:"D, d-M" }}</div>
+                                <div class="p-2 planner-w">{{ date2|date:"D, d-M" }}</div>
+                                <div class="p-2 planner-w">{{ date3|date:"D, d-M" }}</div>
+                                <div class="p-2 planner-w">{{ date4|date:"D, d-M" }}</div>
+                                <div class="p-2 planner-w">{{ date5|date:"D, d-M" }}</div>
+                                <div class="p-2 planner-w">{{ date6|date:"D, d-M" }}</div>
+                                <div class="p-2 planner-w">{{ date7|date:"D, d-M" }}</div>
+                        </div>
+                </div>
+                <div class="d-flex row no-gutters justify-content-center" id="days">
+                        <div class="pr-3 col-2 booking-title">Beinn Monk
+                        </div>
+                        <div class="col-10 p-0 d-flex">
+                                {% for test  in podA1 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podA2 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podA3 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podA4 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podA5 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podA6 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podA7 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                        </div>
+                </div>
+                <div class="d-flex row no-gutters justify-content-center" id="days">
+                        <div class="pr-3 col-2 booking-title">Beinn Otter
+                        </div>
+                        <div class="col-10 p-0 d-flex">
+                                {% for test  in podB1 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podB2 %}
+                                <a href="" title="{{ test.eta }}"><div class="bg-success planner-w text-white p-1 text-center" title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podB3 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podB4 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podB5 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podB6 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                                {% for test  in podB7 %}
+                                <a href=""><div class="bg-success planner-w text-white p-1 text-center" title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}</div></a>
+                                {% empty %}
+                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
+                                {% endfor %}
+                        </div>
+                </div>
+              
+        </div>
+</div>
+</div>
+
+<!-- No availability Modal -->
+<div class="modal fade" id="no_availability" tabindex="-1" role="dialog" aria-labelledby="no_availability"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header border-0">
+                        </div>
+                        <div class="modal-body text-center">
+                                <h3>Sorry!</h3>
+                                <p>
+                                        No availability for this pod on this day.
+                                </p>
+                        </div>
+                        <div class="modal-footer border-0">
+                                <button type="button" class="btn btn-secondary btn-danger"
+                                        data-dismiss="modal">Close</button>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="availability" tabindex="-1" role="dialog" aria-labelledby="availability" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5>Booking Summary</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <form action="">
+                                <div class="form-group">
+                                        <div class="modal-body">
+                                                <h5>Beinn Monk</h5>
+                                                <div class="muted">
+                                                        <p class="d-none" id="firstDate">{{firstDate}}</p>
+                                                        <p>Arrival Date: <span class="float-right" id="dateTest"></span></p>
+                                                        <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
+                                                </div>
+                                                <div class="text-center">
+                                                        <select class="border-info p-2 rounded-2"
+                                                                oninput="changeBooking()" name="nights" id="nights">
+                                                                <option id="dep1" value="1">1 night - Departing Wed 31 Aug
+                                                                </option>
+                                                                
+                                                                <option id="dep2" value="2">2 nights - Departing Thu 1 Sep
+                                                                </option>
+                                                                <option id="dep3" value="3">3 nights - Departing Fri 2 Sep
+                                                                </option>
+                                                                <option id="dep4" value="4">4 nights - Departing Sat 3 Sep
+                                                                </option>
+                                                        </select>
+                                                </div>
+                                                <div>
+                                                        <p>Room only <span class="float-right">£<span
+                                                                                id="rate_rm1">75</span>.00</span> </p>
+
+                                                </div>
+                                                <div>
+                                                        <p>Total Cost <span class="float-right">£<span
+                                                                                id="rate_total"></span>.00</span> </p>
+                                                                                
+
+                                                </div>
+
+                                                <div id="guest_info" class="d-none">
+                                                        <hr>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="firstname" id="firstname"
+                                                                        placeholder="Firstname">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="lastname" id="lastname"
+                                                                        placeholder="Lastname">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="phone" id="phone"
+                                                                        placeholder="Phone number">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="email" name="email" id="email"
+                                                                        placeholder="Email">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <textarea
+                                                                        class="form-control w-75 rounded-2 border-info"
+                                                                        name="notes" id="notes" cols="30" rows="5"
+                                                                        placeholder="Notes"></textarea>
+                                                        </div>
+                                                        <div class="form-check py-1">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                        id="terms">
+                                                                <label class="form-check-label" for="terms"> I accept
+                                                                        the <a href="http://" target="_blank"
+                                                                                rel="noopener noreferrer">Terms and
+                                                                                Conditions</a></label>
+                                                        </div>
+                                                </div>
+                                                <div id="booking_step" class="float-right p-2">`
+                                                        <button type="button" id="booking_step1"
+                                                                onclick="display_guestInfo()"
+                                                                class="btn btn-secondary btn-success"
+                                                                data-dismiss="modal">Continue Booking</button>
+                                                </div>
+                                        </div>
+                                        <div id="booking_submit" class="modal-footer border-0 d-none float-right">
+                                                <button type="button" class="btn btn-secondary btn-success"
+                                                        data-dismiss="modal">Book</button>
+                                                <button type="button" class="btn btn-secondary btn-danger"
+                                                        data-dismiss="modal">Cancel</button>
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</div>
+
+{% endblock %}

@@ -19,6 +19,7 @@ def index(request):
 
     return render(request, 'home/home.html')
 
+
 def booking(request):
     """ A view to return the booking page """
 
@@ -40,7 +41,7 @@ def booking(request):
 
     restrictPodA = Availability.objects.filter(podAstatus="closed")
     restrPodA = list(restrictPodA.values_list('date', flat=True))
-    
+
     restrictPodB = Availability.objects.filter(podBstatus="closed")
     restrPodB = list(restrictPodB.values_list('date', flat=True))
 
@@ -122,6 +123,7 @@ def booking(request):
 
     return render(request, 'home/booking.html', context)
 
+
 def booking_detailsPodA(request, selected_day):
     """ A view to return the about page """
 
@@ -150,7 +152,6 @@ def booking_detailsPodA(request, selected_day):
         'PodAnight_three': PodAnight_three,
         'PodAnight_four': PodAnight_four,
     }
-
 
     return render(request, 'home/booking_detailsPodA.html', context)
 
@@ -183,13 +184,11 @@ def booking_detailsPodB(request, selected_day):
         'PodBnight_four': PodBnight_four,
     }
 
-
     return render(request, 'home/booking_detailsPodB.html', context)
 
 
 def booking_savePodA(request):
     """ A view to return the about page """
-
 
     if request.method == 'POST':
         form = AddBookingPodAForm(request.POST, request.FILES)
@@ -201,11 +200,10 @@ def booking_savePodA(request):
 
         else:
             messages.error(request,
-                        'Failed to create booking. \
+                           'Failed to create booking. \
                             Please ensure the form is valid.')
     else:
         form = AddBookingPodAForm()
-
 
     context = {
         'form': form
@@ -213,9 +211,9 @@ def booking_savePodA(request):
 
     return render(request, 'home/booking_details.html', context)
 
+
 def booking_savePodB(request):
     """ A view to return the about page """
-
 
     if request.method == 'POST':
         form = AddBookingPodBForm(request.POST, request.FILES)
@@ -227,11 +225,10 @@ def booking_savePodB(request):
 
         else:
             messages.error(request,
-                        'Failed to create booking. \
+                           'Failed to create booking. \
                             Please ensure the form is valid.')
     else:
         form = AddBookingPodBForm()
-
 
     context = {
         'form': form
@@ -277,6 +274,7 @@ def faq(request):
 
     return render(request, 'home/faq.html')
 
+
 def contact(request):
     """ A view to return the contact page """
     if request.method == "POST":
@@ -291,7 +289,7 @@ def contact(request):
         subject = render_to_string(
             'home/contact_email/contact_email_subject.txt',
             {'message_name': message_name})
-        
+
         body = render_to_string(
             'home/contact_email/contact_email_body.txt',
             {'message_name': message_name, 'message_email': message_email, 'message': message, 'message_phone': message_phone})
@@ -303,7 +301,7 @@ def contact(request):
             'nemeth.szilard82@gmail.com',
             [to_email, 'nemeth.szilard82@gmail.com'],
             fail_silently=False,
-            )
+        )
 
         messages.success(request, f'Email sent!')
 
@@ -311,3 +309,62 @@ def contact(request):
 
     else:
         return render(request, 'home/contact.html')
+
+
+def planner(request):
+    """ A view to return the faq page """
+
+
+    nowDate = date.today()
+    today = nowDate.strftime("%Y-%m-%d")
+    print(today)
+
+    date1 = datetime.strptime(today, "%Y-%m-%d")
+    date2 = date1 + timedelta(days=1)
+    date3 = date1 + timedelta(days=2)
+    date4 = date1 + timedelta(days=3)
+    date5 = date1 + timedelta(days=4)
+    date6 = date1 + timedelta(days=5)
+    date7 = date1 + timedelta(days=6)
+
+    podA1 = BookingPodA.objects.filter(arrival_date=date1)
+    podA2 = BookingPodA.objects.filter(arrival_date=date2)
+    podA3 = BookingPodA.objects.filter(arrival_date=date3)
+    podA4 = BookingPodA.objects.filter(arrival_date=date4)
+    podA5 = BookingPodA.objects.filter(arrival_date=date5)
+    podA6 = BookingPodA.objects.filter(arrival_date=date6)
+    podA7 = BookingPodA.objects.filter(arrival_date=date7)
+
+    podB1 = BookingPodB.objects.filter(arrival_date=date1)
+    podB2 = BookingPodB.objects.filter(arrival_date=date2)
+    podB3 = BookingPodB.objects.filter(arrival_date=date3)
+    podB4 = BookingPodB.objects.filter(arrival_date=date4)
+    podB5 = BookingPodB.objects.filter(arrival_date=date5)
+    podB6 = BookingPodB.objects.filter(arrival_date=date6)
+    podB7 = BookingPodB.objects.filter(arrival_date=date7)
+
+    context = {
+        "date1": date1,
+        "date2": date2,
+        "date3": date3,
+        "date4": date4,
+        "date5": date5,
+        "date6": date6,
+        "date7": date7,
+        'podA1': podA1,
+        'podA2': podA2,
+        'podA3': podA3,
+        'podA4': podA4,
+        'podA5': podA5,
+        'podA6': podA6,
+        'podA7': podA7,
+        'podB1': podB1,
+        'podB2': podB2,
+        'podB3': podB3,
+        'podB4': podB4,
+        'podB5': podB5,
+        'podB6': podB6,
+        'podB7': podB7,
+    }
+
+    return render(request, 'home/planner.html', context)

@@ -67,7 +67,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'templates', 'allauth')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -94,6 +94,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/about/'
 
 BASE_RATE = "80"
 

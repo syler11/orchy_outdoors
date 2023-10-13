@@ -21,6 +21,7 @@ class BookingPodA(models.Model):
     phone_number = models.CharField(max_length=150, null=True, blank=False)
     email = models.EmailField(null=True, blank=False)
     notes = models.CharField(max_length=150, null=True, blank=True)
+    eta = models.CharField(max_length=150, null=True, blank=True)
     status = models.CharField(max_length=150, null=True, blank=False, default="Available")
     created_on = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     

@@ -429,13 +429,13 @@
                 <div class="booking-square bg-secondary text-white">29</div>
                 {% else %}
                 {% if date29|date:"Y-m-d" in podA|join:" " %}
-                <div class="booking-square bg-danger text-white"><a class="text-white" href="#"
+                <div class="booking-square bg-danger text-white" id="podA_29"><a class="text-white" href="#"
                                 onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">29</a>
                 </div>
                 {% else %}
-                <a class="booking-square bg-success text-white"
+                <a class="booking-square bg-success text-white" id="podA_29"
                         href="{% url 'booking_detailsPodA' date29|date:'Y-m-d' %}">
-                        <div id="podA_29">29</div>
+                        <div>29</div>
                 </a>
                 {% endif %}
                 {% endif %}
@@ -444,13 +444,13 @@
                 <div class="booking-square bg-secondary text-white">30</div>
                 {% else %}
                 {% if date30|date:"Y-m-d" in podA|join:" " %}
-                <div class="booking-square bg-danger text-white"><a class="text-white" href="#"
+                <div class="booking-square bg-danger text-white" id="podA_30"><a class="text-white" href="#"
                                 onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">30</a>
                 </div>
                 {% else %}
-                <a class="booking-square bg-success text-white"
+                <a class="booking-square bg-success text-white" id="podA_30"
                         href="{% url 'booking_detailsPodA' date30|date:'Y-m-d' %}">
-                        <div id="podA_30">30</div>
+                        <div>30</div>
                 </a>
                 {% endif %}
                 {% endif %}
@@ -459,13 +459,13 @@
                 <div class="booking-square bg-secondary text-white">31</div>
                 {% else %}
                 {% if date31|date:"Y-m-d" in podA|join:" " %}
-                <div class="booking-square bg-danger text-white"><a class="text-white" href="#"
+                <div class="booking-square bg-danger text-white" id="podA_31"><a class="text-white" href="#"
                                 onclick="modalClick(this)" data-toggle="modal" data-target="#no_availability">31</a>
                 </div>
                 {% else %}
-                <a class="booking-square bg-success text-white"
+                <a class="booking-square bg-success text-white" id="podA_31"
                         href="{% url 'booking_detailsPodA' date31|date:'Y-m-d' %}">
-                        <div id="podA_31">31</div>
+                        <div>31</div>
                 </a>
                 {% endif %}
                 {% endif %}

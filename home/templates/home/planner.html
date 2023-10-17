@@ -12,9 +12,10 @@
         <div class="booking-engine">
                 <h3>This week arrivals</h3>
                 <hr>
-                <div class="d-flex row no-gutters justify-content-center" id="days">
-                        <div class="pr-3 col-2 booking-title">Dates</div>
-                        <div class="col-10 p-0 d-flex">
+                <div class="row no-gutters" id="days">
+                        <div class="col-lg-2 col-4 p-0">
+                                <div class="planner-w">Dates</div>
+                                <hr>
                                 <div class="p-2 planner-w">{{ date1|date:"D, d-M" }}</div>
                                 <div class="p-2 planner-w">{{ date2|date:"D, d-M" }}</div>
                                 <div class="p-2 planner-w">{{ date3|date:"D, d-M" }}</div>
@@ -23,90 +24,163 @@
                                 <div class="p-2 planner-w">{{ date6|date:"D, d-M" }}</div>
                                 <div class="p-2 planner-w">{{ date7|date:"D, d-M" }}</div>
                         </div>
+
+                        <div class="col-lg-3 col-4 p-0">
+                                <div>
+                                        <div class="planner-w">Beinn Monk</div>
+                                        <hr>
+                                        {% for test in podA1 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                  <div class="" id="headingOne">
+                                                      <button class="bg-success planner-w text-white p-2 text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                        {{ test.fname }} {{ test.lname }}
+                                                      </button>
+                                                  </div>
+                                                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                      <p>Nights: {{test.nights}}</p>
+                                                      <p>PAX: {{test.pax}}</p>
+                                                      <p>Rate: {{test.podA_rate}}</p>
+                                                      <p>Total Cost: {{test.total_cost}}</p>
+
+                                                      <p>Phone: {{test.phone_number}}</p>
+                                                      <p>Email: {{test.email}}</p>
+                                                      <p>Notes: {{test.notes}}</p>
+                                                      <p>ETA: {{test.eta}}</p>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                        {% for test  in podA2 %}
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                        {% for test  in podA3 %}
+                                        <a href="">
+                                                <div class="bg-success planner-w text-white p-2 text-center">
+                                                        {{ test.fname }} {{ test.lname }}</div>
+                                        </a>
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                        {% for test  in podA4 %}
+                                        <a href="">
+                                                <div class="bg-success planner-w text-white p-2 text-center">
+                                                        {{ test.fname }} {{ test.lname }}</div>
+                                        </a>
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                        {% for test  in podA5 %}
+                                        <a href="">
+                                                <div class="bg-success planner-w text-white p-2 text-center">
+                                                        {{ test.fname }} {{ test.lname }}</div>
+                                        </a>
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                        {% for test  in podA6 %}
+                                        <a href="">
+                                                <div class="bg-success planner-w text-white p-2 text-center">
+                                                        {{ test.fname }} {{ test.lname }}</div>
+                                        </a>
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                        {% for test  in podA7 %}
+                                        <a href="">
+                                                <div class="bg-success planner-w text-white p-2 text-center">
+                                                        {{ test.fname }} {{ test.lname }}</div>
+                                        </a>
+                                        {% empty %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endfor %}
+                                </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-4 p-0 d-flex">
+                                <div>
+                                        <div class="planner-w">Beinn Otter</div>
+                                        <hr>
+                                                {% for test  in podB1 %}
+                                                <a href="">
+                                                        <div class="bg-success planner-w text-white p-2 text-center">
+                                                                {{ test.fname }}
+                                                                {{ test.lname }}</div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                                {% for test  in podB2 %}
+                                                <a href="" title="{{ test.eta }}">
+                                                        <div class="bg-success planner-w text-white p-2 text-center"
+                                                                title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}
+                                                        </div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                                {% for test  in podB3 %}
+                                                <a href="">
+                                                        <div class="bg-success planner-w text-white p-2 text-center">
+                                                                {{ test.fname }}
+                                                                {{ test.lname }}</div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                                {% for test  in podB4 %}
+                                                <a href="">
+                                                        <div class="bg-success planner-w text-white p-2 text-center">
+                                                                {{ test.fname }}
+                                                                {{ test.lname }}</div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                                {% for test  in podB5 %}
+                                                <a href="">
+                                                        <div class="bg-success planner-w text-white p-2 text-center">
+                                                                {{ test.fname }}
+                                                                {{ test.lname }}</div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                                {% for test  in podB6 %}
+                                                <a href="">
+                                                        <div class="bg-success planner-w text-white p-2 text-center">
+                                                                {{ test.fname }}
+                                                                {{ test.lname }}</div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                                {% for test  in podB7 %}
+                                                <a href="">
+                                                        <div class="bg-success planner-w text-white p-2 text-center"
+                                                                title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}
+                                                        </div>
+                                                </a>
+                                                {% empty %}
+                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
+                                                </div>
+                                                {% endfor %}
+                                </div>
+                        </div>
                 </div>
-                <div class="d-flex row no-gutters justify-content-center" id="days">
-                        <div class="pr-3 col-2 booking-title">Beinn Monk
-                        </div>
-                        <div class="col-10 p-0 d-flex">
-                                {% for test  in podA1 %}
-                                <a href=""><div data-toggle="collapse" data-target="#generalOne"
-                                        aria-expanded="true" aria-controls="generalOne" class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podA2 %}
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podA3 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podA4 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podA5 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podA6 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podA7 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                        </div>
-                </div>
-                <div class="d-flex row no-gutters justify-content-center" id="days">
-                        <div class="pr-3 col-2 booking-title">Beinn Otter
-                        </div>
-                        <div class="col-10 p-0 d-flex">
-                                {% for test  in podB1 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podB2 %}
-                                <a href="" title="{{ test.eta }}"><div class="bg-success planner-w text-white p-1 text-center" title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podB3 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podB4 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podB5 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podB6 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                                {% for test  in podB7 %}
-                                <a href=""><div class="bg-success planner-w text-white p-1 text-center" title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}</div></a>
-                                {% empty %}
-                                <div class="bg-danger text-center planner-w p-1 text-white">No Arrival</div>
-                                {% endfor %}
-                        </div>
-                </div>
-              
+
         </div>
 </div>
 </div>
@@ -148,20 +222,25 @@
                                                 <h5>Beinn Monk</h5>
                                                 <div class="muted">
                                                         <p class="d-none" id="firstDate">{{firstDate}}</p>
-                                                        <p>Arrival Date: <span class="float-right" id="dateTest"></span></p>
+                                                        <p>Arrival Date: <span class="float-right" id="dateTest"></span>
+                                                        </p>
                                                         <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
                                                 </div>
                                                 <div class="text-center">
                                                         <select class="border-info p-2 rounded-2"
                                                                 oninput="changeBooking()" name="nights" id="nights">
-                                                                <option id="dep1" value="1">1 night - Departing Wed 31 Aug
+                                                                <option id="dep1" value="1">1 night - Departing Wed 31
+                                                                        Aug
                                                                 </option>
-                                                                
-                                                                <option id="dep2" value="2">2 nights - Departing Thu 1 Sep
+
+                                                                <option id="dep2" value="2">2 nights - Departing Thu 1
+                                                                        Sep
                                                                 </option>
-                                                                <option id="dep3" value="3">3 nights - Departing Fri 2 Sep
+                                                                <option id="dep3" value="3">3 nights - Departing Fri 2
+                                                                        Sep
                                                                 </option>
-                                                                <option id="dep4" value="4">4 nights - Departing Sat 3 Sep
+                                                                <option id="dep4" value="4">4 nights - Departing Sat 3
+                                                                        Sep
                                                                 </option>
                                                         </select>
                                                 </div>
@@ -173,7 +252,7 @@
                                                 <div>
                                                         <p>Total Cost <span class="float-right">£<span
                                                                                 id="rate_total"></span>.00</span> </p>
-                                                                                
+
 
                                                 </div>
 

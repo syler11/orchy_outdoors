@@ -181,7 +181,6 @@ div input {
 }
 
 .planner-w {
-    width: 120px;
     border: 1px solid white;
 }
 
@@ -226,5 +225,10 @@ div input {
 
     .room_details {
         padding: 0!important;
+    }
+
+    .planner-w {
+        width: 120px;
+        font-size: smaller;
     }
 }

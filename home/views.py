@@ -319,6 +319,12 @@ def planner(request):
     today = nowDate.strftime("%Y-%m-%d")
     print(today)
 
+    bookPodA = BookingPodA.objects.filter(status="Booked")
+    podA = list(bookPodA.values_list('arrival_range', flat=True))
+
+    bookPodB = BookingPodB.objects.filter(status="Booked")
+    podB = list(bookPodB.values_list('arrival_range', flat=True))
+
     date1 = datetime.strptime(today, "%Y-%m-%d")
     date2 = date1 + timedelta(days=1)
     date3 = date1 + timedelta(days=2)
@@ -344,6 +350,8 @@ def planner(request):
     podB7 = BookingPodB.objects.filter(arrival_date=date7)
 
     context = {
+        "podA": podA,
+        "podB": podB,
         "date1": date1,
         "date2": date2,
         "date3": date3,

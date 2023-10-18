@@ -29,155 +29,559 @@
                                 <div>
                                         <div class="planner-w">Beinn Monk</div>
                                         <hr>
+                                        {% if podA1 %}
                                         {% for test in podA1 %}
                                         <div id="accordion">
                                                 <div class="">
-                                                  <div class="" id="headingOne">
-                                                      <button class="bg-success planner-w text-white p-2 text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                        {{ test.fname }} {{ test.lname }}
-                                                      </button>
-                                                  </div>
-                                                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                                    <div class="card-body">
-                                                      <p>Nights: {{test.nights}}</p>
-                                                      <p>PAX: {{test.pax}}</p>
-                                                      <p>Rate: {{test.podA_rate}}</p>
-                                                      <p>Total Cost: {{test.total_cost}}</p>
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
 
-                                                      <p>Phone: {{test.phone_number}}</p>
-                                                      <p>Email: {{test.email}}</p>
-                                                      <p>Notes: {{test.notes}}</p>
-                                                      <p>ETA: {{test.eta}}</p>
-                                                    </div>
-                                                  </div>
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
                                                 </div>
                                         </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
-                                        {% for test  in podA2 %}
+                                        {% else %}
+                                        {% if date1|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podA2 %}
+                                        {% for test in podA2 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body text-left">
+                                                                        <p>Nights: {{test.nights}} <span class="float-right"><i title="Delete" class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span> <span title="Edit" class="float-right px-2"><i class="fa-solid fa-pen-to-square" style="color: #0d30f8;"></i></span></p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
-                                        {% for test  in podA3 %}
-                                        <a href="">
-                                                <div class="bg-success planner-w text-white p-2 text-center">
-                                                        {{ test.fname }} {{ test.lname }}</div>
-                                        </a>
+                                        {% else %}
+                                        {% if date2|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podA3 %}
+                                        {% for test in podA3 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
-                                        {% for test  in podA4 %}
-                                        <a href="">
-                                                <div class="bg-success planner-w text-white p-2 text-center">
-                                                        {{ test.fname }} {{ test.lname }}</div>
-                                        </a>
+                                        {% else %}
+                                        {% if date3|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podA4 %}
+                                        {% for test in podA4 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
-                                        {% for test  in podA5 %}
-                                        <a href="">
-                                                <div class="bg-success planner-w text-white p-2 text-center">
-                                                        {{ test.fname }} {{ test.lname }}</div>
-                                        </a>
+                                        {% else %}
+                                        {% if date4|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podA5 %}
+                                        {% for test in podA5 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
-                                        {% for test  in podA6 %}
-                                        <a href="">
-                                                <div class="bg-success planner-w text-white p-2 text-center">
-                                                        {{ test.fname }} {{ test.lname }}</div>
-                                        </a>
+                                        {% else %}
+                                        {% if date5|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podA6 %}
+                                        {% for test in podA6 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
-                                        {% for test  in podA7 %}
-                                        <a href="">
-                                                <div class="bg-success planner-w text-white p-2 text-center">
-                                                        {{ test.fname }} {{ test.lname }}</div>
-                                        </a>
+                                        {% else %}
+                                        {% if date6|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podA7 %}
+                                        {% for test in podA7 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podA_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                         {% empty %}
-                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
                                         {% endfor %}
+                                        {% else %}
+                                        {% if date7|date:"Y-m-d" in podA|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
                                 </div>
 
                         </div>
 
-                        <div class="col-lg-3 col-4 p-0 d-flex">
+                        <div class="col-lg-3 col-4 p-0">
                                 <div>
                                         <div class="planner-w">Beinn Otter</div>
                                         <hr>
-                                                {% for test  in podB1 %}
-                                                <a href="">
-                                                        <div class="bg-success planner-w text-white p-2 text-center">
-                                                                {{ test.fname }}
-                                                                {{ test.lname }}</div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
-                                                </div>
-                                                {% endfor %}
-                                                {% for test  in podB2 %}
-                                                <a href="" title="{{ test.eta }}">
-                                                        <div class="bg-success planner-w text-white p-2 text-center"
-                                                                title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}
+                                        {% if podB1 %}
+                                        {% for test in podB1 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseAOne" aria-expanded="false"
+                                                                        aria-controls="collapseAOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
                                                         </div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
-                                                </div>
-                                                {% endfor %}
-                                                {% for test  in podB3 %}
-                                                <a href="">
-                                                        <div class="bg-success planner-w text-white p-2 text-center">
-                                                                {{ test.fname }}
-                                                                {{ test.lname }}</div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
-                                                </div>
-                                                {% endfor %}
-                                                {% for test  in podB4 %}
-                                                <a href="">
-                                                        <div class="bg-success planner-w text-white p-2 text-center">
-                                                                {{ test.fname }}
-                                                                {{ test.lname }}</div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
-                                                </div>
-                                                {% endfor %}
-                                                {% for test  in podB5 %}
-                                                <a href="">
-                                                        <div class="bg-success planner-w text-white p-2 text-center">
-                                                                {{ test.fname }}
-                                                                {{ test.lname }}</div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
-                                                </div>
-                                                {% endfor %}
-                                                {% for test  in podB6 %}
-                                                <a href="">
-                                                        <div class="bg-success planner-w text-white p-2 text-center">
-                                                                {{ test.fname }}
-                                                                {{ test.lname }}</div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
-                                                </div>
-                                                {% endfor %}
-                                                {% for test  in podB7 %}
-                                                <a href="">
-                                                        <div class="bg-success planner-w text-white p-2 text-center"
-                                                                title="{{ test.eta }}">{{ test.fname }} {{ test.lname }}
+                                                        <div id="collapseAOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
                                                         </div>
-                                                </a>
-                                                {% empty %}
-                                                <div class="bg-danger text-center planner-w p-2 text-white">No Arrival
                                                 </div>
-                                                {% endfor %}
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date1|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podB2 %}
+                                        {% for test in podB2 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseATwo" aria-expanded="false"
+                                                                        aria-controls="collapseATwo">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseATwo" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span><i class="fa-solid fa-pen-to-square" style="color: #ff0a2f;"></i><span></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date2|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podB3 %}
+                                        {% for test in podB3 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date3|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podB4 %}
+                                        {% for test in podB4 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date4|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podB5 %}
+                                        {% for test in podB5 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date5|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podB6 %}
+                                        {% for test in podB6 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date6|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
+
+                                        {% if podB7 %}
+                                        {% for test in podB7 %}
+                                        <div id="accordion">
+                                                <div class="">
+                                                        <div class="" id="headingOne">
+                                                                <button class="bg-success planner-w text-white p-2 text-center"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseOne" aria-expanded="false"
+                                                                        aria-controls="collapseOne">
+                                                                        {{ test.fname }} {{ test.lname }}
+                                                                </button>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse"
+                                                                aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                        <p><span><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></span></p>
+                                                                        <p>Nights: {{test.nights}}</p>
+                                                                        <p>PAX: {{test.pax}}</p>
+                                                                        <p>Rate: {{test.podB_rate}}</p>
+                                                                        <p>Total Cost: {{test.total_cost}}</p>
+
+                                                                        <p>Phone: {{test.phone_number}}</p>
+                                                                        <p>Email: {{test.email}}</p>
+                                                                        <p>Notes: {{test.notes}}</p>
+                                                                        <p>ETA: {{test.eta}}</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% empty %}
+                                        {% endfor %}
+                                        {% else %}
+                                        {% if date7|date:"Y-m-d" in podB|join:" " %}
+                                        <div class="bg-warning text-center planner-w p-2 text-white">Stayover</div>
+                                        {% else %}
+                                        <div class="bg-danger text-center planner-w p-2 text-white">No Arrival</div>
+                                        {% endif %}
+                                        {% endif %}
                                 </div>
+
                         </div>
                 </div>
 

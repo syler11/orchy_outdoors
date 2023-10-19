@@ -185,6 +185,10 @@ div input {
     width: 100%;
 }
 
+.card-body p {
+    margin-bottom: 0.5rem;
+}
+
 
 /* Media Queries */
 
@@ -231,5 +235,13 @@ div input {
     .planner-w {
         width: 120px;
         font-size: smaller;
+    }
+
+    .card-body p {
+        font-size: smaller;
+    }
+
+    #headingOne, #accordion {
+        width: 120px;
     }
 }

@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/booking.js'  %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+        <h1>Edit Reservation</h1>
+        <hr>
+        <form class="row no-gutters">
+                <div class="col-md-6 text-left">
+                        <div class="form-group row">
+                                <label for="booking_id" class="col-sm-3 col-form-label">Booking ID</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="booking_id" name="booking_id"
+                                                readonly value="{{reservation.booking_id}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="fname" class="col-sm-3 col-form-label">Firstname</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="fname" name="fname"
+                                                value="{{reservation.fname}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="lname" class="col-sm-3 col-form-label">Lastname</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="lname" name="lname"
+                                                value="{{reservation.lname}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="podA" class="col-sm-3 col-form-label">Pod</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="podA" name="podA"
+                                                value="{{reservation.podA}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="pax" class="col-sm-3 col-form-label">PAX</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="pax" name="pax"
+                                                value="{{reservation.pax}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="nights" class="col-sm-3 col-form-label">Nights</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="nights" name="nights"
+                                                value="{{reservation.nights}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="arrival_date" class="col-sm-3 col-form-label">Arrival Date</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="arrival_date" name="arrival_date"
+                                                value="{{reservation.arrival_date}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="arrival_range" class="col-sm-3 col-form-label">Arrival Range</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="arrival_range" name="arrival_range"
+                                                value="{{reservation.arrival_range}}">
+                                </div>
+                        </div>
+                </div>
+                <div class="pl-2 col-md-6 text-left">
+                        <div class="form-group row">
+                                <label for="podA_rate" class="col-sm-3 col-form-label">POD Rate</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="podA_rate" name="podA_rate"
+                                                 value="{{reservation.podA_rate}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="total_cost" class="col-sm-3 col-form-label">Total Cost</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="total_cost" name="total_cost"
+                                                value="{{reservation.total_cost}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="phone_number" class="col-sm-3 col-form-label">Phone</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                                value="{{reservation.phone_number}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="email" name="email"
+                                                value="{{reservation.email}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="notes" class="col-sm-3 col-form-label">Notes</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="notes" name="notes"
+                                                value="{{reservation.notes}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="eta" class="col-sm-3 col-form-label">ETA</label>
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="eta" name="eta"
+                                                value="{{reservation.eta}}">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="status" class="col-sm-3 col-form-label">Status</label>
+                                <div class="col-sm-9">
+                                        <select class="form-control ml-0 w-75 rounded-2 border-info"
+                                        name="status" id="status" required>
+                                        <option selected value="{{reservation.status}}">{{reservation.status}}</option>
+                                        <option value="cancel">Cancel</option>
+                                </select>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <button type="submit" id="bookingSubmit"
+                                class="float-right btn btn-secondary btn-info"
+                                disabled>Save Changes</button>
+                        </div>
+                </div>
+
+        </form>
+
+</div>
+
+<!-- No availability Modal -->
+<div class="modal fade" id="delete_reservation" tabindex="-1" role="dialog" aria-labelledby="no_availability"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header border-0">
+                        </div>
+                        <div class="modal-body text-center">
+                                <h3>Sorry!</h3>
+                                <p>
+                                        No availability for this pod on this day.
+                                </p>
+                        </div>
+                        <div class="modal-footer border-0">
+                                <button type="button" class="btn btn-secondary btn-danger"
+                                        data-dismiss="modal">Close</button>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="availability" tabindex="-1" role="dialog" aria-labelledby="availability" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5>Booking Summary</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <form action="">
+                                <div class="form-group">
+                                        <div class="modal-body">
+                                                <h5>Beinn Monk</h5>
+                                                <div class="muted">
+                                                        <p class="d-none" id="firstDate">{{firstDate}}</p>
+                                                        <p>Arrival Date: <span class="float-right" id="dateTest"></span>
+                                                        </p>
+                                                        <p>Max occupancy: <span class="float-right">Sleeps 2</span></p>
+                                                </div>
+                                                <div class="text-center">
+                                                        <select class="border-info p-2 rounded-2"
+                                                                oninput="changeBooking()" name="nights" id="nights">
+                                                                <option id="dep1" value="1">1 night - Departing Wed 31
+                                                                        Aug
+                                                                </option>
+
+                                                                <option id="dep2" value="2">2 nights - Departing Thu 1
+                                                                        Sep
+                                                                </option>
+                                                                <option id="dep3" value="3">3 nights - Departing Fri 2
+                                                                        Sep
+                                                                </option>
+                                                                <option id="dep4" value="4">4 nights - Departing Sat 3
+                                                                        Sep
+                                                                </option>
+                                                        </select>
+                                                </div>
+                                                <div>
+                                                        <p>Room only <span class="float-right">£<span
+                                                                                id="rate_rm1">75</span>.00</span> </p>
+
+                                                </div>
+                                                <div>
+                                                        <p>Total Cost <span class="float-right">£<span
+                                                                                id="rate_total"></span>.00</span> </p>
+
+
+                                                </div>
+
+                                                <div id="guest_info" class="d-none">
+                                                        <hr>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="firstname" id="firstname"
+                                                                        placeholder="Firstname">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="lastname" id="lastname"
+                                                                        placeholder="Lastname">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="text" name="phone" id="phone"
+                                                                        placeholder="Phone number">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <input class="form-control w-75 rounded-2 border-info"
+                                                                        type="email" name="email" id="email"
+                                                                        placeholder="Email">
+                                                        </div>
+                                                        <div class="p-2">
+                                                                <textarea
+                                                                        class="form-control w-75 rounded-2 border-info"
+                                                                        name="notes" id="notes" cols="30" rows="5"
+                                                                        placeholder="Notes"></textarea>
+                                                        </div>
+                                                        <div class="form-check py-1">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                        id="terms">
+                                                                <label class="form-check-label" for="terms"> I accept
+                                                                        the <a href="http://" target="_blank"
+                                                                                rel="noopener noreferrer">Terms and
+                                                                                Conditions</a></label>
+                                                        </div>
+                                                </div>
+                                                <div id="booking_step" class="float-right p-2">`
+                                                        <button type="button" id="booking_step1"
+                                                                onclick="display_guestInfo()"
+                                                                class="btn btn-secondary btn-success"
+                                                                data-dismiss="modal">Continue Booking</button>
+                                                </div>
+                                        </div>
+                                        <div id="booking_submit" class="modal-footer border-0 d-none float-right">
+                                                <button type="button" class="btn btn-secondary btn-success"
+                                                        data-dismiss="modal">Book</button>
+                                                <button type="button" class="btn btn-secondary btn-danger"
+                                                        data-dismiss="modal">Cancel</button>
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</div>
+
+{% endblock %}

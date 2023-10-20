@@ -376,3 +376,15 @@ def planner(request):
     }
 
     return render(request, 'home/planner.html', context)
+
+
+def reservation_details(request, booking_id):
+    """ A view to return the edit booking page """
+
+    reservation = get_object_or_404(BookingPodA, booking_id=booking_id)
+
+    context = {
+        'reservation':reservation,
+        }
+
+    return render(request, 'home/reservation_details.html', context)

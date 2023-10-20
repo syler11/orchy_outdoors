@@ -44,7 +44,7 @@
                                                         <div id="podA1" class="collapse"
                                                                 aria-labelledby="podA1" data-parent="#accordion">
                                                                 <div class="card-body">
-                                                                        <p>Booking ID: <a href="#">{{test.booking_id}}</p></a>
+                                                                        <p>Booking ID: <a href="{% url 'reservation_details' test.booking_id %}">{{test.booking_id}}</p></a>
                                                                         <p>Nights: {{test.nights}}</p>
                                                                         <p>PAX: {{test.pax}}</p>
                                                                         <p>Rate: {{test.podA_rate}}</p>

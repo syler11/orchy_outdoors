@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/booking.js'  %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+        <h1>All Reservation</h1>
+        <div id="" class="">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="emp_id" scope="col">Booking ID</th>
+                        <th class="name" scope="col">Full Name</th>
+                        <th class="arrival_date" scope="col">Arrival Date</th>
+                        <th class="nights" scope="col">Nights</th>
+                        <th class="pod_name" scope="col">POD</th>
+                        <th class="telephone" scope="col">Telephone</th>
+                        <th class="email" scope="col">Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        {% for res in all_reservations %}
+                          <td class="emp_id"><a href="{% url 'reservation_details' res.booking_id %}">{{ res.booking_id }}</a></td>
+                          <td class="full_name">{{ res.fname }} {{ res.lname }}</td>
+                          <td class="arrival_date" scope="col">{{ res.arrival_date }}</td>
+                          <td class="nights" scope="col">{{ res.nights }}</td>
+                          <td class="pod_name" scope="col">{{ res.pod_name }}</td>
+                          <td class="telephone">{{ res.phone_number }}</td>
+                          <td class="email">{{ res.email }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+          
+</div>
+
+{% endblock %}
+
+

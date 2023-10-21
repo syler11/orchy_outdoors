@@ -394,3 +394,16 @@ def reservation_details(request, booking_id):
         }
 
     return render(request, 'home/reservation_details.html', context)
+
+
+def all_reservations(request):
+    """ A view to return the edit booking page """
+
+    all_reservations = BookingPodA.objects.all()
+
+
+    context = {
+        'all_reservations': all_reservations,
+        }
+
+    return render(request, 'home/all_reservations.html', context)

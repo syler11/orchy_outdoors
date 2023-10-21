@@ -6,6 +6,7 @@ from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from home.models import BookingPodA, BookingPodB
 from .forms import AddBookingPodAForm, AddBookingPodBForm
 from availability.models import Availability
+from itertools import chain
 
 from datetime import date, timedelta, datetime
 
@@ -399,7 +400,9 @@ def reservation_details(request, booking_id):
 def all_reservations(request):
     """ A view to return the edit booking page """
 
-    all_reservations = BookingPodA.objects.all()
+    reservationsA = BookingPodA.objects.all()
+    reservationsB = BookingPodB.objects.all()
+    all_reservations = sorted(chain(reservationsA, reservationsB), key=lambda data: data.arrival_date)
 
 
     context = {
@@ -407,3 +410,6 @@ def all_reservations(request):
         }
 
     return render(request, 'home/all_reservations.html', context)
+
+
+

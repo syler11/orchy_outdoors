@@ -8,6 +8,26 @@
 {% block content %}
 <div class="page-container text-center m-3">
         <h1>All Reservation</h1>
+        <div class="col-12 col-md-6 col-lg-4 my-auto p-2">
+                <form method="GET" action="">
+                  <div class="input-group">
+                    <label for="search" hidden>Search</label>
+                    <input class="form-control border border-black rounded-0" type="text" id="q" name="q"
+                      placeholder="Search for name">
+                    <div class="input-group-append">
+                      <button class="form-control btn btn-black border border-black rounded-0" type="submit"
+                        aria-label="search">
+                        <span class="icon">
+                          <i class="fas fa-search"></i>
+                        </span>
+                        <span class="no-display">
+                          Search
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
         <div id="" class="">
                 <div class="table-responsive">
                   <table class="table">

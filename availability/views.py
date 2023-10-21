@@ -4,8 +4,10 @@ from orchy_outdoors.settings import BASE_RATE
 from datetime import date, datetime
 from .models import Availability
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def availability(request):
     """ A view to return the availability page """
     
@@ -40,6 +42,7 @@ def availability(request):
     return render(request, 'availability/availability.html', context)
 
 
+@login_required
 def edit_availability(request, id):
     """ A view to return the edit booking page """
 
@@ -67,6 +70,7 @@ def edit_availability(request, id):
     return render(request, 'availability/edit_availability.html', context)
 
 
+@login_required
 def delete_restriction(request, id):
     """
     Delete an employee from database

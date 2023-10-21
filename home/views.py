@@ -7,6 +7,7 @@ from home.models import BookingPodA, BookingPodB
 from .forms import AddBookingPodAForm, AddBookingPodBForm
 from availability.models import Availability
 from itertools import chain
+from django.contrib.auth.decorators import login_required
 
 from datetime import date, timedelta, datetime
 
@@ -312,6 +313,7 @@ def contact(request):
         return render(request, 'home/contact.html')
 
 
+@login_required
 def planner(request):
     """ A view to return the faq page """
 
@@ -379,6 +381,7 @@ def planner(request):
     return render(request, 'home/planner.html', context)
 
 
+@login_required
 def reservation_details(request, booking_id):
     """ A view to return the edit booking page """
 

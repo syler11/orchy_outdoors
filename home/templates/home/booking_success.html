@@ -8,10 +8,11 @@
 {% block content %}
 <div class="page-container text-center m-3">
         <h1>Booking Success</h1>
+        <h4><span>{{ bookingPodA.fname }}</span><span>{{ bookingPodB.fname }}</span>, your reservation was succesfully created</h4>
+        <p>Your reservation number</p>
         <p>{{bookingPodA.booking_id}}</p>
         <p>{{bookingPodB.booking_id}}</p>
-
-
+        <p>You will receive an email confirmation shortly</p>
 </div>
 
 {% endblock %}

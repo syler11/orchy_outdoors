@@ -11,21 +11,21 @@ class BookingPodAAdmin(admin.ModelAdmin):
     list_display = (
         'booking_id',
         'arrival_date',
-        'podA',
+        'pod_name',
         'lname',
         'total_cost',
     )
     list_filter = (
         'booking_id',
         'arrival_date',
-        'podA',
+        'pod_name',
         'lname',
         'total_cost',
     )
     search_fields = (
         'booking_id',
         'arrival_date',
-        'podA'
+        'pod_name'
         'lname',
         'total_cost',
     )
@@ -39,21 +39,21 @@ class BookingPodBAdmin(admin.ModelAdmin):
     list_display = (
         'booking_id',
         'arrival_date',
-        'podB',
+        'pod_name',
         'lname',
         'total_cost',
     )
     list_filter = (
         'booking_id',
         'arrival_date',
-        'podB',
+        'pod_name',
         'lname',
         'total_cost',
     )
     search_fields = (
         'booking_id',
         'arrival_date',
-        'podB'
+        'pod_name'
         'lname',
         'total_cost',
     )

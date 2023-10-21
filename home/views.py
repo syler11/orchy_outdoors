@@ -381,10 +381,16 @@ def planner(request):
 def reservation_details(request, booking_id):
     """ A view to return the edit booking page """
 
-    reservation = get_object_or_404(BookingPodA, booking_id=booking_id)
+    reservation = []
+    
+    try:
+        reservation = get_object_or_404(BookingPodA, booking_id=booking_id)
+    except:
+        reservation = get_object_or_404(BookingPodB, booking_id=booking_id)
+
 
     context = {
-        'reservation':reservation,
+        'reservation': reservation,
         }
 
     return render(request, 'home/reservation_details.html', context)

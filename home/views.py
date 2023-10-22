@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from home.models import BookingPodA, BookingPodB
-from .forms import AddBookingPodAForm, AddBookingPodBForm
+from .forms import AddBookingPodAForm, AddBookingPodBForm, EditBookingPodAForm, EditBookingPodBForm
 from availability.models import Availability
 from itertools import chain
 from django.contrib.auth.decorators import login_required
@@ -317,7 +317,6 @@ def contact(request):
 def planner(request):
     """ A view to return the faq page """
 
-
     nowDate = date.today()
     today = nowDate.strftime("%Y-%m-%d")
     print(today)
@@ -336,21 +335,21 @@ def planner(request):
     date6 = date1 + timedelta(days=5)
     date7 = date1 + timedelta(days=6)
 
-    podA1 = BookingPodA.objects.filter(arrival_date=date1)
-    podA2 = BookingPodA.objects.filter(arrival_date=date2)
-    podA3 = BookingPodA.objects.filter(arrival_date=date3)
-    podA4 = BookingPodA.objects.filter(arrival_date=date4)
-    podA5 = BookingPodA.objects.filter(arrival_date=date5)
-    podA6 = BookingPodA.objects.filter(arrival_date=date6)
-    podA7 = BookingPodA.objects.filter(arrival_date=date7)
+    podA1 = BookingPodA.objects.filter(arrival_date=date1).filter(status="Booked")
+    podA2 = BookingPodA.objects.filter(arrival_date=date2).filter(status="Booked")
+    podA3 = BookingPodA.objects.filter(arrival_date=date3).filter(status="Booked")
+    podA4 = BookingPodA.objects.filter(arrival_date=date4).filter(status="Booked")
+    podA5 = BookingPodA.objects.filter(arrival_date=date5).filter(status="Booked")
+    podA6 = BookingPodA.objects.filter(arrival_date=date6).filter(status="Booked")
+    podA7 = BookingPodA.objects.filter(arrival_date=date7).filter(status="Booked")
 
-    podB1 = BookingPodB.objects.filter(arrival_date=date1)
-    podB2 = BookingPodB.objects.filter(arrival_date=date2)
-    podB3 = BookingPodB.objects.filter(arrival_date=date3)
-    podB4 = BookingPodB.objects.filter(arrival_date=date4)
-    podB5 = BookingPodB.objects.filter(arrival_date=date5)
-    podB6 = BookingPodB.objects.filter(arrival_date=date6)
-    podB7 = BookingPodB.objects.filter(arrival_date=date7)
+    podB1 = BookingPodB.objects.filter(arrival_date=date1).filter(status="Booked")
+    podB2 = BookingPodB.objects.filter(arrival_date=date2).filter(status="Booked")
+    podB3 = BookingPodB.objects.filter(arrival_date=date3).filter(status="Booked")
+    podB4 = BookingPodB.objects.filter(arrival_date=date4).filter(status="Booked")
+    podB5 = BookingPodB.objects.filter(arrival_date=date5).filter(status="Booked")
+    podB6 = BookingPodB.objects.filter(arrival_date=date6).filter(status="Booked")
+    podB7 = BookingPodB.objects.filter(arrival_date=date7).filter(status="Booked")
 
     context = {
         "podA": podA,
@@ -386,15 +385,47 @@ def reservation_details(request, booking_id):
     """ A view to return the edit booking page """
 
     reservation = []
-    
+
     try:
         reservation = get_object_or_404(BookingPodA, booking_id=booking_id)
+
+        if request.method == 'POST':
+            form = EditBookingPodAForm(request.POST, request.FILES, instance = reservation)
+            if form.is_valid():
+                booking = form.save()
+
+                messages.success(request, 'Reservation was succesfully updated!')
+                return redirect(reverse('all_reservations'))
+
+            else:
+                messages.error(request,
+                           'Failed to create booking. \
+                            Please ensure the form is valid.')
+        else:
+            form = EditBookingPodAForm(instance = reservation)
+
     except:
         reservation = get_object_or_404(BookingPodB, booking_id=booking_id)
+
+        if request.method == 'POST':
+            form = EditBookingPodBForm(request.POST, request.FILES, instance = reservation)
+            if form.is_valid():
+                booking = form.save()
+
+                messages.success(request, 'Reservation was succesfully updated!')
+                return redirect(reverse('all_reservations'))
+
+            else:
+                messages.error(request,
+                           'Failed to create booking. \
+                            Please ensure the form is valid.')
+        else:
+            form = EditBookingPodBForm(instance = reservation)
 
 
     context = {
         'reservation': reservation,
+        'form': form,
         }
 
     return render(request, 'home/reservation_details.html', context)

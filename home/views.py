@@ -434,13 +434,26 @@ def reservation_details(request, booking_id):
 def all_reservations(request):
     """ A view to return the edit booking page """
 
-    reservationsA = BookingPodA.objects.all()
-    reservationsB = BookingPodB.objects.all()
-    all_reservations = sorted(chain(reservationsA, reservationsB), key=lambda data: data.arrival_date)
+    nowDate = date.today()
+    today = nowDate.strftime("%Y-%m-%d")
+
+    reservationsCurrentA = BookingPodA.objects.filter(arrival_date__gte=today).filter(status="Booked")
+    reservationsCurrentB = BookingPodB.objects.filter(arrival_date__gte=today).filter(status="Booked")
+    current_reservations = sorted(chain(reservationsCurrentA, reservationsCurrentB), key=lambda data: data.arrival_date)
+
+    reservationsAllA = BookingPodA.objects.all()
+    reservationsAllB = BookingPodB.objects.all()
+    all_reservations = sorted(chain(reservationsAllA, reservationsAllB), key=lambda data: data.arrival_date)
+
+    reservationsCancelA = BookingPodA.objects.filter(status="Cancel")
+    reservationsCancelB = BookingPodB.objects.filter(status="Cancel")
+    cancelled_reservations = sorted(chain(reservationsCancelA, reservationsCancelB), key=lambda data: data.arrival_date)
 
 
     context = {
+        'current_reservations': current_reservations,
         'all_reservations': all_reservations,
+        'cancelled_reservations': cancelled_reservations,
         }
 
     return render(request, 'home/all_reservations.html', context)

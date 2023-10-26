@@ -7,14 +7,14 @@ const cancelledListSelect = document.getElementById("cancelledListSelect");
 
 
 function reservationSelect() {
-    if (currentListSelect.checked) {
-        allList.classList.add("d-none");
-        cancelledList.classList.add("d-none");
-        currentList.classList.remove("d-none");
-    } else if (allListSelect.checked) {
-        allList.classList.remove("d-none");
-        cancelledList.classList.add("d-none");
+    if (allListSelect.checked) {
         currentList.classList.add("d-none");
+        cancelledList.classList.add("d-none");
+        allList.classList.remove("d-none");
+    } else if (currentListSelect.checked) {
+        currentList.classList.remove("d-none");
+        cancelledList.classList.add("d-none");
+        allList.classList.add("d-none");
     } else {
         allList.classList.add("d-none");
         currentList.classList.add("d-none");

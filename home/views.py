@@ -8,6 +8,7 @@ from .forms import AddBookingPodAForm, AddBookingPodBForm, EditBookingPodAForm, 
 from availability.models import Availability
 from itertools import chain
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from datetime import date, timedelta, datetime
 
@@ -434,26 +435,47 @@ def reservation_details(request, booking_id):
 def all_reservations(request):
     """ A view to return the edit booking page """
 
+    query1 = None
+    query2 = None
+    
     nowDate = date.today()
     today = nowDate.strftime("%Y-%m-%d")
 
     reservationsCurrentA = BookingPodA.objects.filter(arrival_date__gte=today).filter(status="Booked")
     reservationsCurrentB = BookingPodB.objects.filter(arrival_date__gte=today).filter(status="Booked")
-    current_reservations = sorted(chain(reservationsCurrentA, reservationsCurrentB), key=lambda data: data.arrival_date)
 
     reservationsAllA = BookingPodA.objects.all()
     reservationsAllB = BookingPodB.objects.all()
-    all_reservations = sorted(chain(reservationsAllA, reservationsAllB), key=lambda data: data.arrival_date)
 
     reservationsCancelA = BookingPodA.objects.filter(status="Cancel")
     reservationsCancelB = BookingPodB.objects.filter(status="Cancel")
-    cancelled_reservations = sorted(chain(reservationsCancelA, reservationsCancelB), key=lambda data: data.arrival_date)
 
+    if 'q' in request.GET:
+        query = request.GET['q']
+        if not query:
+            messages.error(request,
+                            "You didn't enter any search criteria!")
+            return redirect(reverse('all_reservations'))
+
+        query1 = Q(lname__icontains=query)
+        query2 = Q(fname__icontains=query)
+        reservationsAllA = BookingPodA.objects.filter(query1 | query2)
+        reservationsAllB = BookingPodB.objects.filter(query1 | query2)
+        reservationsCurrentA = BookingPodA.objects.filter(arrival_date__gte=today).filter(status="Booked").filter(query1 | query2)
+        reservationsCurrentB = BookingPodB.objects.filter(arrival_date__gte=today).filter(status="Booked").filter(query1 | query2)
+        reservationsCancelA = BookingPodA.objects.filter(status="Cancel").filter(query1 | query2)
+        reservationsCancelB = BookingPodB.objects.filter(status="Cancel").filter(query1 | query2)
+
+    all_reservations = sorted(chain(reservationsAllA, reservationsAllB), key=lambda data: data.arrival_date)
+    current_reservations = sorted(chain(reservationsCurrentA, reservationsCurrentB), key=lambda data: data.arrival_date)
+    cancelled_reservations = sorted(chain(reservationsCancelA, reservationsCancelB), key=lambda data: data.arrival_date)
 
     context = {
         'current_reservations': current_reservations,
         'all_reservations': all_reservations,
         'cancelled_reservations': cancelled_reservations,
+        'search_term1': query1,
+        'search_term2': query2,
         }
 
     return render(request, 'home/all_reservations.html', context)

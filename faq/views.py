@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from faq.models import FAQ
 from .forms import AddFAQForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def faq(request):
@@ -38,3 +39,15 @@ def faq(request):
     }
 
     return render(request, 'faq/faq.html', context)
+
+
+@login_required
+def delete_faq(request, id):
+    """
+    Delete a faq from database
+    """
+
+    faq = get_object_or_404(Availability, pk=id)
+    faq.delete()
+    messages.success(request, 'FAQ deleted!')
+    return redirect(reverse('faq'))

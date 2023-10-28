@@ -272,12 +272,6 @@ def about(request):
     return render(request, 'home/about.html')
 
 
-def faq(request):
-    """ A view to return the faq page """
-
-    return render(request, 'home/faq.html')
-
-
 def contact(request):
     """ A view to return the contact page """
     if request.method == "POST":

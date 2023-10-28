@@ -5,7 +5,7 @@ from django import forms
 from .models import FAQ
 
 
-class AddAvailabilityForm(forms.ModelForm):
+class AddFAQForm(forms.ModelForm):
     """
     Add Booking form class
     """
@@ -20,9 +20,9 @@ class AddAvailabilityForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black w-75 rounded-0'
+            field.widget.attrs['class'] = 'form-control border-info rounded-2'
 
-class EditAvailabilityForm(forms.ModelForm):
+class EditFAQForm(forms.ModelForm):
     """
     Add Availability form class
     """

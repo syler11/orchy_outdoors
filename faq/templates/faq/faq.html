@@ -1,56 +1,63 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
 <div class="page-container text-center m-3">
-    <h1>Frequently Asked Questions</h1>
+    <h1>Frequently Asked Questions <span class="float-right"><button type="button" class="btn btn-secondary btn-success"
+                data-toggle="modal" data-target="#add_faq" data-dismiss="modal">ADD NEW</button></span></h1>
     <div class="row no-gutters">
         <div class="col-lg-4 p-3">
             <strong>Accomodation Questions</strong>
-        {% for faq in faq %}
-        {% if faq.faq_choices == "ACCOMODATION" %}
+            {% for faq in faq %}
+            {% if faq.faq_choices == "ACCOMODATION" %}
             <div id="accordion">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#{{faq.faq_choices}}{{faq.sort_number}}"
-                                aria-expanded="true" aria-controls="generalOne">
+                            <button class="btn btn-link" data-toggle="collapse"
+                                data-target="#{{faq.faq_choices}}{{faq.sort_number}}" aria-expanded="true"
+                                aria-controls="generalOne">
                                 {{faq.title}}
                             </button>
                         </h5>
                     </div>
 
-                    <div id="{{faq.faq_choices}}{{faq.sort_number}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="{{faq.faq_choices}}{{faq.sort_number}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordion">
                         <div class="card-body">
                             {{faq.text}}
                         </div>
                     </div>
                 </div>
             </div>
-        {% endif %}
-        {% endfor %}
+            {% endif %}
+            {% endfor %}
         </div>
         <div class="col-lg-4 p-3">
             <strong>Local Amenities</strong>
             {% for faq in faq %}
             {% if faq.faq_choices == "AMENITIES" %}
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#{{faq.faq_choices}}{{faq.sort_number}}"
-                                    aria-expanded="true" aria-controls="generalOne">
-                                    {{faq.title}}
-                                </button>
-                            </h5>
-                        </div>
-    
-                        <div id="{{faq.faq_choices}}{{faq.sort_number}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                {{faq.text}}
-                            </div>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse"
+                                data-target="#{{faq.faq_choices}}{{faq.sort_number}}" aria-expanded="true"
+                                aria-controls="generalOne">
+                                {{faq.title}}
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="{{faq.faq_choices}}{{faq.sort_number}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordion">
+                        <div class="card-body">
+                            {{faq.text}}
                         </div>
                     </div>
                 </div>
+            </div>
             {% endif %}
             {% endfor %}
         </div>
@@ -58,30 +65,84 @@
             <strong>Miscellanous Questions</strong>
             {% for faq in faq %}
             {% if faq.faq_choices == "MISCELLANOUS" %}
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#{{faq.faq_choices}}{{faq.sort_number}}"
-                                    aria-expanded="true" aria-controls="generalOne">
-                                    {{faq.title}}
-                                </button>
-                            </h5>
-                        </div>
-    
-                        <div id="{{faq.faq_choices}}{{faq.sort_number}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                {{faq.text}}
-                            </div>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse"
+                                data-target="#{{faq.faq_choices}}{{faq.sort_number}}" aria-expanded="true"
+                                aria-controls="generalOne">
+                                {{faq.title}}
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="{{faq.faq_choices}}{{faq.sort_number}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordion">
+                        <div class="card-body">
+                            {{faq.text}}
                         </div>
                     </div>
                 </div>
+            </div>
             {% endif %}
             {% endfor %}
         </div>
-        
+
     </div>
 
 </div>
 
+<!-- No availability Modal -->
+<div class="modal fade" id="add_faq" tabindex="-1" role="dialog" aria-labelledby="no_availability" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        < <div class="modal-content">
+            <div class="modal-header">
+                <h5>Add New FAQ Question</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'faq' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="modal-body">
+                        <p>Please fill out all the fields and click save</p>
+                        <p class="d-none" id="accomodation">{{ accomodation_count }}</p>
+                        <p class="d-none" id="amenities">{{ amenities_count }}</p></p>
+                        <p class="d-none" id="miscellanous">{{ miscellanous_count }}</p></p>
+                        <div id="guest_info" class="">
+                            <div class="p-1">
+                                {{ form.faq_choices | as_crispy_field }}
+                            </div>
+                            <div class="p-1 d-none">
+                                <label for="sort_number">Sort Number</label>
+                                <input type="number" class="form-control rounded-2 border-info" name="sort_number" id="sort_number">
+                            </div>
+                            <div class="p-1">
+                                {{ form.title | as_crispy_field }}
+                            </div>
+                            <div class="p-1">
+                                <label for="text">Answer</label>
+                                <textarea onclick="sortNumber()" class="form-control rounded-2 border-info" name="text" id="text" cols="30"
+                                    rows="5"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-secondary btn-success">Add New</button>
+                                <button type="button" class="btn btn-secondary btn-danger"
+                                    data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'faq/js/sort_numbers.js' %}"></script>
 {% endblock %}

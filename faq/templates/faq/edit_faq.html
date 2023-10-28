@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+    <h1>Frequently Asked Questions</h1>
+    <div class="row no-gutters">
+        <div class="col-lg-4 p-3">
+            <form method="POST" action="{% url 'edit_faq' faq.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="modal-body">
+                        {{form.errors}}
+                        <p>Please update the fields you would like to change and click Save Changes</p>
+
+                        <div id="guest_info" class="">
+                            <div class="p-1">
+                                {{ form.faq_choices | as_crispy_field }}
+                            </div>
+                            <div class="p-1">
+                                <label for="sort_number">Sort Number</label>
+                                <input type="number" class="form-control rounded-2 border-info" name="sort_number" id="sort_number"
+                                    value="{{ faq.sort_number }}">
+                            </div>
+                            <div class="p-1">
+                                <label for="sort_number">Title</label>
+                                <input type="text" class="form-control rounded-2 border-info" name="title" id="title"
+                                    value="{{ faq.title }}">
+                            </div>
+                            <div class="p-1">
+                                <label for="text">Answer</label>
+                                <textarea class="form-control rounded-2 border-info" name="text" id="text" cols="30"
+                                    rows="5">{{ faq.text }}</textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-secondary btn-success">Save Changes</button>
+                                <a href="{% url 'faq' %}"><button type="button" class="btn btn-secondary btn-danger"
+                                    data-dismiss="modal">Cancel</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

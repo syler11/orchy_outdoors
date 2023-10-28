@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from faq.models import FAQ
-from .forms import AddFAQForm
+from .forms import AddFAQForm, EditFAQForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -42,12 +42,40 @@ def faq(request):
 
 
 @login_required
+def edit_faq(request, id):
+
+
+    faq = get_object_or_404(FAQ, pk=id)
+
+    if request.method == 'POST':
+        form = EditFAQForm(request.POST, instance=faq)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {faq.title}!')
+            return redirect(reverse('faq'))
+        else:
+            messages.error(request,
+                           'Failed to update hours.\
+                            Please ensure the form is valid.')
+    else:
+        form = EditFAQForm(instance=faq)
+        messages.info(request, f'You are editing {faq.title}')
+
+    context = {
+        'faq': faq,
+        'form': form,
+    }
+
+    return render(request, 'faq/edit_faq.html', context)
+
+
+@login_required
 def delete_faq(request, id):
     """
     Delete a faq from database
     """
 
-    faq = get_object_or_404(Availability, pk=id)
+    faq = get_object_or_404(FAQ, pk=id)
     faq.delete()
-    messages.success(request, 'FAQ deleted!')
+    messages.success(request, f'FAQ - {faq.title} was deleted!')
     return redirect(reverse('faq'))

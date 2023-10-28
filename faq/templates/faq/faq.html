@@ -4,8 +4,12 @@
 
 {% block content %}
 <div class="page-container text-center m-3">
-    <h1>Frequently Asked Questions <span class="float-right"><button type="button" class="btn btn-secondary btn-success"
-                data-toggle="modal" data-target="#add_faq" data-dismiss="modal">ADD NEW</button></span></h1>
+    <h1>Frequently Asked Questions 
+        {% if request.user.is_authenticated %}
+        <span class="float-right"><button type="button" class="btn btn-secondary btn-success"
+                data-toggle="modal" data-target="#add_faq" data-dismiss="modal">ADD NEW</button></span>
+        {% endif %}
+            </h1>
     <div class="row no-gutters">
         <div class="col-lg-4 p-3">
             <strong>Accomodation Questions</strong>
@@ -15,6 +19,14 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
+                            {% if request.user.is_authenticated %}
+                            <span class="float-right p-2">
+                                <a href="{% url 'delete_faq' faq.id %}"><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></a>
+                            </span>
+                            <span class="float-right p-2">
+                                <a href="{% url 'edit_faq' faq.id %}"><i class="fa-regular background-info fa-edit"></i></a>
+                            </span>
+                            {% endif %}
                             <button class="btn btn-link" data-toggle="collapse"
                                 data-target="#{{faq.faq_choices}}{{faq.sort_number}}" aria-expanded="true"
                                 aria-controls="generalOne">
@@ -42,6 +54,14 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
+                            {% if request.user.is_authenticated %}
+                            <span class="float-right p-2">
+                                <a href="{% url 'delete_faq' faq.id %}"><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></a>
+                            </span>
+                            <span class="float-right p-2">
+                                <a href="{% url 'edit_faq' faq.id %}"><i class="fa-regular background-info fa-edit"></i></a>
+                            </span>
+                            {% endif %}
                             <button class="btn btn-link" data-toggle="collapse"
                                 data-target="#{{faq.faq_choices}}{{faq.sort_number}}" aria-expanded="true"
                                 aria-controls="generalOne">
@@ -69,6 +89,14 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
+                            {% if request.user.is_authenticated %}
+                            <span class="float-right p-2">
+                                <a href="{% url 'delete_faq' faq.id %}"><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></a>
+                            </span>
+                            <span class="float-right p-2">
+                                <a href="{% url 'edit_faq' faq.id %}"><i class="fa-regular background-info fa-edit"></i></a>
+                            </span>
+                            {% endif %}
                             <button class="btn btn-link" data-toggle="collapse"
                                 data-target="#{{faq.faq_choices}}{{faq.sort_number}}" aria-expanded="true"
                                 aria-controls="generalOne">
@@ -96,7 +124,7 @@
 <!-- No availability Modal -->
 <div class="modal fade" id="add_faq" tabindex="-1" role="dialog" aria-labelledby="no_availability" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        < <div class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
                 <h5>Add New FAQ Question</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

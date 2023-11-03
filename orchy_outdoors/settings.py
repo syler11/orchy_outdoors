@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'availability',
     'faq',
     'crispy_forms',
+    'settings',
 
     # Allauth apps
     'allauth',

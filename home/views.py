@@ -233,7 +233,7 @@ def booking_savePodA(request):
                 'nemeth.szilard82@gmail.com',
                 [to_email],
                 # bcc email below
-                #bcc=["info@boocars.co.uk"],
+                bcc=["harrisraptor@hotmail.co.uk"],
                 )  
             email.send(fail_silently=False)
 

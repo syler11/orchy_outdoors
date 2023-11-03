@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from home.models import BookingPodA, BookingPodB
@@ -193,10 +193,57 @@ def booking_detailsPodB(request, selected_day):
 def booking_savePodA(request):
     """ A view to return the about page """
 
+
+    to_email = request.POST.get("email")
+    booking_no = request.POST.get("booking_id")
+    fname = request.POST.get("fname")
+    lname = request.POST.get("lname")
+    total_cost = request.POST.get("total_cost")
+    arrival_date = request.POST.get("arival_date")
+    nights = request.POST.get("nights")
+    pax = request.POST.get("pax")
+
     if request.method == 'POST':
         form = AddBookingPodAForm(request.POST, request.FILES)
         if form.is_valid():
             booking = form.save()
+
+               # Send mail configuration
+
+            subject = render_to_string(
+                'home/booking_email/booking_email_subject.txt',
+                {'fname': fname, 'lname': lname})
+
+            body = render_to_string(
+                'home/booking_email/booking_email_body.txt',
+                {'booking_no': booking_no,
+                 'fname': fname,
+                 'lname': lname,
+                 'arrival_date': arrival_date,
+                 'pax': pax,
+                 'nights': nights,
+                 'total_cost': total_cost,
+                 })
+
+            # send an request email from request page
+            #send_mail(
+            #    subject,
+            #    body,
+            #    '',
+            #    [to_email, 'info@boocars.co.uk'],
+            #    fail_silently=False,
+            #   )
+
+            email = EmailMultiAlternatives(
+                subject,
+                body,
+                'nemeth.szilard82@gmail.com',
+                [to_email],
+                # bcc email below
+                #bcc=["info@boocars.co.uk"],
+                )
+
+            email.send(fail_silently=False)
 
             messages.success(request, 'Booking was succesfully created!')
             return redirect(reverse('booking_successPodA', args=[booking.id]))

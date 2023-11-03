@@ -1,0 +1,1 @@
+Hello {{fname}} {{lname}}, your accomodation is reserved.

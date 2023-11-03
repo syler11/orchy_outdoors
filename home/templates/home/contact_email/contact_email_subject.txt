@@ -1,1 +1,0 @@
-Received a new message from {{ message_name }}

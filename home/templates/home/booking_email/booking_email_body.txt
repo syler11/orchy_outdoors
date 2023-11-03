@@ -1,0 +1,17 @@
+Hello {{fname}},
+
+Thank You for choosing Bridge of Orchy Pods. 
+
+Please find your reservation details below.
+
+Your reservation number is {{booking_no}}.
+Arrival date: {{arrival_date_date}}
+Nights: {{pax}} people
+
+Fare: £{{total_cost}}
+We accept both cash and card payment.
+
+
+Kind regards,
+
+Bridge of Orchy Pods

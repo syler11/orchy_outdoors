@@ -5,12 +5,18 @@ Thank You for choosing Bridge of Orchy Pods.
 Please find your reservation details below.
 
 Your reservation number is {{booking_no}}.
-Arrival date: {{arrival_date_date}}
+Accomodation: {{ pod_name }}
+Arrival date: {{arrival_date}}
 Nights: {{pax}} people
 
-Fare: £{{total_cost}}
+Total cost: £{{total_cost}}
 We accept both cash and card payment.
 
+We would recommend to visit our FAQ section <a href=\"https://boo-outdoors-b6261bbefe09.herokuapp.com/faq/">here</a>. 
+
+How to find us?
+Discovered <a href=\"https://what3words.com/">What3Words</a>? 
+Easy peasy. You’ll arrive in our carpark entering ///cried.unlisted.clash
 
 Kind regards,
 

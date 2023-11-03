@@ -197,6 +197,7 @@ def booking_savePodA(request):
     to_email = request.POST.get("email")
     booking_no = request.POST.get("booking_id")
     fname = request.POST.get("fname")
+    pod_name = request.POST.get("pod_name")
     lname = request.POST.get("lname")
     total_cost = request.POST.get("total_cost")
     arrival_date = request.POST.get("arival_date")
@@ -219,6 +220,7 @@ def booking_savePodA(request):
                 {'booking_no': booking_no,
                  'fname': fname,
                  'lname': lname,
+                 'pod_name': pod_name,
                  'arrival_date': arrival_date,
                  'pax': pax,
                  'nights': nights,

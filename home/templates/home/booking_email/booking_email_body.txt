@@ -12,10 +12,12 @@ Nights: {{pax}} people
 Total cost: £{{total_cost}}
 We accept both cash and card payment.
 
-We would recommend to visit our FAQ section <a href=\"https://boo-outdoors-b6261bbefe09.herokuapp.com/faq/">here</a>. 
+We would recommend to visit our FAQ section below.
+https://boo-outdoors-b6261bbefe09.herokuapp.com/faq/
+
 
 How to find us?
-Discovered <a href=\"https://what3words.com/">What3Words</a>? 
+Discovered https://what3words.com/? 
 Easy peasy. You’ll arrive in our carpark entering ///cried.unlisted.clash
 
 Kind regards,

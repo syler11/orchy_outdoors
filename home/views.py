@@ -234,8 +234,7 @@ def booking_savePodA(request):
                 [to_email],
                 # bcc email below
                 #bcc=["info@boocars.co.uk"],
-                )
-            email.attach_alternative(html_content, "text/html")   
+                )  
             email.send(fail_silently=False)
 
             messages.success(request, 'Booking was succesfully created!')

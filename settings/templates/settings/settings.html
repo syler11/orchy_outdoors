@@ -5,6 +5,15 @@
 {% block content %}
 <div class="page-container text-center m-3">
     <h1>Settings</h1>
+    <div class="row no-gutters">
+      <div class="col-md-6 col-12 text-left">
+        <h3>Page Settings</h3>
+        <p>Page Name: {{page_set.page_name}}</p>
+        <p>Page Address: <a href="{{page_set.page_url}}">{{page_set.page_url}}</a></p>
+        <p>Page Email: {{page_set.page_email}}</p>
+        <p>Page Phone: {{page_set.page_phone}}</p>
+      </div>
+    </div>
 
 </div>
 

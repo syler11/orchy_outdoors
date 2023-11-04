@@ -59,3 +59,36 @@ class BookingPodB(models.Model):
         Returns Booking Number
         """
         return str(self.booking_id)
+
+
+class PageSettings(models.Model):
+    """
+    Request model class
+    """  
+
+    page_name = models.CharField(max_length=200, null=True, blank=True)
+    page_url = models.CharField(max_length=200, null=True, blank=True)
+    page_email = models.EmailField(null=True, blank=True)
+    page_phone = models.CharField(max_length=150, null=True, blank=True)
+    
+    def __str__(self):
+        """
+        Returns Booking Number
+        """
+        return str(self.page_name)
+
+
+class DateSettings(models.Model):
+    """
+    Request model class
+    """  
+
+    month_number = models.CharField(max_length=200, null=True, blank=True)
+    full_date = models.CharField(max_length=200, null=True, blank=True)
+    month_year = models.EmailField(null=True, blank=True)
+    
+    def __str__(self):
+        """
+        Returns Booking Number
+        """
+        return str(self.month_year)

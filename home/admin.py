@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import BookingPodA, BookingPodB
+from home.models import BookingPodA, BookingPodB, PageSettings
 
 # Register your models here.
 
@@ -61,5 +61,32 @@ class BookingPodBAdmin(admin.ModelAdmin):
     ordering = ('arrival_date',)
 
 
+class PageSettingsAdmin(admin.ModelAdmin):
+    """
+    Payment admin model class
+    """
+    list_display = (
+        'page_name',
+        'page_url',
+        'page_email',
+        'page_phone',
+    )
+    list_filter = (
+        'page_name',
+        'page_url',
+        'page_email',
+        'page_phone',
+    )
+    search_fields = (
+        'page_name',
+        'page_url',
+        'page_email',
+        'page_phone',
+    )
+
+    ordering = ('page_name',)
+
+
 admin.site.register(BookingPodA, BookingPodAAdmin)
 admin.site.register(BookingPodB, BookingPodBAdmin)
+admin.site.register(PageSettings, PageSettingsAdmin)

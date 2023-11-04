@@ -30,7 +30,7 @@
             {% for date in dateset %}
             <tr>
               <th scope="row">{{ date.month_number }}</th>
-              <td>{{ date.full_date }}</td>
+              <td><a href="{% url 'edit_dateset' date.id %}">{{ date.full_date }}</a></td>
               <td>{{ date.month_year }}</td>
               <td>{{ date.is_display }}</td>
             </tr>
@@ -53,7 +53,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="">
+      <form method="POST" action="{% url 'add_dateset' %}" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="form-group">
           <div class="modal-body">
             <h5>Select month and year</h5>
@@ -83,33 +84,24 @@
               </select>
             </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="text" name="firstname" id="firstname"
-                  placeholder="Firstname">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="month_number" id="month_number">
               </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="text" name="lastname" id="lastname"
-                  placeholder="Lastname">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="full_date" id="full_date">
               </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="text" name="phone" id="phone"
-                  placeholder="Phone number">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="month_year" id="month_year">
               </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="email" name="email" id="email"
-                  placeholder="Email">
+                <select class="p-2 w-75 rounded-2 border-info" name="id_display" id="id_display">
+                  <option class="text-center" value="Yes">Yes</option>
+                  <option class="text-center" value="No">No</option>
+                </select>
               </div>
-              <div class="form-check py-1">
-                <input type="checkbox" class="form-check-input" id="is_display" name="is_display">
-                <label class="form-check-label" for="terms">Display?</a></label>
-              </div>
-            </div>
-            <div id="booking_step" class="float-right p-2">`
-              <button type="button" id="booking_step1" onclick="display_guestInfo()"
-                class="btn btn-secondary btn-success" data-dismiss="modal">Continue Booking</button>
             </div>
           </div>
-          <div id="booking_submit" class="modal-footer border-0 d-none float-right">
-            <button type="button" class="btn btn-secondary btn-success" data-dismiss="modal">Book</button>
+          <div id="booking_submit" class="modal-footer border-0 float-right">
+            <button type="submit" class="btn btn-secondary btn-success">Add</button>
             <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Cancel</button>
           </div>
         </div>

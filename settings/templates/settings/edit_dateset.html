@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+  <h1>Edit Date Settings</h1>
+  <div class="row no-gutters">
+    <div class="col-lg-3 col-md-6 col-12 text-left">
+      <div class="">
+        {{form.errors}}
+        <form method="POST" action="{% url 'edit_dateset' dateset.id %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="modal-body">
+              <h5>Select month and year</h5>
+              <div id="guest_info" class="">
+                <hr>
+                <div class="p-2">
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="month_number" id="month_number" value="{{dateset.month_number}}">
+                </div>
+                <div class="p-2">
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="full_date" id="full_date" value="{{dateset.full_date}}">
+                </div>
+                <div class="p-2">
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="month_year" id="month_year" value="{{dateset.month_year}}">
+                </div>
+                <div class="p-2">
+                  <select class="p-2 w-100 rounded-2 border-info" name="is_display" id="is_display">
+                    <option class="text-center" value="{{dateset.is_display}}">{{dateset.is_display}}</option>
+                    <option class="text-center" value="Yes">Yes</option>
+                    <option class="text-center" value="No">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="booking_submit" class="modal-footer border-0 float_left">
+              <button type="submit" class="btn btn-secondary btn-success">Save Changes</button>
+              <a href="{% url 'settings' %}"><button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Cancel</button></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src=""></script>
+{% endblock %}

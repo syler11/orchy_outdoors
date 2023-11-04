@@ -7,6 +7,7 @@ from datetime import date, timedelta, datetime
 
 
 # Create your views here.
+@login_required
 def settings(request):
     """ A view to return the faq page """
 
@@ -26,8 +27,8 @@ def settings(request):
 
     return render(request, 'settings/settings.html', context)
 
-
-def add_month(request):
+@login_required
+def add_dateset(request):
 
     if request.method == 'POST':
         form = AddDateSettingsForm(request.POST, request.FILES)
@@ -49,3 +50,33 @@ def add_month(request):
     context = {
         'form': form,
     }
+
+    return render(request, 'settings/settings.html', context)
+
+
+@login_required
+def edit_dateset(request, id):
+
+
+    dateset = get_object_or_404(DateSettings, pk=id)
+
+    if request.method == 'POST':
+        form = EditDateSettingsForm(request.POST, instance=dateset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {dateset.month_year}!')
+            return redirect(reverse('settings'))
+        else:
+            messages.error(request,
+                           'Failed to update hours.\
+                            Please ensure the form is valid.')
+    else:
+        form = EditDateSettingsForm(instance=dateset)
+        messages.info(request, f'You are editing {dateset.month_year}')
+
+    context = {
+        'dateset': dateset,
+        'form': form,
+    }
+
+    return render(request, 'settings/edit_dateset.html', context)

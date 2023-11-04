@@ -37,7 +37,7 @@ def booking(request):
     else:
         firstDate = today
 
-    dateset = DateSettings.objects.filter(is_display=True)
+    dateset = DateSettings.objects.filter(is_display="Yes")
 
     bookPodA = BookingPodA.objects.filter(status="Booked")
     podA = list(bookPodA.values_list('arrival_range', flat=True))

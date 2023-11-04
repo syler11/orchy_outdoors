@@ -19,16 +19,9 @@
                 <form action="{% url 'booking' %}" method="get" enctype="multipart/form-data">
                         <select onchange="changeContent()" name="month-selector" id="month-selector">
                                 <option value="" readonly>Select Month</option>
-                                <option id="month10" value="2023-10-31">October 2023</option>
-                                <option id="month11" value="2023-11-30">November 2023</option>
-                                <option id="month3" value="2024-03-31">March 2024</option>
-                                <option id="month4" value="2024-04-30">April 2024</option>
-                                <option id="month5" value="2024-05-31">May 2024</option>
-                                <option id="month6" value="2024-06-30">June 2024</option>
-                                <option id="month7" value="2024-07-31">July 2024</option>
-                                <option id="month8" value="2024-08-31">August 2024</option>
-                                <option id="month9" value="2024-09-30">September 2024</option>
-                                <option id="month9" value="2024-09-30">September 2024</option>
+                                {% for months in dateset %}
+                                <option id="month{{months.month_number}}" value="{{ months.full_date }}">{{ months.month_year }}</option>
+                                {% endfor %}
                         </select>
                         <button type="submit" class="btn btn-primary m-3">Submit</button>
                 </form>

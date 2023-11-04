@@ -4,6 +4,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
 from home.models import BookingPodA, BookingPodB
+from settings.models import DateSettings
 from .forms import AddBookingPodAForm, AddBookingPodBForm, EditBookingPodAForm, EditBookingPodBForm
 from availability.models import Availability
 from itertools import chain
@@ -35,6 +36,8 @@ def booking(request):
         print(firstDate)
     else:
         firstDate = today
+
+    dateset = DateSettings.objects.filter(is_display=True)
 
     bookPodA = BookingPodA.objects.filter(status="Booked")
     podA = list(bookPodA.values_list('arrival_range', flat=True))
@@ -84,6 +87,7 @@ def booking(request):
     print(date31)
 
     context = {
+        "dateset": dateset,
         "podA": podA,
         "podB": podB,
         "restrPodA": restrPodA,

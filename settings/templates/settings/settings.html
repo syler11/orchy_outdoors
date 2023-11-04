@@ -4,22 +4,123 @@
 
 {% block content %}
 <div class="page-container text-center m-3">
-    <h1>Settings</h1>
-    <div class="row no-gutters">
-      <div class="col-md-6 col-12 text-left">
-        <h3>Page Settings</h3>
-        <p>Page Name: {{page_set.page_name}}</p>
-        <p>Page Address: <a href="{{page_set.page_url}}">{{page_set.page_url}}</a></p>
-        <p>Page Email: {{page_set.page_email}}</p>
-        <p>Page Phone: {{page_set.page_phone}}</p>
+  <h1>Settings</h1>
+  <div class="row no-gutters">
+    <div class="col-md-6 col-12 text-left">
+      <h3>Page Settings</h3>
+      <p>Page Name: {{page_set.page_name}}</p>
+      <p>Page Address: <a href="{{page_set.page_url}}">{{page_set.page_url}}</a></p>
+      <p>Page Email: {{page_set.page_email}}</p>
+      <p>Page Phone: {{page_set.page_phone}}</p>
+    </div>
+    <div class="col-md-6 col-12 text-left">
+      <h3>Date Inventory <span class="float-right"> <button type="button" class="btn btn-secondary btn-info"
+        data-toggle="modal" data-target="#addmonth">Add New</button></span></h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">No. month</th>
+              <th scope="col">Full date</th>
+              <th scope="col">Month / Year</th>
+              <th scope="col">Dispaly</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for date in dateset %}
+            <tr>
+              <th scope="row">{{ date.month_number }}</th>
+              <td>{{ date.full_date }}</td>
+              <td>{{ date.month_year }}</td>
+              <td>{{ date.is_display }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
 
+</div>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="addmonth" tabindex="-1" role="dialog" aria-labelledby="addmonth" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add Month</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="">
+        <div class="form-group">
+          <div class="modal-body">
+            <h5>Select month and year</h5>
+            <div id="guest_info" class="">
+              <hr>
+              <div class="p-2">
+              <select class="p-2 w-75 rounded-2 border-info" name="yearSelect" id="yearSelect">
+                <option class="text-center" value="2023">{{ this_year }}</option>
+                <option class="text-center" value="2024">{{ year_two }}</option>
+                <option class="text-center" value="2025">{{ year_three }}</option>
+              </select>
+            </div>
+              <div class="p-2">
+              <select class="p-2 w-75 rounded-2 border-info" name="monthSelect" id="monthSelect">
+                <option class="text-center" value="1">January</option>
+                <option class="text-center" value="2">February</option>
+                <option class="text-center" value="3">March</option>
+                <option class="text-center" value="4">April</option>
+                <option class="text-center" value="5">May</option>
+                <option class="text-center" value="6">June</option>
+                <option class="text-center" value="7">July</option>
+                <option class="text-center" value="8">August</option>
+                <option class="text-center" value="9">September</option>
+                <option class="text-center" value="10">October</option>
+                <option class="text-center" value="11">Novmeber</option>
+                <option class="text-center" value="12">December</option>
+              </select>
+            </div>
+              <div class="p-2">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="firstname" id="firstname"
+                  placeholder="Firstname">
+              </div>
+              <div class="p-2">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="lastname" id="lastname"
+                  placeholder="Lastname">
+              </div>
+              <div class="p-2">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="phone" id="phone"
+                  placeholder="Phone number">
+              </div>
+              <div class="p-2">
+                <input class="form-control w-75 rounded-2 border-info" type="email" name="email" id="email"
+                  placeholder="Email">
+              </div>
+              <div class="form-check py-1">
+                <input type="checkbox" class="form-check-input" id="is_display" name="is_display">
+                <label class="form-check-label" for="terms">Display?</a></label>
+              </div>
+            </div>
+            <div id="booking_step" class="float-right p-2">`
+              <button type="button" id="booking_step1" onclick="display_guestInfo()"
+                class="btn btn-secondary btn-success" data-dismiss="modal">Continue Booking</button>
+            </div>
+          </div>
+          <div id="booking_submit" class="modal-footer border-0 d-none float-right">
+            <button type="button" class="btn btn-secondary btn-success" data-dismiss="modal">Book</button>
+            <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
 
 {% block postloadjs %}
-  {{ block.super }}
-  <script type="text/javascript" src=""></script>
+{{ block.super }}
+<script type="text/javascript" src=""></script>
 {% endblock %}

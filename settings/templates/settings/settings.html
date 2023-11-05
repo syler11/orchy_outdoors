@@ -2,6 +2,9 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block extra_js %}
+{% endblock %}
+
 {% block content %}
 <div class="page-container text-center m-3">
   <h1>Settings</h1>
@@ -61,14 +64,14 @@
             <div id="guest_info" class="">
               <hr>
               <div class="p-2">
-              <select class="p-2 w-75 rounded-2 border-info" name="yearSelect" id="yearSelect">
+              <select class="p-2 w-75 rounded-2 border-info" onchange="setDateset()" name="yearSelect" id="yearSelect">
                 <option class="text-center" value="2023">{{ this_year }}</option>
                 <option class="text-center" value="2024">{{ year_two }}</option>
                 <option class="text-center" value="2025">{{ year_three }}</option>
               </select>
             </div>
               <div class="p-2">
-              <select class="p-2 w-75 rounded-2 border-info" name="monthSelect" id="monthSelect">
+              <select class="p-2 w-75 rounded-2 border-info" onchange="setDateset()" name="monthSelect" id="monthSelect">
                 <option class="text-center" value="1">January</option>
                 <option class="text-center" value="2">February</option>
                 <option class="text-center" value="3">March</option>
@@ -84,16 +87,16 @@
               </select>
             </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="text" name="month_number" id="month_number">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="month_number" id="month_number" pattern=".{2}" title="Must be number between 1 and 12" required>
               </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="text" name="full_date" id="full_date">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="full_date" id="full_date" required>
               </div>
               <div class="p-2">
-                <input class="form-control w-75 rounded-2 border-info" type="text" name="month_year" id="month_year">
+                <input class="form-control w-75 rounded-2 border-info" type="text" name="month_year" id="month_year" required>
               </div>
               <div class="p-2">
-                <select class="p-2 w-75 rounded-2 border-info" name="id_display" id="id_display">
+                <select class="p-2 w-75 rounded-2 border-info" name="is_display" id="is_display" required>
                   <option class="text-center" value="Yes">Yes</option>
                   <option class="text-center" value="No">No</option>
                 </select>
@@ -114,5 +117,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="{% static 'settings/js/dateset.js' %}"></script>
 {% endblock %}

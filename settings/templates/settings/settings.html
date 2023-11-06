@@ -35,7 +35,9 @@
               <th scope="row">{{ date.month_number }}</th>
               <td><a href="{% url 'edit_dateset' date.id %}">{{ date.full_date }}</a></td>
               <td>{{ date.month_year }}</td>
-              <td>{{ date.is_display }}</td>
+              <td>{{ date.is_display }}  <span class="float-right p-2">
+                <a href="{% url 'delete_dateset' date.id %}"><i class="fa-regular fa-trash-can" style="color: #f80d0d;"></i></a>
+            </span></td>
             </tr>
             {% endfor %}
           </tbody>
@@ -51,7 +53,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5>Add Month</h5>
+        <h3>Add New Month</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -60,7 +62,7 @@
         {% csrf_token %}
         <div class="form-group">
           <div class="modal-body">
-            <h5>Select month and year</h5>
+            <h5 class="text-center">Select month and year</h5>
             <div id="guest_info" class="">
               <hr>
               <div class="p-2">
@@ -82,20 +84,20 @@
                 <option class="text-center" value="8">August</option>
                 <option class="text-center" value="9">September</option>
                 <option class="text-center" value="10">October</option>
-                <option class="text-center" value="11">Novmeber</option>
+                <option class="text-center" value="11">November</option>
                 <option class="text-center" value="12">December</option>
               </select>
             </div>
-              <div class="p-2">
+              <div class="p-2 d-none">
                 <input class="form-control w-75 rounded-2 border-info" type="text" name="month_number" id="month_number" pattern=".{2}" title="Must be number between 1 and 12" required>
               </div>
-              <div class="p-2">
+              <div class="p-2 d-none">
                 <input class="form-control w-75 rounded-2 border-info" type="text" name="full_date" id="full_date" required>
               </div>
-              <div class="p-2">
+              <div class="p-2 d-none">
                 <input class="form-control w-75 rounded-2 border-info" type="text" name="month_year" id="month_year" required>
               </div>
-              <div class="p-2">
+              <div class="p-2 d-none">
                 <select class="p-2 w-75 rounded-2 border-info" name="is_display" id="is_display" required>
                   <option class="text-center" value="Yes">Yes</option>
                   <option class="text-center" value="No">No</option>

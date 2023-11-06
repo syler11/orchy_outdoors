@@ -15,8 +15,10 @@ def settings(request):
     this_year = int(nowDate.strftime("%Y"))
     year_two = this_year + 1
     year_three = this_year + 2
+
+    today = nowDate.strftime("%Y-%m-%d")
     
-    dateset = DateSettings.objects.all()
+    dateset = DateSettings.objects.filter(full_date__gte=today).order_by('full_date')
 
     context = {
         'dateset': dateset,
@@ -80,3 +82,15 @@ def edit_dateset(request, id):
     }
 
     return render(request, 'settings/edit_dateset.html', context)
+
+
+@login_required
+def delete_dateset(request, id):
+    """
+    Delete a faq from database
+    """
+
+    dateset = get_object_or_404(DateSettings, pk=id)
+    dateset.delete()
+    messages.success(request, f'{dateset.month_year} was deleted!')
+    return redirect(reverse('settings'))

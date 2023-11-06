@@ -213,7 +213,7 @@ def booking_savePodA(request):
         if form.is_valid():
             booking = form.save()
 
-               # Send mail configuration
+            # Send mail configuration
 
             subject = render_to_string(
                 'home/booking_email/booking_email_subject.txt',
@@ -261,10 +261,49 @@ def booking_savePodA(request):
 def booking_savePodB(request):
     """ A view to return the about page """
 
+
+    to_email = request.POST.get("email")
+    booking_no = request.POST.get("booking_id")
+    fname = request.POST.get("fname")
+    pod_name = request.POST.get("pod_name")
+    lname = request.POST.get("lname")
+    total_cost = request.POST.get("total_cost")
+    arrival_date = request.POST.get("arrival_date")
+    nights = request.POST.get("nights")
+    pax = request.POST.get("pax")
+
     if request.method == 'POST':
         form = AddBookingPodBForm(request.POST, request.FILES)
         if form.is_valid():
             booking = form.save()
+
+            # Send mail configuration
+
+            subject = render_to_string(
+                'home/booking_email/booking_email_subject.txt',
+                {'fname': fname, 'lname': lname})
+
+            body = render_to_string(
+                'home/booking_email/booking_email_body.txt',
+                {'booking_no': booking_no,
+                 'fname': fname,
+                 'lname': lname,
+                 'pod_name': pod_name,
+                 'arrival_date': arrival_date,
+                 'pax': pax,
+                 'nights': nights,
+                 'total_cost': total_cost,
+                 })
+
+            email = EmailMultiAlternatives(
+                subject,
+                body,
+                'nemeth.szilard82@gmail.com',
+                [to_email],
+                # bcc email below
+                bcc=["harrisraptor@hotmail.co.uk"],
+                )  
+            email.send(fail_silently=False)
 
             messages.success(request, 'Booking was succesfully created!')
             return redirect(reverse('booking_successPodB', args=[booking.id]))

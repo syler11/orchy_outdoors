@@ -11,7 +11,9 @@
   <div class="row no-gutters">
     <div class="col-md-6 col-12 text-left">
       <h3>Page Settings</h3>
-      <p>Page Name: {{page_set.page_name}}</p>
+      <p>Page Name: {{page_set.page_name}}  <span class="p-2">
+        <a href="{% url 'edit_settings'  %}"><i class="fa-regular background-info fa-edit"></i></a>
+    </span></p>
       <p>Page Address: <a href="{{page_set.page_url}}">{{page_set.page_url}}</a></p>
       <p>Page Email: {{page_set.page_email}}</p>
       <p>Page Phone: {{page_set.page_phone}}</p>

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+  <h1>Edit Company Settings</h1>
+  <div class="row no-gutters">
+    <div class="col-lg-3 col-md-6 col-12 text-left">
+      <div class="">
+        {{form.errors}}
+        <form method="POST" action="{% url 'edit_settings' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="modal-body">
+              <h5>Update company info</h5>
+              <div id="guest_info" class="">
+                <hr>
+                <div class="p-2">
+                  <label for="page_name">Page Domain</label>
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="page_name" id="page_name" value="{{set.page_name}}">
+                </div>
+                <div class="p-2">
+                  <label for="page_url">Page URL</label>
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="page_url" id="page_url" value="{{set.page_url}}">
+                </div>
+                <div class="p-2">
+                  <label for="page_email">Page Email</label>
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="page_email" id="page_email" value="{{set.page_email}}">
+                </div>
+                <div class="p-2">
+                  <label for="page_phone">Page Phone</label>
+                  <input class="form-control w-100 rounded-2 border-info" type="text" name="page_phone" id="page_phone" value="{{set.page_phone}}">
+                </div>
+              </div>
+            </div>
+            <div id="booking_submit" class="modal-footer border-0 float_left">
+              <button type="submit" class="btn btn-secondary btn-success">Save Changes</button>
+              <a href="{% url 'settings' %}"><button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Cancel</button></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}

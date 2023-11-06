@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import DateSettings
-from .forms import AddDateSettingsForm,EditDateSettingsForm
+from home.models import PageSettings
+from .forms import AddDateSettingsForm,EditDateSettingsForm, EditPageSettingsForm
 from datetime import date, timedelta, datetime
 
 
@@ -94,3 +95,30 @@ def delete_dateset(request, id):
     dateset.delete()
     messages.success(request, f'{dateset.month_year} was deleted!')
     return redirect(reverse('settings'))
+
+
+@login_required
+def edit_settings(request):
+
+    set = get_object_or_404(PageSettings, pk=1)
+
+    if request.method == 'POST':
+        form = EditPageSettingsForm(request.POST, instance=set)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated!')
+            return redirect(reverse('settings'))
+        else:
+            messages.error(request,
+                           'Failed to update hours.\
+                            Please ensure the form is valid.')
+    else:
+        form = EditDateSettingsForm(instance=set)
+        messages.info(request, f'You are editing {set.page_name} company information.')
+
+    context = {
+        'set': set,
+        'form': form,
+    }
+
+    return render(request, 'settings/edit_settings.html', context)

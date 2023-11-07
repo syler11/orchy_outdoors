@@ -56,7 +56,8 @@
                     <h3 class="m-3"><a class="text-info" href="{% url 'home' %}">{{page_set.page_name}}</a></h3>
                 </div>
                 <div class="col-6">
-                    <p class="text-right m-3"><a class="text-info" href="tel:+0183840020">Tel {{ page_set.page_phone }}</a>
+                    <p class="text-right m-3"><a class="text-info" href="tel:+0183840020">Tel
+                            {{ page_set.page_phone }}</a>
                     </p>
                 </div>
             </div>
@@ -81,7 +82,7 @@
                         <a class="nav-item nav-link" href="{% url 'availability' %}">Restrictions</a>
                         <a class="nav-item nav-link" href="{% url 'settings' %}">Settings</a>
                         <a data-toggle="modal" class="nav-item nav-link" data-target="#modalLogout" href="#"><i
-                            class="fa fa-sign-out-alt pr-2" title="Logout"></i></a>
+                                class="fa fa-sign-out-alt pr-2" title="Logout"></i></a>
                         {% endif %}
                     </div>
                 </div>
@@ -95,21 +96,21 @@
 
     <footer class="">
         <div class="row no-gutters">
-            <div class="p-3 offset-xl-1 col-xl-3 text-white col-lg-3 col-md-6">
+            <div class="p-3 offset-xl-1 col-xl-3 order-md-1 text-white col-lg-3 col-md-6">
                 <h3>Contact Info:</h3>
                 <br>
                 <p class="m-0">Address:</p>
                 <p class="m-0">{{page_set.page_name}}</p>
                 <p class="m-0">Bridge of Orchy</p>
                 <p>PA36 4AD</p>
-                <p class="m-0"><a class="text-white" href="tel:+{{page_set.page_phone}}">Telephone {{page_set.page_phone}}</a></p>
+                <p class="m-0"><a class="text-white" href="tel:+{{page_set.page_phone}}">Telephone
+                        {{page_set.page_phone}}</a></p>
                 <p><a class="text-white" href="mailto:{{page_set.page_email}}">Email:
                         {{page_set.page_email}}</a></p>
             </div>
-            <div class="text-center col-xl-4 col-lg-6 d-md-none d-lg-block">
-                <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
+            <div id="map" class="text-center mt-3 col-xl-4 col-lg-6 order-md-3 order-lg-2" style="height: 320px; width: 100%;">
             </div>
-            <div class="p-3 text-white col-xl-3 col-lg-3 col-md-6">
+            <div class="p-3 text-white offset-xl-1 col-xl-3 col-lg-3 order-md-2 order-lg-3 col-md-6">
                 <h3>Useful links:</h3>
                 <br>
                 <ul>
@@ -124,11 +125,7 @@
                 <div class="my-3">
                     <a href="https://www.facebook.com/Highlandofscotland/"><i
                             class="fa-brands text-white fa-square-facebook fa-2xl"></i></a>
-
                 </div>
-            </div>
-            <div class="text-center col-12 d-md-block d-lg-none d-none">
-                <img class="map-image" src="{{MEDIA_URL}}outdoors_map.png" alt="logo">
             </div>
         </div>
         <div class="py-1">
@@ -140,33 +137,32 @@
         </div>
     </footer>
 
-        <!-- Modal Logout-->
-        <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="logout"
-        aria-hidden="true">
+    <!-- Modal Logout-->
+    <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="logout" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content p-3">
-    
-            {% load i18n %}
-    
-            {% block inner_content %}
-    
-            <h1>{% trans "Sign Out" %}</h1>
-    
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    
-            <form method="post" action="{% url 'account_logout' %}">
-              {% csrf_token %}
-              {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-              {% endif %}
-              <button class="bg-info text-white" type="submit">{% trans 'Sign Out' %}</button>
-              <button type="button" data-dismiss="modal">{% trans 'Cancel' %}</button>
-            </form>
-    
-            {% endblock %}
-          </div>
+            <div class="modal-content p-3">
+
+                {% load i18n %}
+
+                {% block inner_content %}
+
+                <h1>{% trans "Sign Out" %}</h1>
+
+                <p>{% trans 'Are you sure you want to sign out?' %}</p>
+
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button class="bg-info text-white" type="submit">{% trans 'Sign Out' %}</button>
+                    <button type="button" data-dismiss="modal">{% trans 'Cancel' %}</button>
+                </form>
+
+                {% endblock %}
+            </div>
         </div>
-      </div>
+    </div>
 
     {% if messages %}
     <div class="message-container">
@@ -195,6 +191,8 @@
         });
         $('.toast').toast('show');
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU4pwcdy2NEFp-JPAkn2ZMO4MEPLpeRYQ&callback=initMap"
+        async defer></script>
     {% endblock %}
 
 </body>

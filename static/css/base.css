@@ -38,6 +38,13 @@
     justify-content: center;
 }
 
+.error-page {
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    text-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
+}
+
 .nav-item {
     font-size: 18px;
 }

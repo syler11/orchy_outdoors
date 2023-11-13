@@ -194,6 +194,12 @@ def booking_detailsPodB(request, selected_day):
     return render(request, 'home/booking_detailsPodB.html', context)
 
 
+def fof(request):
+
+
+    return render(request, 'home/fof.html')
+
+
 def booking_savePodA(request):
     """ A view to return the about page """
 

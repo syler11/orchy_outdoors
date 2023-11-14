@@ -1,3 +1,4 @@
+from djmoney.models.fields import MoneyField
 from django.db import models
 
 # Create your models here.
@@ -70,6 +71,7 @@ class PageSettings(models.Model):
     page_url = models.CharField(max_length=200, null=True, blank=True)
     page_email = models.EmailField(null=True, blank=True)
     page_phone = models.CharField(max_length=150, null=True, blank=True)
+    annual_rate = models.DecimalField(max_digits=6, default=0.00, decimal_places=2)
     
     def __str__(self):
         """

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'settings',
     'storages',
+    'djmoney',
 
     # Allauth apps
     'allauth',

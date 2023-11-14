@@ -44,7 +44,13 @@
                 </div>
                 <div class="col-lg-2 col-6 border p-2">
                         <p class="muted">Rate per night:</p>
-                        <p>£<span id="rate_rm1">80</span>.00</p>
+                        {% for rate in ratePodB %}
+                        {% if rate.podBrate %}
+                        <p>£<span id="rate_rm1">{{rate.podBrate|floatformat:"0"}}</span>.00</p>
+                        {% endif %}
+                        {% empty %}
+                        <p>£<span id="rate_rm1">{{page_set.annual_rate|floatformat:"0"}}</span>.00</p>
+                        {% endfor %}
                 </div>
                 <div class="offset-lg-2 col-lg-4 col-12">
                         <div class="booking-image"></div>

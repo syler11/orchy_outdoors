@@ -110,7 +110,7 @@ def edit_settings(request):
             return redirect(reverse('settings'))
         else:
             messages.error(request,
-                           'Failed to update hours.\
+                           'Failed to update settings.\
                             Please ensure the form is valid.')
     else:
         form = EditDateSettingsForm(instance=set)

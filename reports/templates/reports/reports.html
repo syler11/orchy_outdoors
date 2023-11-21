@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block extra_js %}
+{% endblock %}
+
+{% block content %}
+<div class="page-container text-center m-3">
+  <h1>Reports</h1>
+  <div class="row no-gutters">
+    <div class="col-md-6 col-12 text-left border-right p-2">
+      <div class="table-responsive">
+        <table class="table">
+          <h3 class="text-center">{{this_year}} Bookings</h3>
+          <thead>
+            <tr>
+              <th rowspan="2" class="align-middle">Months</th>
+              <th colspan="2" class="text-center">Beinn Monk</th>
+              <th colspan="2" class="text-center">Beinn Otter</th>
+              <th colspan="2" class="text-center">Total</th>
+            </tr>
+            <tr>
+              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Revenue</th>
+              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Revenue</th>
+              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="d-none">
+              <th scope="row">March</th>
+              <td>Mark</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">Total</th>
+              <td class="text-center">{{ total_occPodA }}</td>
+              <td class="text-center">£{{ total_costPodA }}</td>
+              <td class="text-center">{{ total_occPodB }}</td>
+              <td class="text-center">£{{ total_costPodB }}</td>
+              <td class="text-center">{{ total_occ }}</td>
+              <td class="text-center">£{{ total_cost }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="col-md-6 col-12 text-left border-right p-2">
+      <div class="table-responsive">
+        <table class="table">
+          <h3 class="text-center">{{this_year}} Cancellations</h3>
+          <thead>
+            <tr>
+              <th rowspan="2" class="align-middle">Months</th>
+              <th colspan="2" class="text-center">Beinn Monk</th>
+              <th colspan="2" class="text-center">Beinn Otter</th>
+              <th colspan="2" class="text-center">Total</th>
+            </tr>
+            <tr>
+              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Revenue</th>
+              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Revenue</th>
+              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="d-none">
+              <th scope="row">March</th>
+              <td>Mark</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">Total</th>
+              <td class="text-center">{{ total_occPodACancelled }}</td>
+              <td class="text-center">£{{ total_costPodACancelled }}</td>
+              <td class="text-center">{{ total_occPodBCancelled }}</td>
+              <td class="text-center">£{{ total_costPodBCancelled }}</td>
+              <td class="text-center">{{ total_occCancelled }}</td>
+              <td class="text-center">£{{ total_costCancelled }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}

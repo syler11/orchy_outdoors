@@ -9,7 +9,7 @@
 <div class="page-container text-center m-3">
   <h1>Reports</h1>
   <div class="row no-gutters">
-    <div class="col-xl-6 col-12 text-left border-right p-2">
+    <div class="col-lg-9 col-12 text-left border-right p-2">
       <div class="table-responsive">
         <table class="table">
           <h3 class="text-center">{{this_year}} Bookings</h3>
@@ -30,6 +30,69 @@
             </tr>
           </thead>
           <tbody>
+            <tr class="">
+              <th scope="row">March</th>
+              <td class="text-center">{{ march_occPodA }}</td>
+              <td class="text-center">£{{ march_revPodA }}</td>
+              <td class="text-center">{{ march_occPodB }}</td>
+              <td class="text-center">£{{ march_revPodB }}</td>
+              <td class="text-center">{{ march_occTotal }}</td>
+              <td class="text-center">£{{ march_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">April</th>
+              <td class="text-center">{{ april_occPodA }}</td>
+              <td class="text-center">£{{ april_revPodA }}</td>
+              <td class="text-center">{{ april_occPodB }}</td>
+              <td class="text-center">£{{ april_revPodB }}</td>
+              <td class="text-center">{{ april_occTotal }}</td>
+              <td class="text-center">£{{ april_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">May</th>
+              <td class="text-center">{{ may_occPodA }}</td>
+              <td class="text-center">£{{ may_revPodA }}</td>
+              <td class="text-center">{{ may_occPodB }}</td>
+              <td class="text-center">£{{ may_revPodB }}</td>
+              <td class="text-center">{{ may_occTotal }}</td>
+              <td class="text-center">£{{ may_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">June</th>
+              <td class="text-center">{{ june_occPodA }}</td>
+              <td class="text-center">£{{ june_revPodA }}</td>
+              <td class="text-center">{{ june_occPodB }}</td>
+              <td class="text-center">£{{ june_revPodB }}</td>
+              <td class="text-center">{{ june_occTotal }}</td>
+              <td class="text-center">£{{ june_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">July</th>
+              <td class="text-center">{{ july_occPodA }}</td>
+              <td class="text-center">£{{ july_revPodA }}</td>
+              <td class="text-center">{{ july_occPodB }}</td>
+              <td class="text-center">£{{ july_revPodB }}</td>
+              <td class="text-center">{{ july_occTotal }}</td>
+              <td class="text-center">£{{ july_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">August</th>
+              <td class="text-center">{{ august_occPodA }}</td>
+              <td class="text-center">£{{ august_revPodA }}</td>
+              <td class="text-center">{{ august_occPodB }}</td>
+              <td class="text-center">£{{ august_revPodB }}</td>
+              <td class="text-center">{{ august_occTotal }}</td>
+              <td class="text-center">£{{ august_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">September</th>
+              <td class="text-center">{{ september_occPodA }}</td>
+              <td class="text-center">£{{ september_revPodA }}</td>
+              <td class="text-center">{{ september_occPodB }}</td>
+              <td class="text-center">£{{ september_revPodB }}</td>
+              <td class="text-center">{{ september_occTotal }}</td>
+              <td class="text-center">£{{ september_revTotal }}</td>
+            </tr>
             <tr class="">
               <th scope="row">October</th>
               <td class="text-center">{{ october_occPodA }}</td>
@@ -62,22 +125,15 @@
       </div>
 
     </div>
-    <div class="col-xl-6 col-12 text-left border-right p-2">
+    <div class="col-lg-3 col-12 text-left border-right p-2">
       <div class="table-responsive">
         <table class="table">
           <h3 class="text-center">{{this_year}} Cancellations</h3>
           <thead>
             <tr>
-              <th rowspan="2" class="align-middle">Months</th>
-              <th colspan="2" class="text-center">Beinn Monk</th>
-              <th colspan="2" class="text-center">Beinn Otter</th>
-              <th colspan="2" class="text-center">Total</th>
+              <th rowspan="2" class="align-middle"></th>
             </tr>
             <tr id="table-title">
-              <th class="text-center" scope="col">Occupancy</th>
-              <th class="text-center" scope="col">Revenue</th>
-              <th class="text-center" scope="col">Occupancy</th>
-              <th class="text-center" scope="col">Revenue</th>
               <th class="text-center" scope="col">Occupancy</th>
               <th class="text-center" scope="col">Revenue</th>
             </tr>
@@ -87,17 +143,9 @@
               <th scope="row">March</th>
               <td>Mark</td>
               <td>Mark</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
             </tr>
             <tr>
               <th scope="row">Total</th>
-              <td class="text-center">{{ total_occPodACancelled }}</td>
-              <td class="text-center">£{{ total_costPodACancelled }}</td>
-              <td class="text-center">{{ total_occPodBCancelled }}</td>
-              <td class="text-center">£{{ total_costPodBCancelled }}</td>
               <td class="text-center">{{ total_occCancelled }}</td>
               <td class="text-center">£{{ total_costCancelled }}</td>
             </tr>

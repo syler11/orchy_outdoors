@@ -9,7 +9,7 @@
 <div class="page-container text-center m-3">
   <h1>Reports</h1>
   <div class="row no-gutters">
-    <div class="col-md-6 col-12 text-left border-right p-2">
+    <div class="col-xl-6 col-12 text-left border-right p-2">
       <div class="table-responsive">
         <table class="table">
           <h3 class="text-center">{{this_year}} Bookings</h3>
@@ -20,7 +20,7 @@
               <th colspan="2" class="text-center">Beinn Otter</th>
               <th colspan="2" class="text-center">Total</th>
             </tr>
-            <tr>
+            <tr id="table-title">
               <th class="text-center" scope="col">Occupancy</th>
               <th class="text-center" scope="col">Revenue</th>
               <th class="text-center" scope="col">Occupancy</th>
@@ -30,14 +30,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="d-none">
-              <th scope="row">March</th>
-              <td>Mark</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
+            <tr class="">
+              <th scope="row">October</th>
+              <td class="text-center">{{ october_occPodA }}</td>
+              <td class="text-center">£{{ october_revPodA }}</td>
+              <td class="text-center">{{ october_occPodB }}</td>
+              <td class="text-center">£{{ october_revPodB }}</td>
+              <td class="text-center">{{ october_occTotal }}</td>
+              <td class="text-center">£{{ october_revTotal }}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">November</th>
+              <td class="text-center">{{ november_occPodA }}</td>
+              <td class="text-center">£{{ november_revPodA }}</td>
+              <td class="text-center">{{ november_occPodB }}</td>
+              <td class="text-center">£{{ november_revPodB }}</td>
+              <td class="text-center">{{ november_occTotal }}</td>
+              <td class="text-center">£{{ november_revTotal }}</td>
             </tr>
             <tr>
               <th scope="row">Total</th>
@@ -53,7 +62,7 @@
       </div>
 
     </div>
-    <div class="col-md-6 col-12 text-left border-right p-2">
+    <div class="col-xl-6 col-12 text-left border-right p-2">
       <div class="table-responsive">
         <table class="table">
           <h3 class="text-center">{{this_year}} Cancellations</h3>
@@ -64,7 +73,7 @@
               <th colspan="2" class="text-center">Beinn Otter</th>
               <th colspan="2" class="text-center">Total</th>
             </tr>
-            <tr>
+            <tr id="table-title">
               <th class="text-center" scope="col">Occupancy</th>
               <th class="text-center" scope="col">Revenue</th>
               <th class="text-center" scope="col">Occupancy</th>

@@ -35,8 +35,49 @@ def reports(request):
     total_costCancelled = total_costPodACancelled + total_costPodBCancelled
     total_occCancelled = total_occPodACancelled + total_occPodBCancelled
 
+
+    #October
+    oct_start_date = f"{this_year}-10-01"
+    oct_end_date = f"{this_year}-10-31"
+    octoberPodA = BookingPodA.objects.filter(status="Booked").filter(arrival_date__range=(oct_start_date, oct_end_date))
+    octoberPodB = BookingPodB.objects.filter(status="Booked").filter(arrival_date__range=(oct_start_date, oct_end_date))
+    
+    october_revPodA = sum(octoberPodA.values_list('total_cost', flat=True))
+    october_occPodA = sum(octoberPodA.values_list('nights', flat=True))
+    october_revPodB = sum(octoberPodB.values_list('total_cost', flat=True))
+    october_occPodB = sum(octoberPodB.values_list('nights', flat=True))
+
+    october_occTotal = october_occPodA + october_occPodB
+    october_revTotal = october_revPodA + october_revPodB
+
+    #November
+    nov_start_date = f"{this_year}-11-01"
+    nov_end_date = f"{this_year}-11-30"
+    novemberPodA = BookingPodA.objects.filter(status="Booked").filter(arrival_date__range=(nov_start_date, nov_end_date))
+    novemberPodB = BookingPodB.objects.filter(status="Booked").filter(arrival_date__range=(nov_start_date, nov_end_date))
+    
+    november_revPodA = sum(novemberPodA.values_list('total_cost', flat=True))
+    november_occPodA = sum(novemberPodA.values_list('nights', flat=True))
+    november_revPodB = sum(novemberPodB.values_list('total_cost', flat=True))
+    november_occPodB = sum(novemberPodB.values_list('nights', flat=True))
+
+    november_occTotal = november_occPodA + november_occPodB
+    november_revTotal = november_revPodA + november_revPodB
+
     context = {
         'this_year': this_year,
+        'october_revPodA': october_revPodA,
+        'october_occPodA': october_occPodA,
+        'october_revPodB': october_revPodB,
+        'october_occPodB': october_occPodB,
+        'october_occTotal': october_occTotal,
+        'october_revTotal': october_revTotal,
+        'november_revPodA': november_revPodA,
+        'november_occPodA': november_occPodA,
+        'november_revPodB': november_revPodB,
+        'november_occPodB': november_occPodB,
+        'november_occTotal': november_occTotal,
+        'november_revTotal': november_revTotal,
         'total_costPodA': total_costPodA,
         'total_occPodA': total_occPodA,
         'total_costPodB': total_costPodB,

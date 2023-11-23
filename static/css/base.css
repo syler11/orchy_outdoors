@@ -125,6 +125,21 @@ div input {
     font-size: smaller;
 }
 
+#div_id_country {
+    padding: 0;
+    margin-bottom: 0!important;
+}
+
+#div_id_country label {
+    display: none;
+}
+
+#div_id_country select {
+    margin-left: 0;
+    border-color: #17a2b8!important;
+    border-radius: 0.25rem!important;
+}
+
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0;

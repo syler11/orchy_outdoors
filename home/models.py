@@ -1,5 +1,6 @@
 from djmoney.models.fields import MoneyField
 from django.db import models
+from django_countries.fields import CountryField
 
 # Create your models here.
 
@@ -21,6 +22,11 @@ class BookingPodA(models.Model):
     lname = models.CharField(max_length=150, null=True, blank=False)
     phone_number = models.CharField(max_length=150, null=True, blank=False)
     email = models.EmailField(null=True, blank=False)
+    country = CountryField(
+            blank_label='Country',
+            null=True,
+            blank=True
+    )
     notes = models.CharField(max_length=150, null=True, blank=True)
     eta = models.CharField(max_length=150, null=True, blank=True)
     status = models.CharField(max_length=150, null=True, blank=False, default="Available")
@@ -50,6 +56,11 @@ class BookingPodB(models.Model):
     lname = models.CharField(max_length=150, null=True, blank=True)
     phone_number = models.CharField(max_length=150, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
+    country = CountryField(
+            blank_label='Country',
+            null=True,
+            blank=True
+    )
     notes = models.CharField(max_length=150, null=True, blank=True)
     eta = models.CharField(max_length=150, null=True, blank=True)
     status = models.CharField(max_length=150, null=True, blank=True, default="Available")

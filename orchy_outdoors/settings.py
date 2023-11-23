@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'reports',
     'storages',
     'djmoney',
+    'django_countries',
 
     # Allauth apps
     'allauth',

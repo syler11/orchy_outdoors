@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_js %}
 <script src="{% static 'home/js/booking_details.js'  %}" defer></script>
@@ -196,10 +197,12 @@
                                                                 type="email" name="email" id="email" placeholder="Email"
                                                                 required>
                                                 </div>
+                                                <div class="p-2">
+                                                        {{ form.country | as_crispy_field }}
+                                                </div>
                                                 <div class="p-2 d-none">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"
-                                                                type="text" name="status" id="status" value="Booked"
-                                                                placeholder="Email">
+                                                                type="text" name="status" id="status" value="Booked">
                                                 </div>
                                                 <div class="p-2">
                                                         <select class="form-control ml-0 w-75 rounded-2 border-info"

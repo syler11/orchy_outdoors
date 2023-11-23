@@ -148,6 +148,8 @@ def booking_detailsPodA(request, selected_day):
     PodAnight_three = BookingPodA.objects.filter(arrival_date=dep2)
     PodAnight_four = BookingPodA.objects.filter(arrival_date=dep3)
 
+    form = AddBookingPodAForm()
+
     ratePodA = Availability.objects.filter(date=date_one)
 
     context = {
@@ -162,6 +164,7 @@ def booking_detailsPodA(request, selected_day):
         'PodAnight_four': PodAnight_four,
         'ratePodA':ratePodA,
         'ratePodA':ratePodA,
+        'form': form,
     }
 
     return render(request, 'home/booking_detailsPodA.html', context)
@@ -183,6 +186,8 @@ def booking_detailsPodB(request, selected_day):
     PodBnight_three = BookingPodB.objects.filter(arrival_date=dep2)
     PodBnight_four = BookingPodB.objects.filter(arrival_date=dep3)
 
+    form = AddBookingPodBForm()
+
     ratePodB = Availability.objects.filter(date=date_one)
 
     context = {
@@ -196,6 +201,7 @@ def booking_detailsPodB(request, selected_day):
         'PodBnight_three': PodBnight_three,
         'PodBnight_four': PodBnight_four,
         'ratePodB':ratePodB,
+        'form': form,
     }
 
     return render(request, 'home/booking_detailsPodB.html', context)

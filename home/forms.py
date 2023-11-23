@@ -74,4 +74,5 @@ class EditBookingPodBForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black w-75 rounded-0'
+            field.widget.attrs['class'] = 'text-left form-control ml-0 w-75 rounded-2 border-info'
+            self.fields[field].label = False

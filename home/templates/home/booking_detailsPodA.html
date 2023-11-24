@@ -202,11 +202,6 @@
                                                 </div>
                                                 <div class="p-2">
                                                         {{ form.country | as_crispy_field }}
-                                                        <select class="text-left form-control ml-0 w-75 rounded-2 border-info">
-                                                        {% for country in countries %}
-                                                        <option value="{{ country.code }}">{{ country.name }}</option>
-                                                        {% endfor %}
-                                                        </select>
                                                 </div>
                                                 <div class="p-2 d-none">
                                                         <input class="text-left form-control ml-0 w-75 rounded-2 border-info"

@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from datetime import date, timedelta, datetime
 from home.models import BookingPodA, BookingPodB
-from django.db.models import Sum
+from django.db.models import Sum, Count
 from .reports import *
 
 # Create your views here.
@@ -234,6 +234,7 @@ def reports(request):
         'total_occPodBCancelled': total_occPodBCancelled,
         'total_costCancelled': total_costCancelled,
         'total_occCancelled': total_occCancelled,
+        #'countries': countries,
     }
 
     return render(request, 'reports/reports.html', context)

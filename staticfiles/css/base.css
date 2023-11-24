@@ -38,6 +38,13 @@
     justify-content: center;
 }
 
+.error-page {
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    text-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
+}
+
 .nav-item {
     font-size: 18px;
 }
@@ -112,6 +119,25 @@ div input {
 
 .toast-capper {
     height: 2px;
+}
+
+#table-title th {
+    font-size: smaller;
+}
+
+#div_id_country {
+    padding: 0;
+    margin-bottom: 0!important;
+}
+
+#div_id_country label {
+    display: none;
+}
+
+#div_id_country select {
+    margin-left: 0;
+    border-color: #17a2b8!important;
+    border-radius: 0.25rem!important;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */

@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load countries%}
+{% get_countries as countries %}
+
 
 {% block extra_js %}
 {% endblock %}
@@ -21,11 +24,11 @@
               <th colspan="2" class="text-center">Total</th>
             </tr>
             <tr id="table-title">
-              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Nights</th>
               <th class="text-center" scope="col">Revenue</th>
-              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Nights</th>
               <th class="text-center" scope="col">Revenue</th>
-              <th class="text-center" scope="col">Occupancy</th>
+              <th class="text-center" scope="col">Nights</th>
               <th class="text-center" scope="col">Revenue</th>
             </tr>
           </thead>

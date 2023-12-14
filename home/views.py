@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from orchy_outdoors.settings import DEFAULT_FROM_EMAIL
-from home.models import BookingPodA, BookingPodB
+from home.models import BookingPodA, BookingPodB, ContentSettings
 from settings.models import DateSettings
 from .forms import AddBookingPodAForm, AddBookingPodBForm, EditBookingPodAForm, EditBookingPodBForm
 from availability.models import Availability
@@ -22,7 +22,13 @@ import uuid
 def index(request):
     """ A view to return the index page """
 
-    return render(request, 'home/home.html')
+    home1 = ContentSettings.objects.get(content_name="home1")
+
+    context = {
+        'home1': home1
+    }
+
+    return render(request, 'home/home.html', context)
 
 
 def booking(request):
@@ -30,13 +36,24 @@ def booking(request):
 
     nowDate = date.today()
     today = nowDate.strftime("%Y-%m-%d")
-    print(today)
 
     if 'month-selector' in request.GET:
         firstDate = request.GET['month-selector']
-        print(firstDate)
     else:
         firstDate = today
+
+    booking1 = ContentSettings.objects.get(content_name="booking1")
+    booking2 = ContentSettings.objects.get(content_name="booking2")
+    booking3 = ContentSettings.objects.get(content_name="booking3")
+    booking4 = ContentSettings.objects.get(content_name="booking4")
+    booking5 = ContentSettings.objects.get(content_name="booking5")
+    booking6 = ContentSettings.objects.get(content_name="booking6")
+    booking7 = ContentSettings.objects.get(content_name="booking7")
+    booking8 = ContentSettings.objects.get(content_name="booking8")
+    booking9 = ContentSettings.objects.get(content_name="booking9")
+    booking10 = ContentSettings.objects.get(content_name="booking10")
+    booking11 = ContentSettings.objects.get(content_name="booking11")
+    booking12 = ContentSettings.objects.get(content_name="booking12")
 
     dateset = DateSettings.objects.filter(is_display="Yes").filter(full_date__gte=today).order_by('full_date')
 
@@ -89,6 +106,18 @@ def booking(request):
 
     context = {
         "dateset": dateset,
+        'booking1': booking1,
+        'booking2': booking2,
+        'booking3': booking3,
+        'booking4': booking4,
+        'booking5': booking5,
+        'booking6': booking6,
+        'booking7': booking7,
+        'booking8': booking8,
+        'booking9': booking9,
+        'booking10': booking10,
+        'booking11': booking11,
+        'booking12': booking12,
         "podA": podA,
         "podB": podB,
         "restrPodA": restrPodA,
@@ -363,9 +392,13 @@ def booking_successPodB(request, id):
 def about(request):
     """ A view to return the about page """
 
-    messages.success(request, 'Date restrictions was succesfully created!')
+    about1 = ContentSettings.objects.get(content_name="about1")
 
-    return render(request, 'home/about.html')
+    context = {
+        'about1': about1
+    }
+
+    return render(request, 'home/about.html', context)
 
 
 def contact(request):

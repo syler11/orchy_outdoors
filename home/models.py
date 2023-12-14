@@ -9,6 +9,8 @@ class BookingPodA(models.Model):
     """
     Request model class
     """  
+    class Meta:
+        verbose_name_plural = "POD A"
 
     booking_id = models.CharField(max_length=10, null=True, blank=False)
     pod_name = models.CharField(max_length=20, null=True, blank=False)
@@ -43,6 +45,8 @@ class BookingPodB(models.Model):
     """
     Request model class
     """  
+    class Meta:
+        verbose_name_plural = "POD B"
 
     booking_id = models.CharField(max_length=10, null=True, blank=True)
     pod_name = models.CharField(max_length=20, null=True, blank=True)
@@ -77,6 +81,8 @@ class PageSettings(models.Model):
     """
     Request model class
     """  
+    class Meta:
+        verbose_name_plural = "Page Settings"
 
     page_name = models.CharField(max_length=200, null=True, blank=True)
     page_url = models.CharField(max_length=200, null=True, blank=True)
@@ -89,3 +95,21 @@ class PageSettings(models.Model):
         Returns Booking Number
         """
         return str(self.page_name)
+
+
+class ContentSettings(models.Model):
+    """
+    Request model class
+    """  
+
+    class Meta:
+        verbose_name_plural = "Content"
+
+    content_name = models.CharField(max_length=200, null=True, blank=True)
+    content = models.TextField(max_length=2000, null=True, blank=True)
+    
+    def __str__(self):
+        """
+        Returns Booking Number
+        """
+        return str(self.content_name)

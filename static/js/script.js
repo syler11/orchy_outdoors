@@ -27,3 +27,7 @@ function initMap() {
 }
 
 initMap()
+
+$('.carousel').carousel({
+  interval: 7000
+})

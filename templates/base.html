@@ -56,8 +56,11 @@
                     <h3 class="m-3"><a class="text-info" href="{% url 'home' %}">{{page_set.page_name}}</a></h3>
                 </div>
                 <div class="col-6">
-                    <p class="text-right m-3"><a class="text-info" href="tel:+0183840020">Tel
+                    <p class="text-right mt-2 mx-3"><a class="text-info" href="tel:+0183840020">Tel
                             {{ page_set.page_phone }}</a>
+                    </p>
+                    <p class="text-right pr-4">
+                        <button class="bg-info text-white text-weight-bold book-btn btn-sm border-0 rounded px-4 py-2" type="button"><a class="text-white" href="{% url 'booking' %}">Book Now</a></button>
                     </p>
                 </div>
             </div>
@@ -109,7 +112,8 @@
                 <p><a class="text-white" href="mailto:{{page_set.page_email}}">Email:
                         {{page_set.page_email}}</a></p>
             </div>
-            <div id="map" class="text-center mt-3 col-xl-4 col-lg-6 order-md-3 order-lg-2" style="height: 320px; width: 100%;">
+            <div id="map" class="text-center mt-3 col-xl-4 col-lg-6 order-md-3 order-lg-2"
+                style="height: 320px; width: 100%;">
             </div>
             <div class="p-3 text-white offset-xl-1 col-xl-3 col-lg-3 order-md-2 order-lg-3 col-md-6">
                 <h3>Useful links:</h3>

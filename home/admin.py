@@ -1,5 +1,7 @@
+from django.forms import TextInput, Textarea
+from django.db import models
 from django.contrib import admin
-from home.models import BookingPodA, BookingPodB, PageSettings
+from home.models import BookingPodA, BookingPodB, PageSettings, ContentSettings
 
 # Register your models here.
 
@@ -87,6 +89,33 @@ class PageSettingsAdmin(admin.ModelAdmin):
     ordering = ('page_name',)
 
 
+class ContentSettingsAdmin(admin.ModelAdmin):
+    """
+    Payment admin model class
+    """
+
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'60'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':10, 'cols':100})},
+    }
+
+    list_display = (
+        'content_name',
+        'content',
+    )
+    list_filter = (
+        'content_name',
+        'content',
+    )
+    search_fields = (
+        'content_name',
+        'content',
+    )
+
+    ordering = ('content_name',)
+
+
 admin.site.register(BookingPodA, BookingPodAAdmin)
 admin.site.register(BookingPodB, BookingPodBAdmin)
 admin.site.register(PageSettings, PageSettingsAdmin)
+admin.site.register(ContentSettings, ContentSettingsAdmin)

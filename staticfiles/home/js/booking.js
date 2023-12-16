@@ -7,11 +7,35 @@ var yyyy = today.getFullYear();
 
 today = yyyy + "-"+ mm + '-' + dd;
 
-var  month9 = document.getElementById("month9")
+var  month03 = document.getElementById("month03")
+var  month04 = document.getElementById("month04")
+var  month05 = document.getElementById("month05")
+var  month06 = document.getElementById("month06")
+var  month07 = document.getElementById("month07")
+var  month08 = document.getElementById("month08")
+var  month09 = document.getElementById("month09")
 var  month10 = document.getElementById("month10")
 var  month11 = document.getElementById("month11")
 
-if (today > month9.value) {
+if (today > month03.value) {
+    month9.classList.add("d-none")
+}
+if (today > month04.value) {
+    month9.classList.add("d-none")
+}
+if (today > month05.value) {
+    month9.classList.add("d-none")
+}
+if (today > month06.value) {
+    month9.classList.add("d-none")
+}
+if (today > month07.value) {
+    month9.classList.add("d-none")
+}
+if (today > month08.value) {
+    month9.classList.add("d-none")
+}
+if (today > month09.value) {
     month9.classList.add("d-none")
 }
 if (today > month10.value) {
@@ -23,7 +47,17 @@ let month_nam = opt_text.split(" ");
 let month_name = month_nam[0];
 
 
-if (month_name == "August") {
+if (month_name == "March") {
+    no_days = 31;
+} else if (month_name == "April") {
+    no_days = 30;
+} else if (month_name == "May") {
+    no_days = 31;
+} else if (month_name == "June") {
+    no_days = 30;
+} else if (month_name == "July") {
+    no_days = 31;
+} else if (month_name == "August") {
     no_days = 31;
 } else if (month_name == "September") {
     no_days = 30;

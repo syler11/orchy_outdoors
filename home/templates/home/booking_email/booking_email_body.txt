@@ -13,7 +13,7 @@ Total cost: £{{total_cost}}
 We accept both cash and card payment.
 
 We would recommend to visit our FAQ section below.
-https://boo-outdoors-b6261bbefe09.herokuapp.com/faq/
+https://bridgeoforchypods.co.uk/faq/
 
 
 How to find us?

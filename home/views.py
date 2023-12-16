@@ -278,7 +278,7 @@ def booking_savePodA(request):
                 subject,
                 body,
                 'nemeth.szilard82@gmail.com',
-                [to_email],
+                [to_email, 'bridgeoforchypods@gmail.com'],
                 # bcc email below
                 bcc=["harrisraptor@hotmail.co.uk"],
                 )  
@@ -342,7 +342,7 @@ def booking_savePodB(request):
                 subject,
                 body,
                 'nemeth.szilard82@gmail.com',
-                [to_email],
+                [to_email, 'bridgeoforchypods@gmail.com'],
                 # bcc email below
                 bcc=["harrisraptor@hotmail.co.uk"],
                 )  

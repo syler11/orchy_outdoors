@@ -421,13 +421,15 @@ def contact(request):
             {'message_name': message_name, 'message_email': message_email, 'message': message, 'message_phone': message_phone})
 
         # send an  contact email from contact us page
-        send_mail(
-            subject,
-            body,
-            'nemeth.szilard82@gmail.com',
-            [to_email, 'nemeth.szilard82@gmail.com'],
-            fail_silently=False,
-        )
+        email = EmailMultiAlternatives(
+                subject,
+                body,
+                'nemeth.szilard82@gmail.com',
+                [to_email],
+                # bcc email below
+                bcc=["harrisraptor@hotmail.co.uk"],
+                )  
+        email.send(fail_silently=False)
 
         messages.success(request, f'Email sent!')
 

@@ -11,8 +11,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
+
 import os
+import dj_database_url
+
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -116,8 +122,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/planner/'
+LOGIN_URL = '' #'/accounts/login/'
+LOGIN_REDIRECT_URL = '' #'/planner/'
 
 BASE_RATE = "80"
 
@@ -127,12 +133,14 @@ WSGI_APPLICATION = 'orchy_outdoors.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-   'default': {
-      'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-   }
-}
+#DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.sqlite3',
+#       'NAME': BASE_DIR / 'db.sqlite3',
+#   }
+#}
+
+DATABASES = { 'default': dj_database_url.parse('postgres://shrwwexilvamxb:181adcbc5130026f4331f97f2a9a1e32573d1a76b7beafc75612d59373bd6f9e@ec2-52-215-68-14.eu-west-1.compute.amazonaws.com:5432/d9p874qdostjal')}
 
 
 # Password validation

@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
@@ -122,8 +122,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '' #'/accounts/login/'
-LOGIN_REDIRECT_URL = '' #'/planner/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/planner/'
 
 BASE_RATE = "80"
 

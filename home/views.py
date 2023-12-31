@@ -36,11 +36,15 @@ def booking(request):
 
     nowDate = date.today()
     today = nowDate.strftime("%Y-%m-%d")
+    startDate = "2024-03-01"
 
     if 'month-selector' in request.GET:
         firstDate = request.GET['month-selector']
     else:
-        firstDate = today
+        if today < startDate:
+            firstDate = startDate
+        else:
+            firstDate = today
 
     booking1 = ContentSettings.objects.get(content_name="booking1")
     booking2 = ContentSettings.objects.get(content_name="booking2")

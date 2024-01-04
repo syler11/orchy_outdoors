@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
@@ -140,7 +140,7 @@ WSGI_APPLICATION = 'orchy_outdoors.wsgi.application'
 #   }
 #}
 
-DATABASES = { 'default': dj_database_url.parse('postgres://shrwwexilvamxb:181adcbc5130026f4331f97f2a9a1e32573d1a76b7beafc75612d59373bd6f9e@ec2-52-215-68-14.eu-west-1.compute.amazonaws.com:5432/d9p874qdostjal')}
+DATABASES = { 'default': dj_database_url.parse('postgres://fzzyftuusgitmg:6e3949b922def6d63fefd26903d41cdbb97cfe23432391db5ab3921ae465b1a2@ec2-52-48-190-253.eu-west-1.compute.amazonaws.com:5432/d3mk71ogb1o41v')}
 
 
 # Password validation
